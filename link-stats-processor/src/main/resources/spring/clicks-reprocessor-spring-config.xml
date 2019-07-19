@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:int="http://www.springframework.org/schema/integration"
+  xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
+  xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation = "http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+                        http://www.springframework.org/schema/context 
+                        http://www.springframework.org/schema/context/spring-context-4.1.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+                        http://www.springframework.org/schema/integration
+                        http://www.springframework.org/schema/integration/spring-integration-4.1.xsd
+                        http://www.springframework.org/schema/integration/amqp 
+                        http://www.springframework.org/schema/integration/amqp/spring-integration-amqp-4.1.xsd
+                        http://www.springframework.org/schema/rabbit 
+                        http://www.springframework.org/schema/rabbit/spring-rabbit-1.1.xsd
+                        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+
+	<!-- Component Scan -->
+	<context:annotation-config />  <!-- @Autowire, @Required and @Qualifier -->
+    <context:component-scan base-package="awesm.hoang" > <!-- @Component, @Service, @Controller... -->
+        <context:exclude-filter  type="assignable" expression="com.hoang.dao.MentionsDaoImpl" />
+        <context:exclude-filter  type="assignable" expression="com.hoang.dao.LinkDaoImpl" />
+        <context:exclude-filter  type="assignable" expression="com.hoang.filters.blacklist.BlacklistDataStore" />
+        <context:exclude-filter  type="assignable" expression="com.hoang.service.RedirectionsServiceImpl" />
+        <context:exclude-filter  type="assignable" expression="com.hoang.service.LinkStatsServiceImpl" />
+        <context:exclude-filter  type="assignable" expression="com.hoang.service.MentionsServiceImpl" />
+        <context:exclude-filter  type="regex" expression="awesm.hoang.filters.browscap.*" />
+        <context:exclude-filter  type="regex" expression="awesm.hoang.loader.*" />
+        <context:exclude-filter  type="regex" expression="awesm.hoang.validator.*" />
+    </context:component-scan>
+
+    <!-- Properties -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreResourceNotFound" value="true" />
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+        <property name="locations" ref="propertiesLocations" />
+    </bean>
+
+    <util:list id="propertiesLocations">
+        <value>classpath:clicksIncrement-reprocessor.properties</value>
+        <value>file:///${CONFIG_OVERRIDE}</value>
+    </util:list>
+
+
+    <bean id="customJackson2JsonMessageConverter" class="com.hoang.core.converter.CustomJackson2JsonMessageConverter">
+        <property name="jsonObjectMapper" ref="objectMapper" />
+    </bean>
+
+    <int:gateway id="clickGateway" service-interface="com.hoang.service.ClickGateway"
+          default-request-channel="reprocessedClickRequestChannel" />
+    <int-amqp:channel id="reprocessedClickRequestChannel"  connection-factory="connectionFactory" message-driven="false" 
+          queue-name="${amqp.reprocessor.queue}" message-converter="customJackson2JsonMessageConverter" />
+
+    <import resource="common-config.xml"/>
+    <import resource="consumptions/consumptions-db-config.xml"/>
+    <import resource="redis/redis-config.xml"/>
+
+</beans>

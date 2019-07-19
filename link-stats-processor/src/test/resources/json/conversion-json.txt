@@ -1,0 +1,21 @@
+{
+	"id" : "fe6bd732-bc85-48f8-87b1-2b3b5148d250",
+	"type" : "pageview",
+	"value" : "1",
+	"href" : "http:\/\/192.168.202.26:69\/awesm\/?dsm_id=demo.awe.sm_zi",
+	"referrer" : "http:\/\/192.168.202.26:69\/awesm\/?dsm_id=demo.awe.sm_zi",
+	"language" : "en-US,en;q=0.8",
+	"domain" : "demo.awe.sm",
+	"path" : "zi",
+	"valid" : true,
+	"account_id" : "2",
+	"awesm_url" : "awesm.harveynash.vn_z0ci",
+	"clicker_id" : "6fac0d22-7425-4d0c-8866-2835c5250ede",
+	"session_id" : "beb97428-21f2-4f2a-96dd-70264194f8ee",
+	"account_userid" : null,
+	"account_conversionid" : null,
+	"ip_address" : "192.168.202.32",
+	"user_agent" : "Mozilla\/5.0 (Windows NT 6.1; WgiOW64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/50.0.2661.102 Safari\/537.36, httpAcceptLanguage=en-US,en;q=0.8,de;q=0.6,vi;q=0.4,tr;q=0.2,fi;q=0.2,fr;q=0.2",
+	"converted_at" : "1470024011",
+	"redirection_id" : 19824029
+}

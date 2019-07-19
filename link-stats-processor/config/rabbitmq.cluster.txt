@@ -1,0 +1,10 @@
+RABBITMQ_NODE_PORT=5672 RABBITMQ_SERVER_START_ARGS="-rabbitmq_management listener [{port,15672}]" RABBITMQ_NODENAME=rabbit rabbitmq-server -detached
+RABBITMQ_NODE_PORT=5673 RABBITMQ_SERVER_START_ARGS="-rabbitmq_management listener [{port,15673}]" RABBITMQ_NODENAME=cat    rabbitmq-server -detached
+RABBITMQ_NODE_PORT=5674 RABBITMQ_SERVER_START_ARGS="-rabbitmq_management listener [{port,15674}]" RABBITMQ_NODENAME=dog    rabbitmq-server -detached
+rabbitmqctl -n cat stop_app
+rabbitmqctl -n cat join_cluster rabbit@a6f584fa75d7
+rabbitmqctl -n cat start_app
+rabbitmqctl -n dog stop_app
+rabbitmqctl -n dog join_cluster rabbit@a6f584fa75d7
+rabbitmqctl -n dog start_app
+rabbitmqctl set_policy ha-all "^data-processor" '{"ha-mode":"all"}'

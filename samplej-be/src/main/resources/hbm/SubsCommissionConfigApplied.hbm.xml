@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.SubsCommissionConfigApplied" table="subs_commission_configs_applied" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="commission" type="java.lang.Double" column="commission"/>
+        <property name="endDate" type="java.util.Date" column="end_date"/>
+        <property name="lowerCondition" type="java.lang.Integer" column="lower_condition"/>
+        <property name="name" type="java.lang.String" column="name" />
+        <property name="productId" type="java.lang.String" column="product_id" />
+        <property name="startDate" type="java.util.Date" column="start_date"/>
+        <property name="subscriberId" type="java.lang.String" column="subscriber_id" />
+        <property name="type" type="java.lang.String" column="type" />
+        <property name="upperCondition" type="java.lang.Integer" column="upper_condition"/>
+    </class>
+</hibernate-mapping>

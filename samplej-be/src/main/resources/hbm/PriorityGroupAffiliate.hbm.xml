@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.PriorityGroupAffiliate" table="priority_groups_affiliates">
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <many-to-one name="affiliate" class="com.rms.rms.service.model.Affiliate">
+            <column name="affiliate_id"/>
+        </many-to-one>
+        <property name="affiliateId" type="java.lang.String" column="affiliate_id" insert="false" update="false"/>
+
+        <many-to-one name="priorityGroup" class="com.rms.rms.service.model.PriorityGroup" >
+            <column name="priority_group_id"/>
+        </many-to-one>
+        <property name="priorityGroupId" type="java.lang.String" column="priority_group_id" insert="false" update="false"/>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hoang.module.mail.domain" default-access="field" >
+    <class name="Item" table="ITEM" dynamic-insert="true" dynamic-update="true" >
+        <!-- database identity -->
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" sql-type="BIGINT"/>
+            <generator class="increment"/>
+        </id>        
+
+        <!-- optimistic concurrency control: version -->
+        <version name="version" column="VERSION" type="integer"/>
+
+        <!-- properties -->
+        <property name="name" type="java.lang.String" >
+            <column name="NAME" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+        <property name="description" type="java.lang.String" >
+            <column name="DESCRIPTION" sql-type="VARCHAR(512)" not-null="true" />
+        </property>
+        <property name="dateCreated" type="java.lang.String" >
+            <column name="DATE_CREATED" sql-type="VARCHAR(256)" not-null="true"  />
+        </property>
+        <property name="dateModified" type="java.lang.String" >
+            <column name="DATE_MODIFIED" sql-type="VARCHAR(256)" not-null="true"  />
+        </property>
+
+        <!-- associations -->
+        <many-to-one name="mailer" class="Mailer" fetch="select" lazy="false">
+            <column name="MAILER_ID" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

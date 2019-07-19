@@ -1,0 +1,108 @@
+package com.hoang.uma.service;
+
+import com.hoang.uma.cross.dto.*;
+import com.hoang.uma.service.model.*;
+import org.dozer.*;
+import org.dozer.loader.api.BeanMappingBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * homertruong
+ */
+
+public class DozerFactory {
+
+    public static DozerBeanMapper create () {
+        BeanMappingBuilder beanMappingBuilder = new BeanMappingBuilder() {
+            @Override
+            protected void configure() {
+                mapping(User.class, UserDto.class)
+                        .fields("userRoles", "roles");
+
+                mapping(UserUpdate.class, UserDto.class)
+                        .fields("userRoleUpdates", "roles");
+
+                mapping(University.class, UniversityDto.class)
+                        .fields("country", "country");
+
+                mapping(Department.class, DepartmentDto.class)
+                        .fields("university.name", "universityName");
+
+                mapping(Course.class, CourseDto.class)
+                        .fields("department.name", "departmentName")
+                        .fields("department.university.name", "universityName");
+
+                mapping(Teacher.class, TeacherDto.class)
+                        .fields("departmentTeachers", "departmentDtos"); // need custom converter
+
+                mapping(Clazz.class, ClazzDto.class)
+                        .fields("clazzStudents", "studentDtos");        // need custom converter
+            }
+        };
+
+        DozerBeanMapper mapper = new DozerBeanMapper();
+        mapper.addMapping(beanMappingBuilder);
+
+        List<CustomConverter> customConverters = new ArrayList<>();
+        customConverters.add(new DepartmentConverter());
+        customConverters.add(new StudentConverter());
+        mapper.setCustomConverters(customConverters);
+
+        return mapper;
+    }
+
+    public static class DepartmentConverter extends DozerConverter<DepartmentTeacher, DepartmentDto> implements MapperAware {
+
+        private Mapper mapper;
+
+        public DepartmentConverter() {
+            super(DepartmentTeacher.class, DepartmentDto.class);
+        }
+
+        @Override
+        public DepartmentDto convertTo(DepartmentTeacher source, DepartmentDto dest) {
+            mapper.map(source.getDepartment(), dest);
+            return dest;
+        }
+
+        @Override
+        public DepartmentTeacher convertFrom(DepartmentDto source, DepartmentTeacher dest) {
+            return null;
+        }
+
+        @Override
+        public void setMapper(Mapper mapper) {
+            this.mapper = mapper;
+        }
+
+    }
+
+    public static class StudentConverter extends DozerConverter<ClazzStudent, StudentDto> implements MapperAware {
+
+        private Mapper mapper;
+
+        public StudentConverter() {
+            super(ClazzStudent.class, StudentDto.class);
+        }
+
+        @Override
+        public StudentDto convertTo(ClazzStudent source, StudentDto dest) {
+            mapper.map(source.getStudent(), dest);
+            return dest;
+        }
+
+        @Override
+        public ClazzStudent convertFrom(StudentDto source, ClazzStudent dest) {
+            return null;
+        }
+
+        @Override
+        public void setMapper(Mapper mapper) {
+            this.mapper = mapper;
+        }
+
+    }
+
+}

@@ -1,0 +1,25 @@
+{
+    totalResult: 20,
+    teachers: [
+        {"id":1,"degree":"degreee","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"teacherr","email":"email@email.com","phone":"000000"},
+        {"id":2,"degree":"Master","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Viet Nguyen","email":"e@email.com","phone":"1111111"},
+        {"id":3,"degree":"master","department":{"id":2,"name":"Kinh te","location":"E1 L3B"},"name":"Quang Dung","email":"dung@gmail.com","phone":"0123465798"},
+        {"id":4,"degree":"Bachelor","department":{"id":2,"name":"Kinh te","location":"E1 L3B"},"name":"Nguyen Van A","email":"email@email.com","phone":"0123456789"},
+        {"id":5,"degree":"Bachelor","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Truc Duong","email":"dttruc7@gmail.com","phone":"0987654321"},
+        {"id":6,"degree":"Bachelor","department":{"id":3,"name":"Su pham","location":"E1 L3B"},"name":"Nhut Nguyen","email":"email@email.com","phone":"123456789"},
+        {"id":7,"degree":"Collect","department":{"id":2,"name":"Kinh te","location":"E1 L3B"},"name":"Nguyen Huu Quoc Trung","email":"trung@gmail.com","phone":"0123456789"},
+        {"id":8,"degree":"Bachelor","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Nguyen Ky Anh","email":"anh@gmail.com","phone":""},
+        {"id":9,"degree":"Bachelor","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Le Hong Pho","email":"phong@gmail.com","phone":"012312312"},
+        {"id":10,"degree":"Bachelor","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Le Quang Tan Loi","email":"loi@gmail.com","phone":"0456456456"},
+        {"id":11,"degree":"Bachelor","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Nguyen Anh Minh","email":"minh@gmail.com","phone":"0789789789"},
+        {"id":12,"degree":"Master","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Nguyen Hai Son","email":"son@gmail.com","phone":"0147147147"},
+        {"id":13,"degree":"Master","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Nguyen Minh Tuan","email":"tuan@gmail.com","phone":"0158748545"},
+        {"id":14,"degree":"Master","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Nguyen Phi Hung","email":"hung@gmail.com","phone":"01248454545"},
+        {"id":15,"degree":"Collect","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Pham Do Duc Anh","email":"anh@gmail.com","phone":"0789795465"},
+        {"id":16,"degree":"Collect","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Pham Hoang Minh","email":"minh@gmail.com","phone":"078946513"},
+        {"id":17,"degree":"","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Tran Minh Truc","email":"truc@gmail.com","phone":""},
+        {"id":18,"degree":"","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Truong Trong Quan","email":"quan@email.com","phone":""},
+        {"id":19,"degree":"","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Vu Ngoc Linh","email":"linh@gmail.com","phone":""},
+        {"id":20,"degree":"","department":{"id":1,"name":"Cong nghe thong tin","location":"E1 L3B"},"name":"Pham Thi Tuyet Trinh","email":"trinh@gmail.com","phone":""}
+    ]
+}

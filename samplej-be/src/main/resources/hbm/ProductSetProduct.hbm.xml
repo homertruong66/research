@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.ProductSetProduct" table="product_sets_products">
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <many-to-one name="product" class="com.rms.rms.service.model.Product">
+            <column name="product_id"/>
+        </many-to-one>
+        <property name="productId" type="java.lang.String" column="product_id" insert="false" update="false"/>
+
+        <many-to-one name="productSet" class="com.rms.rms.service.model.ProductSet" >
+            <column name="product_set_id"/>
+        </many-to-one>
+        <property name="productSetId" type="java.lang.String" column="product_set_id" insert="false" update="false"/>
+
+    </class>
+</hibernate-mapping>

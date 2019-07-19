@@ -1,0 +1,1298 @@
+{
+	"variables": [],
+	"info": {
+		"name": "UMA",
+		"_postman_id": "bffabba5-d116-1e73-18da-b71bb778a83a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Class Management",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Class",
+					"request": {
+						"url": "http://localhost:9090/v1/courses/c95bc933-5eed-4411-af82-54af35534a5a/clazzes/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"duration\":1,\n\t\"room\":6,\n\t\"startedAt\":\"2017-01-01\",\n\t\"endedAt\":\"2017-04-04\",\n\t\"teacherId\":\"553227a6-861e-4a87-9ef1-eeccd5fbc068\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update Class",
+					"request": {
+						"url": "http://localhost:9090/v1/clazzes/be73dad6-92e0-4ab6-a4b8-b071ee15e3b7",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"duration\":2,\n\t\"room\":2,\n\t\"startedAt\":\"2017-02-02\",\n\t\"endedAt\":\"2017-05-05\",\n\t\"teacherId\":\"\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Class",
+					"request": {
+						"url": "http://localhost:9090/v1/clazzes/be73dad6-92e0-4ab6-a4b8-b071ee15e3b7",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Class",
+					"request": {
+						"url": "http://localhost:9090/v1/clazzes/baee7e8b-1385-4aa3-83cf-63dcbd1d5100",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-CSRF-TOKEN",
+								"value": "8cc3a85e-19f8-4ae2-bda2-109e4a21cd77",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search Classes",
+					"request": {
+						"url": "http://localhost:9090/v1/clazzes/search",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoic3R1ZGVudDFAbnQiLCJpc3MiOiJzdHVkZW50MUBudCIsImlhdCI6MTQ5MDE1MDExMCwiZXhwIjoxNDkwMTUxOTEwfQ.qh3cDjbrgYYwe80n4Iq7THQiLHHdt-4u9WT9VO1MY0CczmNRaLUv7GMoQT3-yF000QNlDlIvF95-VQ8OP_Dcug",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startedAt\":\"2017-02-02\",\n\t\"endedAt\":\"2017-05-05\",\n\t\"courseId\": \"\",\n\t\"teacherId\":\"\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Register Class",
+					"request": {
+						"url": "http://localhost:9090/v1/clazzes/3871043a-8851-4027-81bf-d160168f14e4/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoic3R1ZGVudDFAbnQiLCJpc3MiOiJzdHVkZW50MUBudCIsImlhdCI6MTQ5MDE1MDExMCwiZXhwIjoxNDkwMTUxOTEwfQ.qh3cDjbrgYYwe80n4Iq7THQiLHHdt-4u9WT9VO1MY0CczmNRaLUv7GMoQT3-yF000QNlDlIvF95-VQ8OP_Dcug",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Unregister Class",
+					"request": {
+						"url": "http://localhost:9090/v1/clazzes/3871043a-8851-4027-81bf-d160168f14e4/unregister",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoic3R1ZGVudDFAbnQiLCJpc3MiOiJzdHVkZW50MUBudCIsImlhdCI6MTQ5MDE1MDExMCwiZXhwIjoxNDkwMTUxOTEwfQ.qh3cDjbrgYYwe80n4Iq7THQiLHHdt-4u9WT9VO1MY0CczmNRaLUv7GMoQT3-yF000QNlDlIvF95-VQ8OP_Dcug",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Start Class",
+					"request": {
+						"url": "http://localhost:9090/v1/clazzes/4e20c727-7931-4e17-b360-d685c43a7cdd/start",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "End Class",
+					"request": {
+						"url": "http://localhost:9090/v1/clazzes/4e20c727-7931-4e17-b360-d685c43a7cdd/end",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Class",
+					"request": {
+						"url": "http://localhost:9090/v1/clazzes/2d160692-5eab-47ee-b753-4776abb78644/cancel",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course Management",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Course",
+					"request": {
+						"url": "http://localhost:9090/v1/departments/5387ffaf-98d6-4c01-9008-4f61ca5584ad/courses/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Course2\",\n\t\"numberOfCredits\":1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update Course",
+					"request": {
+						"url": "http://localhost:9090/v1/courses/3d5d2fd3-3680-4de2-a834-ae7a4f1bd875",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Course1u\",\n\t\"numberOfCredits\":2,\n\t\"version\": 0\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Course",
+					"request": {
+						"url": "http://localhost:9090/v1/courses/3d5d2fd3-3680-4de2-a834-ae7a4f1bd875",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Course",
+					"request": {
+						"url": "http://localhost:9090/v1/courses/3d5d2fd3-3680-4de2-a834-ae7a4f1bd875",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search Courses",
+					"request": {
+						"url": "http://localhost:9090/v1/courses/search",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"\",\n\t\"departmentId\": \"\",\n\t\"sortName\": \"\",\n\t\"sortDirection\": \"asc\",\n\t\"pageIndex\": 1,\n\t\"pageSize\": 6\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Department Management",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Department",
+					"request": {
+						"url": "http://localhost:9090/v1/universities/a5a89ead-e898-45ad-8dbd-58f811aaff9d/departments/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Dept1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update Department",
+					"request": {
+						"url": "http://localhost:9090/v1/departments/3df3c057-314a-496a-af5e-ad2eb35253ce",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"dept1u\",\n\t\"version\": 0\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Department",
+					"request": {
+						"url": "http://localhost:9090/v1/departments/3df3c057-314a-496a-af5e-ad2eb35253ce",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Department",
+					"request": {
+						"url": "http://localhost:9090/v1/departments/3df3c057-314a-496a-af5e-ad2eb35253ce",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search Departments",
+					"request": {
+						"url": "http://localhost:9090/v1/departments/search?",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"\",\n\t\"sortName\": \"\",\n\t\"sortDirection\": \"asc\",\n\t\"pageIndex\": 1,\n\t\"pageSize\": 6\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student Management",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Student",
+					"request": {
+						"url": "http://localhost:9090/v1/departments/5387ffaf-98d6-4c01-9008-4f61ca5584ad/students",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAxNTAyOTcsImV4cCI6MTQ5MDE1MjA5N30.cV6nTCzdeWcWwJtfmaaie3os8CF-5bJ0mfFxSwb_UJjrdSOkSt5YSRLRHieF8tUpnPQpAkRHUBXdBdCH06KE6g",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"s1@3s\",\n\t\"confirmedEmail\":\"s1@3s\",\n\t\"password\":\"12345678\",\n\t\"confirmedPassword\":\"12345678\",\n\t\"name\":\"S1\",\n\t\"age\":1,\n\t\"year\":1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"url": "http://localhost:9090/v1/students/8cbae735-feff-4122-b9c6-d2cf87901dde",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAxNTAyOTcsImV4cCI6MTQ5MDE1MjA5N30.cV6nTCzdeWcWwJtfmaaie3os8CF-5bJ0mfFxSwb_UJjrdSOkSt5YSRLRHieF8tUpnPQpAkRHUBXdBdCH06KE6g",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"S1u\",\n\t\"age\":11,\n\t\"year\":2\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student",
+					"request": {
+						"url": "http://localhost:9090/v1/students/8cbae735-feff-4122-b9c6-d2cf87901dde",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAxNTAyOTcsImV4cCI6MTQ5MDE1MjA5N30.cV6nTCzdeWcWwJtfmaaie3os8CF-5bJ0mfFxSwb_UJjrdSOkSt5YSRLRHieF8tUpnPQpAkRHUBXdBdCH06KE6g",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"url": "http://localhost:9090/v1/students/8cbae735-feff-4122-b9c6-d2cf87901dde",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAxNTAyOTcsImV4cCI6MTQ5MDE1MjA5N30.cV6nTCzdeWcWwJtfmaaie3os8CF-5bJ0mfFxSwb_UJjrdSOkSt5YSRLRHieF8tUpnPQpAkRHUBXdBdCH06KE6g",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search Students",
+					"request": {
+						"url": "http://localhost:9090/v1/students/search",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAxNTAyOTcsImV4cCI6MTQ5MDE1MjA5N30.cV6nTCzdeWcWwJtfmaaie3os8CF-5bJ0mfFxSwb_UJjrdSOkSt5YSRLRHieF8tUpnPQpAkRHUBXdBdCH06KE6g",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"\",\n\t\"departmentId\": \"\",\n\t\"sortName\": \"\",\n\t\"sortDirection\": \"asc\",\n\t\"pageIndex\": 1,\n\t\"pageSize\": 6\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teacher Management",
+			"description": "",
+			"item": [
+				{
+					"name": "Update Teacher",
+					"request": {
+						"url": "http://localhost:9090/v1/teachers/8955eccd-2bd0-43e0-8750-ee8d2a826375",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAxNTAyOTcsImV4cCI6MTQ5MDE1MjA5N30.cV6nTCzdeWcWwJtfmaaie3os8CF-5bJ0mfFxSwb_UJjrdSOkSt5YSRLRHieF8tUpnPQpAkRHUBXdBdCH06KE6g",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"teacher1u\",\n\t\"age\":90,\n\t\"degree\": \"Master\",\n\t\"version\": 0\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Teacher",
+					"request": {
+						"url": "http://localhost:9090/v1/teachers/8955eccd-2bd0-43e0-8750-ee8d2a826375",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAxNTAyOTcsImV4cCI6MTQ5MDE1MjA5N30.cV6nTCzdeWcWwJtfmaaie3os8CF-5bJ0mfFxSwb_UJjrdSOkSt5YSRLRHieF8tUpnPQpAkRHUBXdBdCH06KE6g",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Teacher",
+					"request": {
+						"url": "http://localhost:9090/v1/teachers/c7baaac3-96b2-4dee-8e30-5fab79765a90",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAxNTAyOTcsImV4cCI6MTQ5MDE1MjA5N30.cV6nTCzdeWcWwJtfmaaie3os8CF-5bJ0mfFxSwb_UJjrdSOkSt5YSRLRHieF8tUpnPQpAkRHUBXdBdCH06KE6g",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search Teachers",
+					"request": {
+						"url": "http://localhost:9090/v1/teachers/search",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAxNTAyOTcsImV4cCI6MTQ5MDE1MjA5N30.cV6nTCzdeWcWwJtfmaaie3os8CF-5bJ0mfFxSwb_UJjrdSOkSt5YSRLRHieF8tUpnPQpAkRHUBXdBdCH06KE6g",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"\",\n\t\"sortName\": \"\",\n\t\"sortDirection\": \"asc\",\n\t\"pageIndex\": 1,\n\t\"pageSize\": 6\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Teacher to Departments",
+					"request": {
+						"url": "http://localhost:9090/v1/teachers/8955eccd-2bd0-43e0-8750-ee8d2a826375/assign",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAxNTAyOTcsImV4cCI6MTQ5MDE1MjA5N30.cV6nTCzdeWcWwJtfmaaie3os8CF-5bJ0mfFxSwb_UJjrdSOkSt5YSRLRHieF8tUpnPQpAkRHUBXdBdCH06KE6g",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"8c153cc2-2d32-4409-8705-151b38df3d39\", \"a8208279-c37f-4e19-9dce-2bded60b404f\"]\n"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "University Management",
+			"description": "",
+			"item": [
+				{
+					"name": "Create University",
+					"request": {
+						"url": "http://localhost:9090/v1/universities/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"U1\",\n\t\"countryId\":\"72e6871a-2f2c-490d-ba94-abeb04b87363\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update University",
+					"request": {
+						"url": "http://localhost:9090/v1/universities/018fcd00-1439-4f24-8b75-83ce0923fcbe",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Uniu\",\n\t\"version\": 0\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get University",
+					"request": {
+						"url": "http://localhost:9090/v1/universities/018fcd00-1439-4f24-8b75-83ce0923fcbe",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete University",
+					"request": {
+						"url": "http://localhost:9090/v1/universities/018fcd00-1439-4f24-8b75-83ce0923fcbe",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search Universities",
+					"request": {
+						"url": "http://localhost:9090/v1/universities/search",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"\",\n\t\"sortName\": \"\",\n\t\"sortDirection\": \"asc\",\n\t\"pageIndex\": 1,\n\t\"pageSize\": 6\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Management",
+			"description": "",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"url": "http://localhost:9090/v1/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"u1@3s\",\n\t\"confirmedEmail\":\"u1@3s\",\n\t\"password\":\"12345678\",\n\t\"confirmedPassword\":\"12345678\",\n\t\"name\":\"U1\",\n\t\"age\":1,\n\t\"roles\": [\"ROLE_USER\", \"ROLE_ADMIN\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"url": "http://localhost:9090/v1/users/be9f28bf-d5ed-4c5a-88b1-9a745868bcde",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Hoang Truong20\",\n\t\"age\": 20,\n\t\"roles\": [\"ROLE_ADMIN\", \"ROLE_USER\"],\n\t\"version\": 0\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"url": "http://localhost:9090/v1/users/be9f28bf-d5ed-4c5a-88b1-9a745868bcde",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"url": "http://localhost:9090/v1/users/be9f28bf-d5ed-4c5a-88b1-9a745868bcde",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search Users",
+					"request": {
+						"url": "http://localhost:9090/v1/users/search",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"\",\n\t\"sortName\": \"\",\n\t\"sortDirection\": \"asc\",\n\t\"pageIndex\": 1,\n\t\"pageSize\": 6\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get User with projection",
+					"request": {
+						"url": "http://localhost:9090/v1/users/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTEyNDQsImV4cCI6MTQ5MDA5MzA0NH0.KS05ChMG2RRq331Ctx13lUjkoS4l3NFEse57UbOEaDMqIHvGW8o8BDc0DQIP9fHF9zds9dWiZHASbWM-wJ2OuQ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User3u",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "roles",
+									"value": "ROLE_USER",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"url": "http://localhost:9090/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "hoang@nt",
+						"description": ""
+					},
+					{
+						"key": "password",
+						"value": "12345678",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"url": "http://localhost:9090/logout",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Security-Token",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6ImhvYW5nQG50IiwiaXNzIjoiaG9hbmdAbnQiLCJpYXQiOjE0OTAwOTExMzgsImV4cCI6MTQ5MDA5MjkzOH0.U9QTSpBwx7uSUQjAB6u6bNGG2MPV9wtA1ACy7e-WJFMqXAzyymPqjUAW3lTs_WWySqcPqRd-dGWKCXIBsqFKng",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Health",
+			"request": {
+				"url": "http://localhost:9090/v1/health",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "_csrf",
+							"value": "7e8c07f6-6d28-4e86-876c-164f979a5dae",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "username",
+							"value": "a",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "a",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

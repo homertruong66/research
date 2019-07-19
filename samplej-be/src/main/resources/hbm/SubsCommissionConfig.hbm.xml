@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.SubsCommissionConfig" table="subs_commission_configs" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="commission" type="java.lang.Double" column="commission"/>
+        <property name="isEnabled" type="java.lang.Boolean" column="is_enabled"/>
+        <property name="name" type="java.lang.String" column="name" />
+        <property name="subscriberId" type="java.lang.String" column="subscriber_id" />
+        <property name="type" type="java.lang.String" column="type" />
+
+        <set name="conditionCommissionConfigs" table="condition_commission_configs" fetch="subselect" cascade="delete" inverse="true">
+            <key column="subs_commission_config_id"/>
+            <one-to-many class="com.rms.rms.service.model.ConditionCommissionConfig"/>
+        </set>
+
+        <set name="layerCommissionConfigs" table="layer_commission_configs" fetch="subselect" cascade="delete" inverse="true">
+            <key column="subs_commission_config_id"/>
+            <one-to-many class="com.rms.rms.service.model.LayerCommissionConfig"/>
+        </set>
+
+        <set name="priorityGroups" table="priority_groups" fetch="subselect" cascade="delete" inverse="true">
+            <key column="subs_commission_config_id"/>
+            <one-to-many class="com.rms.rms.service.model.PriorityGroup"/>
+        </set>
+
+        <set name="productSets" table="product_sets" fetch="subselect" cascade="delete" inverse="true">
+            <key column="subs_commission_config_id"/>
+            <one-to-many class="com.rms.rms.service.model.ProductSet"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

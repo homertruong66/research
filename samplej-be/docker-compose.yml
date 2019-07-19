@@ -1,0 +1,25 @@
+version: '3.2'
+services:
+  mysql:
+    container_name: rms_mysql
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - rms_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=rms
+  platform:
+      container_name: rms
+      image: openjdk:8-alpine
+      ports:
+        - 9090:9090
+      volumes:
+        - ./target:/opt/platform
+      working_dir: /opt/platform
+      command: java -Dspring.profiles.active=${ENV_PROFILE} -jar rms-${ENV_VERSION}.jar
+      depends_on:
+        - mysql
+volumes:
+  rms_data:

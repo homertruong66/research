@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <bean id="arrayBlockingQueue" class="java.util.concurrent.ArrayBlockingQueue">
+        <constructor-arg type="int" value="${pool.create.queue.size}"/>
+    </bean>
+    <bean id="rejectedHandler" class="com.hoang.core.errorhandler.RejectedHandler"/>
+
+    <!-- Meta data thread pool -->
+    <bean id="threadFactoryBuilder" class="com.google.common.util.concurrent.ThreadFactoryBuilder">
+        <property name="nameFormat" value="MetaProcessorPool-Thread-%d"/>
+    </bean>
+    <bean id="threadFactory" factory-bean="threadFactoryBuilder" factory-method="build"/>
+    <bean id="metaDataThreadPool" class="java.util.concurrent.ThreadPoolExecutor">
+        <constructor-arg index="0" value="${pool.create.core.size}"/>
+        <constructor-arg index="1" value="${pool.create.max.size}"/>
+        <constructor-arg index="2" value="${pool.create.idle.timeout}"/>
+        <constructor-arg index="3" type="java.util.concurrent.TimeUnit" value="SECONDS"/>
+        <constructor-arg index="4" ref="arrayBlockingQueue"/>
+        <constructor-arg index="5" ref="threadFactory"/>
+        <constructor-arg index="6" ref="rejectedHandler"/>
+    </bean>
+
+    <!-- Loader exception handler thread pool -->
+    <bean id="loaderExceptionHandlerThreadFactoryBuilder"
+          class="com.google.common.util.concurrent.ThreadFactoryBuilder">
+        <property name="nameFormat" value="loaderExceptionHandlerThreadPool-Thread-%d"/>
+    </bean>
+    <bean id="exceptionHandlerThreadFactory" factory-bean="threadFactoryBuilder" factory-method="build"/>
+    <bean id="exceptionHandlerThreadPool" class="java.util.concurrent.ThreadPoolExecutor">
+        <constructor-arg index="0" value="${pool.exception.handler.core.size}"/>
+        <constructor-arg index="1" value="${pool.exception.handler.max.size}"/>
+        <constructor-arg index="2" value="${pool.exception.handler.idle.timeout}"/>
+        <constructor-arg index="3" type="java.util.concurrent.TimeUnit" value="SECONDS"/>
+        <constructor-arg index="4" ref="arrayBlockingQueue"/>
+        <constructor-arg index="5" ref="exceptionHandlerThreadFactory"/>
+        <constructor-arg index="6" ref="rejectedHandler"/>
+    </bean>
+
+</beans>

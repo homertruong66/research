@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.Person" table="persons" discriminator-value="Person">
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <!-- table-per-class-hierarchy strategy: Admin, Affiliate, SubsAdmin -> Person -->
+        <discriminator column="discriminator" type="java.lang.String"/>
+        <property name="discriminator" column="discriminator" insert="false" update="false"/>
+
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="address" type="java.lang.String" column="address"/>
+        <property name="avatar" type="text" column="avatar"/>
+        <property name="birthday" type="java.util.Date" column="birthday"/>
+        <property name="firstName" type="java.lang.String" column="first_name"/>
+        <property name="gender" type="java.lang.String" column="gender"/>
+        <property name="lastName" type="java.lang.String" column="last_name"/>
+        <property name="phone" type="java.lang.String" column="phone"/>
+        <many-to-one name="province" class="com.rms.rms.service.model.Domain" >
+            <column name="province_id"/>
+        </many-to-one>
+        <property name="provinceId" type="java.lang.String" column="province_id" insert="false" update="false"/>
+
+        <one-to-one name="user" class="com.rms.rms.service.model.User" cascade="delete"/>
+
+        <!--children-->
+        <!-- Admin -->
+        <subclass name="com.rms.rms.service.model.Admin" discriminator-value="Admin">
+        </subclass>
+
+        <!-- Affiliate -->
+        <subclass name="com.rms.rms.service.model.Affiliate" discriminator-value="Affiliate">
+            <set name="agents" table="agents" fetch="subselect" cascade="delete" inverse="true">
+                <key column="affiliate_id"/>
+                <one-to-many class="com.rms.rms.service.model.Agent"/>
+            </set>
+            <one-to-one name="bank" class="com.rms.rms.service.model.Bank" cascade="delete"/>
+            <property name="isGetResponseSuccess" type="java.lang.Boolean" column="is_get_response_success"/>
+            <property name="isPhoneVerified" type="java.lang.Boolean" column="is_phone_verified"/>
+            <property name="metadata" type="text" column="metadata"/>
+            <property name="nickname" type="java.lang.String" column="nickname"/>
+        </subclass>
+
+        <!-- Channel -->
+        <subclass name="com.rms.rms.service.model.Channel" discriminator-value="Channel">
+            <property name="domainName" type="java.lang.String" column="domain_name"/>
+            <property name="subscriberId" type="java.lang.String" column="subscriber_id" insert="false" update="false"/>
+            <many-to-one name="subscriber" class="com.rms.rms.service.model.Subscriber" >
+                <column name="subscriber_id"/>
+            </many-to-one>
+        </subclass>
+
+        <!-- SubsAdmin -->
+        <subclass name="com.rms.rms.service.model.SubsAdmin" discriminator-value="SubsAdmin">
+            <many-to-one name="subscriber" class="com.rms.rms.service.model.Subscriber" >
+                <column name="subscriber_id"/>
+            </many-to-one>
+            <property name="subscriberId" type="java.lang.String" column="subscriber_id" insert="false" update="false" />
+
+            <set name="categories" table="categories" fetch="subselect" cascade="delete" inverse="true">
+                <key column="subs_admin_id"/>
+                <one-to-many class="com.rms.rms.service.model.Category"/>
+            </set>
+
+            <property name="isRootSubsAdmin" type="java.lang.Boolean" column="is_root_subs_admin"/>
+
+            <set name="posts" table="posts" fetch="subselect" cascade="delete" inverse="true">
+                <key column="subs_admin_id"/>
+                <one-to-many class="com.rms.rms.service.model.Post"/>
+            </set>
+        </subclass>
+    </class>
+</hibernate-mapping>

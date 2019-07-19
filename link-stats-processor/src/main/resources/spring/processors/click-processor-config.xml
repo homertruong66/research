@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+                        http://www.springframework.org/schema/integration
+                        http://www.springframework.org/schema/integration/spring-integration-4.1.xsd
+                        http://www.springframework.org/schema/integration/amqp 
+                        http://www.springframework.org/schema/integration/amqp/spring-integration-amqp-4.1.xsd">
+
+    <!-- Click processor -->
+    <int-amqp:channel id="rawClickChannel" connection-factory="connectionFactory" message-driven="true"
+                      queue-name="${amqp.click.queue}" error-handler="customErrorHandler"/>
+    <int:json-to-object-transformer input-channel="rawClickChannel" output-channel="clickChannel"
+                                    type="com.hoang.events.ClickEvent"
+                                    object-mapper="jackson2JsonObjectMapper"/>
+    <int:channel id="clickChannel" datatype="com.hoang.events.ClickEvent"/>
+    <int:filter id="clickBotsAndBlacklistFilter" input-channel="clickChannel" output-channel="filteredClickChannel"
+                discard-channel="discardedClickChannel" method="accept" ref="botsBlacklistFilterBean"/>
+    <int:channel id="filteredClickChannel" datatype="com.hoang.events.ClickEvent"/>
+    <int:channel id="discardedClickChannel" datatype="com.hoang.events.ClickEvent"/>
+    <int:service-activator input-channel="filteredClickChannel" ref="clickProcessor" method="process"/>
+
+</beans>

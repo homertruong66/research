@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.Share" table="shares" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <many-to-one name="affiliate" class="com.rms.rms.service.model.Affiliate" >
+            <column name="affiliate_id"/>
+        </many-to-one>
+        <property name="affiliateId" type="java.lang.String" column="affiliate_id" insert="false" update="false"/>
+
+        <many-to-one name="channel" class="com.rms.rms.service.model.Channel" >
+            <column name="channel_id"/>
+        </many-to-one>
+        <property name="channelId" type="java.lang.String" column="channel_id" insert="false" update="false"/>
+
+        <property name="clickCount" type="java.lang.Integer" column="click_count" />
+
+        <set name="clickInfos" table="click_infos" fetch="subselect" cascade="delete" inverse="true">
+            <key column="share_id"/>
+            <one-to-many class="com.rms.rms.service.model.ClickInfo"/>
+        </set>
+
+        <many-to-one name="link" class="com.rms.rms.service.model.Link" >
+            <column name="link_id"/>
+        </many-to-one>
+        <property name="linkId" type="java.lang.String" column="link_id" insert="false" update="false"/>
+
+        <property name="statsDate" type="java.lang.String" column="stats_date"/>
+        <property name="url" type="text" column="url" />
+    </class>
+</hibernate-mapping>

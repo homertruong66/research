@@ -1,0 +1,15 @@
+/**
+ * homertruong
+ */
+
+****** Version 1.1.0: ******
+
+
+****** Version 1.0.0: init tables ******
+01. users
+02. users_roles
+03. roles
+  -> User n:n Role (EAGER): from User to Role
+
+04. persons
+  -> Person 1:1 User (EAGER): from Person to User

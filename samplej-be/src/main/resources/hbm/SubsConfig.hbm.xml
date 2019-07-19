@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.SubsConfig" table="subs_configs" >
+        <id name="id" type="java.lang.String">
+            <column name="id"/>
+            <generator class="foreign">
+                <param name="property">subscriber</param>
+            </generator>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="accountKeepingFee" type="java.lang.Double" column="account_keeping_fee"/>
+        <property name="coanType" type="java.lang.String" column="coan_type"/>
+        <property name="isBitlyEnabled" type="java.lang.Boolean" column="is_bitly_enabled"/>
+        <property name="logo" type="text" column="logo"/>
+
+        <one-to-one name="subscriber" class="com.rms.rms.service.model.Subscriber" constrained="true"/>
+
+        <property name="lowestPayment" type="java.lang.Double" column="lowest_payment"/>
+        <property name="termsAndConditions" type="text" column="terms_and_conditions"/>
+    </class>
+</hibernate-mapping>

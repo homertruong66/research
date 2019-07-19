@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.ClickInfo" table="click_infos" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="country" type="java.lang.String" column="country"/>
+        <property name="deviceType" type="java.lang.String" column="device_type"/>
+        <property name="os" type="java.lang.String" column="os"/>
+        <property name="shareId" type="java.lang.String" column="share_id"/>
+        <property name="statsDate" type="java.lang.String" column="stats_date"/>
+        <property name="count" type="java.lang.Integer" column="count"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hoang.codegenerator.model" >
+    <class name="Product" table="PRODUCT" discriminator-value="_PRODUCT" dynamic-insert="true" dynamic-update="true" >
+        <!-- database identity -->
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" sql-type="BIGINT"/>
+            <generator class="increment"/>
+        </id>
+        <discriminator column="DISCRIMINATOR" type="string"></discriminator>                
+
+        <!-- optimistic concurrency control: version -->
+        <version name="version" column="VERSION" type="integer"/>
+
+		<!-- properties -->
+       	<property name="sku" type="java.lang.String" >
+            <column name="SKU" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+        <property name="title" type="java.lang.String" >
+            <column name="TITLE" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+        <property name="price" type="java.lang.Integer" >
+            <column name="PRICE" sql-type="INT"  />
+        </property>
+        <property name="location" type="java.lang.String" >
+            <column name="LOCATION" sql-type="VARCHAR(256)"  />
+        </property>
+
+		<!-- associations -->
+		<subclass name="Phone" discriminator-value="_PHONE">		
+			<property name="model" type="java.lang.String">
+				<column name="MODEL" sql-type="VARCHAR(64)" />
+			</property>
+			<property name="made" type="java.lang.String">
+				<column name="MADE" sql-type="VARCHAR(64)" />
+			</property>						
+		</subclass>
+
+		<subclass name="Flower" discriminator-value="_FLOWER">		
+			<property name="type" type="java.lang.String">
+				<column name="TYPE" sql-type="VARCHAR(64)" />
+			</property>			
+			<property name="color" type="java.lang.String">
+				<column name="COLOR" sql-type="VARCHAR(64)" />
+			</property>				
+		</subclass>
+	</class>
+</hibernate-mapping>

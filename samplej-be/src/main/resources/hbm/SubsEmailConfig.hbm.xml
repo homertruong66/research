@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.SubsEmailConfig" table="subs_email_configs" >
+        <id name="id" type="java.lang.String">
+            <column name="id"/>
+            <generator class="foreign">
+                <param name="property">subscriber</param>
+            </generator>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="email" type="java.lang.String" column="email"/>
+        <property name="emailReplyTo" type="java.lang.String" column="email_reply_to"/>
+        <property name="hostname" type="java.lang.String" column="hostname"/>
+        <property name="password" type="java.lang.String" column="password"/>
+        <property name="port" type="java.lang.Integer" column="port"/>
+
+        <one-to-one name="subscriber" class="com.rms.rms.service.model.Subscriber" constrained="true"/>
+
+        <set name="subsEmailTemplates" table="subs_email_templates" fetch="subselect" cascade="delete" inverse="true">
+            <key column="subs_email_config_id"/>
+            <one-to-many class="com.rms.rms.service.model.SubsEmailTemplate"/>
+        </set>
+    </class>
+</hibernate-mapping>

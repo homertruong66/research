@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.Bank" table="banks">
+        <id name="id" type="java.lang.String">
+            <column name="id"/>
+            <generator class="foreign">
+                <param name="property">affiliate</param>
+            </generator>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <one-to-one name="affiliate" class="com.rms.rms.service.model.Affiliate" lazy="false" constrained="true"/>
+        <property name="branch" type="java.lang.String" column="branch"/>
+        <property name="name" type="java.lang.String" column="name"/>
+        <property name="number" type="java.lang.String" column="number"/>
+        <property name="username" type="java.lang.String" column="username"/>
+    </class>
+</hibernate-mapping>

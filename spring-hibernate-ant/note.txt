@@ -1,0 +1,8 @@
++ Facade   : coarse-grained business interface managing cross-cutting concerns [and implementing business logic if simple].
++ [Service]: fine-grained reusable business interface implementing business logic used only by Facade.
+ - CrudService: implements CRUD operations (create, read, has, update, delete, countAll, findAll, page).
+ - xxxService : implements Xxx-specific services.
++ DAO (optional): necessary for really complex queries.
++ Fetching Strategy: 1-1 -> select,              1-N -> subselect.
++ Fetching Plan:     1-1 -> eager(lazy = false), 1-N -> lazy.
++ Implement unit tests: Pending

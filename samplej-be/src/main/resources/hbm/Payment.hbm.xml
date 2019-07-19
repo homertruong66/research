@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.Payment" table="payments" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="createdBy" type="java.lang.String" column="created_by" insert="true" update="false"/>
+        <property name="updatedBy" type="java.lang.String" column="updated_by" insert="false" update="true"/>
+
+        <many-to-one name="affiliate" class="com.rms.rms.service.model.Affiliate" >
+            <column name="affiliate_id"/>
+        </many-to-one>
+        <property name="affiliateId" type="java.lang.String" column="affiliate_id" insert="false" update="false"/>
+
+        <many-to-one name="subscriber" class="com.rms.rms.service.model.Subscriber" >
+            <column name="subscriber_id"/>
+        </many-to-one>
+        <property name="subscriberId" type="java.lang.String" column="subscriber_id" insert="false" update="false"/>
+
+        <property name="reason" type="text" column="reason"/>
+        <property name="status" type="java.lang.String" column="status"/>
+        <property name="value" type="java.lang.Double" column="value"/>
+    </class>
+</hibernate-mapping>

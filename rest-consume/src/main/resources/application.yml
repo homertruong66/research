@@ -1,0 +1,7 @@
+uma:
+  loginUrl: http://localhost:9090/login
+  logoutUrl: http://localhost:9090/logout
+  baseUrl: http://localhost:9090/v1/
+
+logging:
+  file: log/app.log

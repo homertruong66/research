@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <bean id="redirectionsDbDataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${redirections.db.jdbc.driverClassName}"/>
+        <property name="url" value="${redirections.db.jdbc.url}"/>
+        <property name="username" value="${redirections.db.jdbc.username}"/>
+        <property name="password" value="${redirections.db.jdbc.password}"/>
+        <property name="initialSize" value="${redirections.db.pool.initialSize}"/>
+        <property name="minIdle" value="${redirections.db.pool.minIdle}"/>
+        <property name="maxActive" value="${redirections.db.pool.maxActive}"/>
+    </bean>
+
+    <bean id="redirectionsJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="redirectionsDbDataSource"/>
+    </bean>
+
+    <bean id="redirectionsNamedJdbcTemplate"
+          class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="redirectionsDbDataSource"/>
+    </bean>
+
+    <!-- Link Master with write permission -->
+    <bean id="redirectionsDbMasterDataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="${redirections.db.master.jdbc.driverClassName}"/>
+        <property name="url" value="${redirections.db.master.jdbc.url}"/>
+        <property name="username" value="${redirections.db.master.jdbc.username}"/>
+        <property name="password" value="${redirections.db.master.jdbc.password}"/>
+        <property name="initialSize" value="${redirections.db.master.pool.initialSize}"/>
+        <property name="minIdle" value="${redirections.db.master.pool.minIdle}"/>
+        <property name="maxActive" value="${redirections.db.master.pool.maxActive}"/>
+    </bean>
+
+    <bean id="redirectionsMasterJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="redirectionsDbMasterDataSource"/>
+    </bean>
+
+    <bean id="redirectionsMasterNamedJdbcTemplate"
+          class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="redirectionsDbMasterDataSource"/>
+    </bean>
+
+</beans>

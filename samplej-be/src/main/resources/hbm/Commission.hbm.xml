@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.Commission" table="commissions" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <many-to-one name="affiliate" class="com.rms.rms.service.model.Affiliate" >
+            <column name="affiliate_id"/>
+        </many-to-one>
+        <property name="affiliateId" type="java.lang.String" column="affiliate_id" insert="false" update="false"/>
+
+        <many-to-one name="discountCodeApplied" class="com.rms.rms.service.model.DiscountCodeApplied" >
+            <column name="discount_code_applied_id"/>
+        </many-to-one>
+        <property name="discountCodeAppliedId" type="java.lang.String" column="discount_code_applied_id" insert="false" update="false"/>
+
+        <property name="earning" type="java.lang.Double" column="earning"/>
+        <property name="orderId" type="java.lang.String" column="order_id"/>
+
+        <many-to-one name="subsCommissionConfigApplied" class="com.rms.rms.service.model.SubsCommissionConfigApplied" >
+            <column name="subs_commission_config_applied_id"/>
+        </many-to-one>
+        <property name="subsCommissionConfigAppliedId" type="java.lang.String" column="subs_commission_config_applied_id" insert="false" update="false"/>
+
+        <many-to-one name="subscriber" class="com.rms.rms.service.model.Subscriber" >
+            <column name="subscriber_id"/>
+        </many-to-one>
+        <property name="subscriberId" type="java.lang.String" column="subscriber_id" insert="false" update="false"/>
+
+        <property name="type" type="java.lang.String" column="type"/>
+        <property name="value" type="java.lang.Double" column="value"/>
+    </class>
+</hibernate-mapping>

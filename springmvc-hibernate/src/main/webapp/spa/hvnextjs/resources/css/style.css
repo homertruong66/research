@@ -1,0 +1,35 @@
+.parent-title{
+	font-size: 16px;
+}
+
+.icon-login {
+  background-image:url('../images/key-icon.png') !important;
+}
+
+.icon-submit {
+  background-image:url('../images/login-icon.png') !important;
+}
+
+.icon-cancel {
+  background-image:url('../images/close-icon.png') !important;
+}
+
+.icon-add {
+  background-image:url('../images/add-icon.png') !important;
+}
+
+.icon-delete {
+  background-image:url('../images/delete-icon.png') !important;
+}
+
+.icon-edit {
+  background-image:url('../images/edit-icon.png') !important;
+}
+
+.icon-transfer {
+  background-image:url('../images/transfer-icon.png') !important;
+}
+
+.login-window{
+	top: 100px !important;
+}

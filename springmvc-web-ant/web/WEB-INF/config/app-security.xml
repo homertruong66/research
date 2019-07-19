@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans 	xmlns="http://www.springframework.org/schema/security"
+				xmlns:beans="http://www.springframework.org/schema/beans"		
+        		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    			xsi:schemaLocation="http://www.springframework.org/schema/beans
+		                        	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		                        	http://www.springframework.org/schema/security
+		                        	http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+	               
+	<!-- Entry Point and Session Management -->	  
+    <http auto-config="false" 
+  		  entry-point-ref="loginUrlAuthenticationEntryPoint">	
+  			<!--   	<form-login />
+    				<http-basic />
+    				<logout />
+  	 		-->
+        <!-- Restrict URLs based on role -->
+        <intercept-url pattern="/asset/**" 		filters="none" />
+        <intercept-url pattern="/index.jsp" 	filters="none" /> 
+        <intercept-url pattern="/login.jsp" 	filters="none" />
+        <intercept-url pattern="/welcome.htm" 	filters="none" />
+        <intercept-url pattern="/login.htm*" 	filters="none" />           
+        <intercept-url pattern="/**" 			access="ROLE_USER, ROLE_ADMIN, ROLE_SYSTEM" />
+
+        <!-- Override default login and logout pages -->               
+        <!--
+        <form-login login-page="/login.htm"
+        			authentication-failure-url="/login.htm?error=1"     
+                    default-target-url="/home/homepage.htm" />
+        -->        
+        <custom-filter ref="myUsernamePasswordAuthenticationFilter" position="FORM_LOGIN_FILTER" />
+        <logout logout-url="/logout" logout-success-url="/welcome.htm" />        
+        <remember-me/>        
+    </http>
+    
+	<!--  Authentication -->	
+	<beans:bean id="loginUrlAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+ 		<beans:property name="loginFormUrl" value="/login.htm" />
+	</beans:bean>
+	
+	<beans:bean id="myUsernamePasswordAuthenticationFilter" class="com.hoang.app.security.MyUsernamePasswordAuthenticationFilter">	    	    	 
+	    <beans:property name="authenticationManager" ref="_authenticationManager" />
+	    <beans:property name="authenticationFailureHandler" ref="failureHandler" />
+ 		<beans:property name="authenticationSuccessHandler" ref="successHandler" />
+	</beans:bean>	
+	<beans:bean id="successHandler" class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+ 		<beans:property name="defaultTargetUrl" value="/home/homepage.htm" />
+	</beans:bean>
+	<beans:bean id="failureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+ 		<beans:property name="defaultFailureUrl" value="/login.htm?error=1" />
+	</beans:bean>			
+		
+	<!-- 
+	<authentication-manager alias="_authenticationManager">		 
+	    <authentication-provider>
+	        <user-service>
+	        	<user name="user" password="user" authorities="ROLE_USER" />
+	         	<user name="admin" password="admin" authorities="ROLE_ADMIN" />
+	        </user-service>
+	    </authentication-provider>
+	</authentication-manager>	
+	-->
+	 
+	<authentication-manager alias="_authenticationManager">			
+		<authentication-provider user-service-ref="userDetailsService" />
+	</authentication-manager>
+    
+    <beans:bean id="userDetailsService" class="com.hoang.app.security.UserDetailsServiceImpl" >      
+    	<beans:property name="securityService" ref="securityService" />
+    </beans:bean>
+    
+    <beans:bean id="securityService" class="com.hoang.app.boundary.SecurityFCImpl" >
+    	<beans:property name="dataSource" ref="dataSource" />
+    </beans:bean>     
+    
+    <!-- Authorization -->         
+    <global-method-security secured-annotations="enabled">        
+        <protect-pointcut
+            expression="execution(* com.hoang.app.service.UserService.save*(..))"
+            access="ROLE_ADMIN" />
+        <protect-pointcut
+            expression="execution(* com.hoang.app.service.*Service.delete*(..))"
+            access="ROLE_ADMIN" />      
+    </global-method-security>      
+</beans:beans>

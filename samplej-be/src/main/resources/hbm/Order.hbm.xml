@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.Order" table="orders" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="createdBy" type="java.lang.String" column="created_by" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <many-to-one name="affiliate" class="com.rms.rms.service.model.Affiliate" >
+            <column name="affiliate_id"/>
+        </many-to-one>
+        <property name="affiliateId" type="java.lang.String" column="affiliate_id" insert="false" update="false" />
+
+        <many-to-one name="channel" class="com.rms.rms.service.model.Channel" >
+            <column name="channel_id"/>
+        </many-to-one>
+        <property name="channelId" type="java.lang.String" column="channel_id" insert="false" update="false" />
+
+        <many-to-one name="customer" class="com.rms.rms.service.model.Customer" >
+            <column name="customer_id"/>
+        </many-to-one>
+        <property name="customerId" type="java.lang.String" column="customer_id" insert="false" update="false" />
+
+        <many-to-one name="discountCodeApplied" class="com.rms.rms.service.model.DiscountCodeApplied" >
+            <column name="discount_code_applied_id"/>
+        </many-to-one>
+        <property name="discountCodeAppliedId" type="java.lang.String" column="discount_code_applied_id" insert="false" update="false" />
+
+        <property name="infusionTags" type="java.lang.String" column="infusion_tags"/>
+        <property name="isCustomerConverted" type="java.lang.Boolean" column="is_customer_converted"/>
+        <property name="isGetflySuccess" type="java.lang.Boolean" column="is_getfly_success"/>
+        <property name="isGetResponseSuccess" type="java.lang.Boolean" column="is_get_response_success"/>
+        <property name="isInfusionSuccess" type="java.lang.Boolean" column="is_infusion_success"/>
+        <property name="earning" type="java.lang.Double" column="earning"/>
+        <property name="note" type="text" column="note"/>
+        <property name="number" type="java.lang.String" column="number"/>
+        <property name="reason" type="text" column="reason"/>
+
+        <set name="orderLines" table="order_lines" fetch="subselect" cascade="delete" inverse="true">
+            <key column="order_id"/>
+            <one-to-many class="com.rms.rms.service.model.OrderLine"/>
+        </set>
+
+        <property name="status" type="java.lang.String" column="status"/>
+        <property name="total" type="java.lang.Double" column="total"/>
+    </class>
+</hibernate-mapping>

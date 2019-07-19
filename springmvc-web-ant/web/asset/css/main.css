@@ -1,0 +1,102 @@
+/* HTML Style */
+* { margin: 0; padding: 0; }
+
+body {
+    background: #CCDDFF;    
+}
+
+a {
+    text-decoration: none;    color: #3333ff;    font-weight: bold;	font-size: 12px;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+a.action {
+    margin: 0 2px 0 2px;    border: 1px solid #C5DBEC;    padding: 2px 2px 2px 2px;	width: 66px; height: 25px;
+    background: #EAF4FD;	color: #2E6E9E;
+}
+
+.pager a.first, .pager a.previous, .pager a.next, .pager a.last {
+    margin: 0 3px 0 3px;    border: 1px solid #C5DBEC;
+    background: #EAF4FD;	color: #2E6E9E;
+}
+
+table {
+    margin: 10px 0;	width: 100%;    border: 1px solid silver;    border-collapse: collapse;    
+    font-size: 1.1em;    
+}
+
+th {
+    border-right: 1px solid #FFFFFF;    padding: 6px 3px;
+    color: #7E2217;	background-color: #BBBBBB;	font-size: 0.8em;	font-weight: bold;	text-align: center;
+}
+
+td {
+    border-bottom: 1px solid silver;    padding: 6px 3px;
+    font-size: 0.75em;    
+}
+
+
+/* Application Style */
+#container {
+    margin: 0px auto;    width: 900px;
+    text-align: center;    font-family: Verdana, "Arial", "Times New Roman", sans-serif;    color: #33332D;
+}
+
+/* Header */
+#header {    
+	height: 40px;
+	background-color: #5aa7c3;    text-align: left;    font-size: 1.1em;    font-weight:bold;    color: #ffffff;
+}
+#search { float: right; margin-top: 10px; }
+
+
+/* Top Menu */
+#top-menu {
+	height: 24px;    
+    background-color: #FFFFFF;	text-align: left;
+}
+#app-menu ul { list-style: none; margin: 2px; }
+#app-menu li { display:inline; margin: 0 5px 0 5px;  }
+#lang-menu { float:right; }
+#lang-menu ul { list-style: none; margin: 2px; }
+#lang-menu li { display:inline; margin: 0 2px 0 2px;  }
+
+
+/* Left Menu */
+#left-menu {
+    float: left;	padding-bottom: 10px;	width: 150px;
+    text-align: left;    font-size: 0.8em;
+}
+
+#left-menu #menu-title {
+    height: 22px;	padding: 5px 0;
+    background: #52D017;    color: white;    text-align: center;    font-size: 0.9em;    font-weight: bold;    
+}
+
+#left-menu ul {
+    margin: 2px 0 0 0;    padding: 3px;
+    list-style: none;
+}
+
+#left-menu ul li {
+    margin: 3px 0;
+}
+
+
+/* Content */
+#content {    
+    margin: 10px 0 10px 160px;    padding-bottom: 10px;
+    text-align: left;    
+}
+
+/* Footer */
+#footer {
+    height: 25px;    padding: 10px 0px 10px 0px;
+    color: #ddd;    font-weight: bold;	background-color: #5aa7c3;   
+}
+
+
+
+

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.Task" table="tasks" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="action" type="java.lang.String" column="action"/>
+        <property name="params" type="text" column="params"/>
+        <property name="reasonTaskCreated" type="java.lang.String" column="reason_task_created"/>
+        <property name="reasonTaskFailed" type="java.lang.String" column="reason_task_failed"/>
+        <property name="status" type="java.lang.String" column="status"/>
+    </class>
+</hibernate-mapping>

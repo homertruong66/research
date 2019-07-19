@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.Performer" table="performers" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" column="created_at" not-null="true" type="java.util.Date" insert="true" update="false"/>
+        <property name="updatedAt" column="updated_at" not-null="false" type="java.util.Date"/>
+
+        <property name="affiliateId" type="java.lang.String" column="affiliate_id"/>
+        <property name="clickCount" type="java.lang.Integer" column="click_count"/>
+        <property name="cycle" type="java.lang.String" column="cycle"/>
+        <property name="directNetworkRevenue" type="java.lang.Long" column="direct_network_revenue"/>
+        <property name="firstName" type="java.lang.String" column="first_name"/>
+        <property name="indirectNetworkRevenue" type="java.lang.Long" column="indirect_network_revenue"/>
+        <property name="lastName" type="java.lang.String" column="last_name"/>
+        <property name="newAffiliateCount" type="java.lang.Integer" column="new_affiliate_count"/>
+        <property name="newCustomerCount" type="java.lang.Integer" column="new_customer_count"/>
+        <property name="newOrderCount" type="java.lang.Integer" column="new_order_count"/>
+        <property name="nickname" type="java.lang.String" column="nickname"/>
+        <property name="revenue" type="java.lang.Long" column="revenue"/>
+        <property name="subscriberDomainName" type="java.lang.String" column="subscriber_domain_name"/>
+        <property name="subscriberId" type="java.lang.String" column="subscriber_id"/>
+        <property name="subscriberName" type="java.lang.String" column="subscriber_name"/>
+        <property name="topN" type="java.lang.Integer" column="top_n"/>
+    </class>
+</hibernate-mapping>

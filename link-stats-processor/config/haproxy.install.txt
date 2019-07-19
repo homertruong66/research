@@ -1,0 +1,4 @@
+echo deb http://archive.ubuntu.com/ubuntu trusty-backports main universe | \
+sudo tee /etc/apt/sources.list.d/backports.list
+apt-get update && apt-get install haproxy -t trusty-backports
+Edit /etc/default/haproxy and make sure it has a line that says ENABLED=1 in it.

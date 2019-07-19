@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.Voucher" table="vouchers" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="benefit" type="java.lang.Double" column="benefit"/>
+        <property name="code" type="java.lang.String" column="code" />
+        <property name="endDate" type="java.util.Date" column="end_date"/>
+        <property name="name" type="java.lang.String" column="name" />
+        <property name="startDate" type="java.util.Date" column="start_date"/>
+        <property name="status" type="java.lang.String" column="status"/>
+        <many-to-one name="subscriber" class="com.rms.rms.service.model.Subscriber" >
+            <column name="subscriber_id"/>
+        </many-to-one>
+        <property name="subscriberId" type="java.lang.String" column="subscriber_id" insert="false" update="false"/>
+        <property name="type" type="java.lang.String" column="type"/>
+    </class>
+</hibernate-mapping>

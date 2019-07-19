@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hoang.module.mail.domain" default-access="field" >
+    <class name="Mailer" table="MAILER" dynamic-insert="true" dynamic-update="true" >
+        <!-- database identity -->
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" sql-type="BIGINT"/>
+            <generator class="increment"/>
+        </id>        
+
+        <!-- optimistic concurrency control: version -->
+        <version name="version" column="VERSION" type="integer"/>
+
+        <!-- properties -->
+        <property name="name" type="java.lang.String" >
+            <column name="NAME" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+
+        <!-- associations -->        
+        <set name="items" cascade="all-delete-orphan" fetch="subselect" lazy="true" inverse="true"  >
+          <key column="MAILER_ID"/>
+          <one-to-many class="Item" />
+        </set>
+        <set name="recipients" cascade="all-delete-orphan" fetch="subselect" lazy="true" inverse="true" >
+          <key column="MAILER_ID"/>
+          <one-to-many class="Recipient" />
+        </set>
+    </class>
+</hibernate-mapping>

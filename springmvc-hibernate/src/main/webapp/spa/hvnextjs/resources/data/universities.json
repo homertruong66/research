@@ -1,0 +1,7 @@
+{
+    success: true,
+    universities: [
+        {name: 'Dai Hoc Khoa Hoc Tu Nhien', phone: '(08) 333 222', address: '227 Nguyen Van Cu - P.1 -Q5', country: 'Viet Nam', province: 'Ben Tre'},
+        {name: 'Dai Hoc Khoa Hoc Bach Khoa', phone: '(08) 333 222', address: '227 Nguyen Van Cu - P.1 -Q5', country: 'Viet Nam', province: 'Ben Tre'},
+    ]
+}

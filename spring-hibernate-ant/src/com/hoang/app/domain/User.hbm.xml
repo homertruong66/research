@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hoang.app.domain" default-access="field" >
+    <class name="User" table="USER" discriminator-value="USER" dynamic-insert="true" dynamic-update="true" >
+        <!-- database identity -->
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" sql-type="BIGINT"/>
+            <generator class="increment"/>
+        </id>
+        <discriminator column="ENTITY_DISCRIMINATOR" type="string"/>
+
+        <!-- optimistic concurrency control: version -->
+        <version name="version" column="VERSION" type="integer"/>
+
+        <!-- properties -->
+        <property name="username" type="java.lang.String" >
+            <column name="USER_NAME" sql-type="VARCHAR(128)" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="java.lang.String" >
+            <column name="PASSWORD" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+        <property name="enabled" type="boolean" >
+            <column name="ENABLED" sql-type="BIT" />
+        </property>
+        <property name="belongOrganization" type="boolean" >
+            <column name="IS_BELONG_ORGANIZATION" sql-type="BIT" default="0" />
+        </property>
+        <property name="fullname" type="string" >
+            <column name="FULL_NAME" sql-type="VARCHAR(128)" />
+        </property>
+        <property name="email" type="string" >
+            <column name="EMAIL" sql-type="VARCHAR(256)" />
+        </property>
+
+        <!-- associations -->
+        <many-to-one name="party" class="Party" fetch="select" lazy="false" >
+            <column name="PARTY_ID" index="IX_PARTY"  />
+        </many-to-one>
+        
+        <set name="userRoles" cascade="all-delete-orphan" fetch="subselect" lazy="true" >
+            <key column="USER_ID"/>
+            <one-to-many class="UserRole" />
+        </set>
+
+        <!-- table-per-class-hierarchy mapping -->
+        <subclass name="SystemUser" discriminator-value="SYSTEM" >
+        </subclass>
+
+        <subclass name="AdminUser" discriminator-value="ADMIN" >
+        </subclass>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,6 @@
+- Revise login page: Done
+- Revise css: Done
+- Put 'authenticated' variable after authentication: Done
+- Load provinces for new country using Ajax: Done
+- Revise Ant build file: Done
+

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.Product" table="products" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <many-to-one name="channel" class="com.rms.rms.service.model.Channel" >
+            <column name="channel_id"/>
+        </many-to-one>
+        <property name="channelId" type="java.lang.String" column="channel_id" insert="false" update="false" />
+
+        <property name="code" type="java.lang.String" column="code" />
+        <property name="description" type="text" column="description"  />
+        <property name="image" type="text" column="image" />
+        <property name="name" type="java.lang.String" column="name" />
+        <property name="price" type="java.lang.Double" column="price"/>
+    </class>
+</hibernate-mapping>

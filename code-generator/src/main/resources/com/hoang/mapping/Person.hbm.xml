@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hoang.codegenerator.model" >
+    <class name="Person" table="PERSON" discriminator-value="_PERSON" dynamic-insert="true" dynamic-update="true" >
+        <!-- database identity -->
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" sql-type="BIGINT"/>
+            <generator class="increment"/>
+        </id>
+        <discriminator column="DISCRIMINATOR" type="string"></discriminator>                
+
+        <!-- optimistic concurrency control: version -->
+        <version name="version" column="VERSION" type="integer"/>
+
+		<!-- properties -->
+       	<property name="name" type="java.lang.String" >
+            <column name="NAME" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+        <property name="email" type="java.lang.String" >
+            <column name="EMAIL" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+        <property name="phone" type="java.lang.String" >
+            <column name="PHONE" sql-type="VARCHAR(16)"  />
+        </property>
+
+		<!-- associations -->
+		<subclass name="Employee" discriminator-value="_EMPLOYEE">		
+			<property name="contractType" type="java.lang.String">
+				<column name="CONTRACT_TYPE" sql-type="VARCHAR(16)" />
+			</property>
+			<property name="salary" type="java.lang.Integer">
+				<column name="SALARY" sql-type="INT" />
+			</property>			
+		</subclass>
+
+		<subclass name="Teacher" discriminator-value="_TEACHER">		
+			<property name="degree" type="java.lang.String">
+				<column name="DEGREE" sql-type="VARCHAR(64)" />
+			</property>			
+
+			<many-to-one name="department" class="Department" not-null="true" >
+				<column name="DEPARTMENT_ID" />
+			</many-to-one>	
+		</subclass>
+		
+		<subclass name="Student" discriminator-value="_STUDENT">		
+			<property name="level" type="java.lang.String">
+				<column name="LEVEL" sql-type="VARCHAR(16)" />
+			</property>					
+		</subclass>
+	</class>
+</hibernate-mapping>

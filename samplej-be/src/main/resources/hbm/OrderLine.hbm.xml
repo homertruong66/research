@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.OrderLine" table="order_lines" >
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="commission" type="java.lang.Double" column="commission" />
+
+        <property name="orderId" type="java.lang.String" column="order_id" />
+
+        <many-to-one name="product" class="com.rms.rms.service.model.Product" >
+            <column name="product_id"/>
+        </many-to-one>
+        <property name="productId" type="java.lang.String" column="product_id" insert="false" update="false" />
+
+        <property name="price" type="java.lang.Double" column="price"/>
+        <property name="quantity" type="java.lang.Integer" column="quantity"/>
+    </class>
+</hibernate-mapping>

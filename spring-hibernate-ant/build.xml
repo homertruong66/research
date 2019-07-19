@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * Author: Hoang Truong
+ *
+  -->
+
+<project name="Hoang_Spring" default="build" basedir=".">
+
+    <!-- property declaration -->    
+    <property file="build.properties" />
+
+      <!-- development folder structure -->
+    <property name="build"     value="${basedir}\build" />                    
+		<property name="classes.build" value="${build}\classes" />
+        <property name="testclasses.build" value="${build}\testclasses" />	
+    <property name="dist"      value="${basedir}\dist" />
+    <property name="src"       value="${basedir}\src" />        
+    <property name="test"      value="${basedir}\test" />
+	<property name="lib"       value="${basedir}\lib" /> 
+	<property name="report"    value="${basedir}\report"/>
+
+      <!-- app domain folders -->       
+    <property name="domain.classes" value="${classes.build}\${product.domain.path}" />	
+    <property name="domain.test" 	value="${test}\${product.domain.path}" />
+    <property name="domain.src"  	value="${src}\${product.domain.path}" />
+    	    	
+	  <!-- module domain folders -->
+	<property name="domain.es.classes" 		value="${classes.build}\${es.domain.path}" />
+	<property name="domain.es"  			value="${src}\${es.domain.path}" />
+	<property name="domain.mail.classes" 	value="${classes.build}\${mail.domain.path}" />	
+	<property name="domain.mail"  			value="${src}\${mail.domain.path}" />
+
+
+    <!-- path declaration -->
+    <path id="classpath">
+        <fileset dir="${lib}">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+
+    <path id="classpath.test">
+        <path refid="classpath"/>
+        <pathelement location="${classes.build}"/>
+        <pathelement location="${testclasses.build}"/>
+    </path>
+
+
+    <!-- target definition -->
+    <target name="init" description="initialize folders for building the product" >
+        <mkdir dir="${build}" />        
+    	<mkdir dir="${classes.build}" />
+        <mkdir dir="${testclasses.build}" /> 
+    	<mkdir dir="${report}" />
+    </target>
+	
+	
+    <target name="clean" description="Delete all generated files or directories">
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>             
+    	<delete dir="${report}"/>
+    </target>
+
+
+    <target name="build" depends="init" description="build the product" >
+        <!-- complile the java source -->
+        <javac srcdir="${src}"
+               destdir="${classes.build}"
+               debug="${opt.javac.debug}"
+               deprecation="${opt.javac.deprecation}"
+               optimize="${opt.javac.optimize}"
+               fork="yes"
+               memoryInitialSize="100m"
+               memoryMaximumSize="500m"
+               verbose="no">
+            <classpath refid="classpath" />
+        </javac>    
+
+        <!-- compile the java test source -->
+        <javac srcdir="${test}"
+               destdir="${testclasses.build}"
+               debug="${opt.javac.debug}"
+               deprecation="${opt.javac.deprecation}"
+               optimize="${opt.javac.optimize}"
+               fork="yes"
+               memoryInitialSize="100m"
+               memoryMaximumSize="500m"
+               verbose="no">
+            <classpath refid="classpath.test"  />
+        </javac>
+    	
+    	<!-- copy properties and config files -->
+    	<copy todir="${domain.classes}">    	    
+    		<fileset dir="${domain.src}"   includes = "**/*.xml"/>
+    	</copy>
+    	<copy todir="${domain.es.classes}">    	    
+    		<fileset dir="${domain.es}"   includes = "**/*.xml"/>
+    	</copy>
+    	<copy todir="${domain.mail.classes}">    	    
+    		<fileset dir="${domain.mail}"   includes = "**/*.xml"/>
+    	</copy>
+
+        <!-- copy test properties -->
+        <copy todir="${testclasses.build}">        
+            <fileset dir="${test}"   includes = "**/*.properties"/>
+            <fileset dir="${test}"   includes = "**/*.xml"/>
+        </copy>
+    </target>
+
+
+    <target name="package" depends="build" description="create product war file">
+        <mkdir dir="${dist}" />    	
+        <jar     jarfile="${dist}\${product.jar.name}"                 
+                 update="true">
+
+            <!-- META-INF folder -->
+            <manifest>
+                <attribute name="Built-By" value="${user.name}"/>
+                <section name="Product Information">
+                    <attribute name="Product-Title" value="${product.title}"/>
+                    <attribute name="Product-Vendor" value="${product.vendor}"/>
+                    <attribute name="Product-Version" value="${product.version}"/>
+                </section>
+            </manifest>
+            
+        	<fileset dir="${classes.build}">
+        	    <include name="**/*.class"/>
+        		<include name="**/*.xml"/>
+        	</fileset>                       
+        </jar>
+    </target>
+
+
+    <target name="test" depends="build" description="test the application" >
+        <junit  printsummary="true"
+                errorProperty="test.failed"
+                failureProperty="test.failed"
+        >
+            <classpath refid="classpath.test"/>
+            <formatter type="brief" usefile="false"/>
+            <formatter type="xml" />
+            <batchtest todir="${report}">
+                <fileset dir="${testclasses.build}" includes="**/*Test.class"/>
+            </batchtest>
+        </junit>
+
+        <junitreport todir="${report}">
+            <fileset dir="${report}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${report}"/>
+        </junitreport>
+
+        <exec executable="cmd">
+            <arg value="/c"/>
+            <arg value="testResult.bat"/>
+            <arg value="-p"/>
+        </exec>
+
+        <fail if="test.failed"
+              message="Tests failed. Check log and/or reports." />
+
+        <echo message="Open ${report}\index.html file to see the test results." />
+    </target>   
+</project>

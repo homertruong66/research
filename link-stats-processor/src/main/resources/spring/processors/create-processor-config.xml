@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+                        http://www.springframework.org/schema/integration
+                        http://www.springframework.org/schema/integration/spring-integration-4.1.xsd
+                        http://www.springframework.org/schema/integration/amqp 
+                        http://www.springframework.org/schema/integration/amqp/spring-integration-amqp-4.1.xsd">
+
+    <!-- Create processor -->
+    <int-amqp:channel id="rawCreateChannel" connection-factory="connectionFactory" message-driven="true"
+                      queue-name="${amqp.create.queue}" error-handler="customErrorHandler"/>
+    <int:json-to-object-transformer input-channel="rawCreateChannel" output-channel="createChannel"
+                                    type="com.hoang.events.CreateEvent"
+                                    object-mapper="jackson2JsonObjectMapper"/>
+    <int:channel id="createChannel" datatype="com.hoang.events.CreateEvent"/>
+    <int:service-activator input-channel="createChannel" ref="createProcessor" method="process"/>
+
+</beans>

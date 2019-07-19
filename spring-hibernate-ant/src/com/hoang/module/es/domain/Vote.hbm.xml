@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field" package="com.hoang.module.es.domain">
+    <class name="Vote" table="VOTE" dynamic-insert="true" dynamic-update="true" >
+        <!-- database identity -->
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" sql-type="BIGINT"/>
+            <generator class="increment"/>
+        </id>
+
+        <!-- optimistic concurrency control: version -->
+        <version column="VERSION" name="version" type="integer"/>
+
+        <!-- properties -->
+        <property name="date" type="java.lang.String">
+            <column name="DATE" not-null="true" sql-type="VARCHAR(256)"/>
+        </property>
+
+        <!-- associations -->
+        <many-to-one name="event" class="Event" fetch="select" lazy="false" >
+            <column name="EVENT_ID" />
+        </many-to-one>
+
+        <many-to-one name="user" class="com.hoang.app.domain.User" fetch="select" lazy="false" >
+            <column name="USER_ID" />
+        </many-to-one>
+
+        <set name="places" table="VOTE_PLACE" cascade="delete" fetch="subselect" lazy="true" >
+          <key column="VOTE_ID"/>
+          <many-to-many column="PLACE_ID" class="Place" />
+        </set>
+    </class>
+</hibernate-mapping>

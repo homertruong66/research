@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE form-validation PUBLIC
+    "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN"
+    "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+    <formset>        
+   	 	<form name="personDTO" >
+            <field property="firstName" depends="required">
+                <arg key="person.firstname" />
+            </field>
+            <field property="lastName" depends="required">
+                <arg key="person.lastname" />
+            </field>
+            <field property="email" depends="required, email">
+                <arg key="person.email" />
+            </field>
+        </form>
+        
+        <form name="organizationDTO" >
+            <field property="name" depends="required">
+                <arg key="organization.name" />
+            </field>
+            <field property="email" depends="required, email">
+                <arg key="organization.email" />
+            </field>
+        </form>
+        
+        <form name="userDTO">
+            <field property="username" depends="required">
+                <arg key="user.username" />
+            </field>
+            <field property="password" depends="required">
+                <arg key="user.password" />
+            </field>
+            <field property="email" depends="required, email">
+                <arg key="user.email" />
+            </field>
+        </form>    
+         
+        <form name="role">
+            <field property="name" depends="required">
+                <arg key="Name" />
+            </field>            
+        </form>      
+        
+        <form name="mail">
+            <field property="host" depends="required">
+                <arg key="Host" />
+            </field>
+            <field property="username" depends="required, email">
+                <arg key="Username" />
+            </field>
+            <field property="password" depends="required">
+                <arg key="Password" />
+            </field>
+            <field property="senderHost" depends="required">
+                <arg key="Sender Host" />
+            </field>
+            <field property="senderAddress" depends="required, email">
+                <arg key="Sender Address" />
+            </field>
+            <field property="subject" depends="required">
+                <arg key="Subject" />
+            </field>
+            <field property="timeInterval" depends="required">
+                <arg key="Time Interval" />
+            </field>
+        </form>
+        
+         <form name="mailer">
+            <field property="name" depends="required">
+                <arg key="Name" />
+            </field>
+        </form>
+
+        <form name="recipientDTO">
+            <field property="name" depends="required">
+                <arg key="recipient.name" />
+            </field>
+            <field property="address" depends="required, email">
+                <arg key="recipient.address" />
+            </field>
+        </form>
+        
+        <form name="itemDTO">
+            <field property="name" depends="required">
+                <arg key="item.name" />
+            </field>
+            <field property="dateCreated" depends="required">
+                <arg key="item.dateCreated" />
+            </field>
+            <field property="dateModified" depends="required">
+                <arg key="item.dateModified" />
+            </field>
+        </form>
+
+        <form name="place">
+            <field property="name" depends="required">
+                <arg key="place.name" />
+            </field>
+            <field property="activities" depends="required">
+                <arg key="place.activities" />
+            </field>
+            <field property="phone" depends="required">
+                <arg key="place.phone" />
+            </field>
+            <field property="address" depends="required">
+                <arg key="place.address" />
+            </field>
+        </form>
+
+        <form name="event">
+            <field property="name" depends="required">
+                <arg key="event.name" />
+            </field>
+        </form>
+    </formset>
+</form-validation>

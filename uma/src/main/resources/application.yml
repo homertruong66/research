@@ -1,0 +1,51 @@
+server:
+  port: 9090
+  jetty:
+    queueSize: 1000
+    minThreads: 10
+    maxThreads: 100
+    idleTimeout: 30000
+
+datasource:
+  models_master:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/uma
+    username: root
+    password: admin
+    initialSize: 10
+    minIdle: 5
+    maxActive: 100
+    showSql: false
+    batchSize: 20
+  models_slave:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/uma
+    username: root
+    password: admin
+    initialSize: 10
+    minIdle: 5
+    maxActive: 100
+    showSql: false
+    batchSize: 20
+
+redis:
+  host: 127.0.0.1
+  port: 6379
+
+spring:
+  jackson:
+    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+
+jwt:
+  secret: 3SSystem
+  expiration: 86400000 # 1 day = 24 * 60 * 60 * 1000
+
+cors:
+  isAllowedCredentials: true
+  allowedOrigins: http://localhost:9091
+  allowedHeaders: \*
+  allowedMethods: \*
+  allowedExposedHeaders: X-Security-Token,X-User-Profile
+
+logging:
+  file: log/app.log

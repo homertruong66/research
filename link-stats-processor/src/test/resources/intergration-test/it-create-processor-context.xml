@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/integration
+                            http://www.springframework.org/schema/integration/spring-integration.xsd
+                            http://www.springframework.org/schema/integration/amqp
+                            http://www.springframework.org/schema/integration/amqp/spring-integration-amqp.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="awesm.hoang.it, awesm.hoang.core"/>
+    <!-- Controller -->
+    <bean id="createProcessor" class="com.hoang.controller.CreateProcessorImpl"/>
+    <!-- Service -->
+    <bean id="threadPoolService" class="com.hoang.service.ThreadPoolService"/>
+    <bean id="redirectionsService" class="com.hoang.service.RedirectionsServiceImpl"/>
+    <bean id="mentionsService" class="com.hoang.service.MentionsServiceImpl"/>
+    <!-- Dao -->
+    <bean id="redirectionsCache" class="com.hoang.dao.LinkCacheImpl"/>
+    <bean id="redirectionsDao" class="com.hoang.dao.LinkDaoImpl"/>
+    <bean id="mentionDao" class="com.hoang.dao.MentionsDaoImpl"/>
+
+    <!-- Common Config -->
+    <import resource="classpath:intergration-test/it-common-config.xml"/>
+    <import resource="classpath:spring/common-config.xml"/>
+
+    <!-- Create processor config -->
+    <import resource="classpath:spring/processors/create-processor-config.xml"/>
+
+    <!-- Redis Configuration -->
+    <import resource="classpath:spring/redis/redis-config.xml"/>
+
+    <!-- JDBC Configuration -->
+    <import resource="classpath:spring/consumptions/consumptions-db-config.xml"/>
+    <import resource="classpath:spring/redirections/redirections-db-config.xml"/>
+    <import resource="classpath:spring/mentions/mentions-db-config.xml"/>
+
+    <!-- Test Configuration -->
+    <int:channel id="createRequestChannel"/>
+
+    <int:gateway id="createGateway" service-interface="com.hoang.it.processor.create.CreateEventGateway"
+                 default-request-channel="createRequestChannel"/>
+    <int:object-to-json-transformer input-channel="createRequestChannel"
+                                    output-channel="createRequestTransformedChannel"
+                                    object-mapper="jackson2JsonObjectMapper"/>
+    <int-amqp:channel id="createRequestTransformedChannel" connection-factory="connectionFactory" message-driven="false"
+                      queue-name="${amqp.create.queue}"/>
+
+</beans>

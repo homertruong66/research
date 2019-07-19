@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.ant.freeform</type>
+    <configuration>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
+            <name>Hoang_Spring</name>
+        </general-data>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/2">
+            <!-- Do not use Project Properties customizer when editing this file manually. -->
+            <name>Hoang_Spring</name>
+            <properties/>
+            <folders>
+                <source-folder>
+                    <label>Hoang App</label>
+                    <location>.</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>src</label>
+                    <type>java</type>
+                    <location>src</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>test</label>
+                    <type>java</type>
+                    <location>test</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>data</label>
+                    <type>java</type>
+                    <location>data</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+            </folders>
+            <ide-actions>
+                <action name="build">
+                    <target>build</target>
+                </action>
+                <action name="clean">
+                    <target>clean</target>
+                </action>
+                <action name="test">
+                    <target>test</target>
+                </action>
+                <action name="rebuild">
+                    <target>clean</target>
+                    <target>build</target>
+                </action>
+            </ide-actions>
+            <view>
+                <items>
+                    <source-folder style="packages">
+                        <label>src</label>
+                        <location>src</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>test</label>
+                        <location>test</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>data</label>
+                        <location>data</location>
+                    </source-folder>
+                    <source-file>
+                        <location>build.xml</location>
+                    </source-file>
+                </items>
+                <context-menu>
+                    <ide-action name="build"/>
+                    <ide-action name="rebuild"/>
+                    <ide-action name="clean"/>
+                    <ide-action name="test"/>
+                </context-menu>
+            </view>
+            <subprojects/>
+        </general-data>
+        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/3">
+            <compilation-unit>
+                <package-root>src</package-root>
+                <classpath mode="compile">lib/c3p0-0.9.1.2.jar;lib/cassandra-0.6.1.jar;lib/dep-ant-1.7.0.jar;lib/dep-antlr-2.7.6.jar;lib/dep-antlr-runtime-3.1.1.jar;lib/dep-aopalliance.jar;lib/dep-aspectj-1.5.3.jar;lib/dep-aspectjweaver-1.5.3.jar;lib/dep-backport-util-concurrent.jar;lib/dep-cglib-nodep-2.1.3.jar;lib/dep-commons-beanutils-1.8.3.jar;lib/dep-commons-chain-1.2.jar;lib/dep-commons-codec-1.4.jar;lib/dep-commons-collections-3.2.1.jar;lib/dep-commons-dbcp-1.4.jar;lib/dep-commons-digester-2.0.jar;lib/dep-commons-fileupload-1.2.1.jar;lib/dep-commons-httpclient-3.0.1.jar;lib/dep-commons-logging-1.1.1.jar;lib/dep-commons-pool-1.5.4.jar;lib/dep-commons-validator-1.3.1.jar;lib/dep-dom4j-1.6.jar;lib/dep-javassist-3.4.jar;lib/dep-jsr107cache-1.0.jar;lib/dep-log4j-1.2.15.jar;lib/dep-maven-ant-tasks.jar;lib/dep-ognl-2.6.9.jar;lib/dep-slf4j-api-1.5.11.jar;lib/dep-slf4j-ext-1.5.11.jar;lib/dep-slf4j-log4j12-1.5.11.jar;lib/dep-standard-taglib-1.1.jar;lib/dep-util-concurrent-1.3.3.jar;lib/dep-xstream-1.3.1.jar;lib/dwr-3.0.jar;lib/hector-0.6.0.jar;lib/hibernate-3.5.0.jar;lib/hibernate-search-3.1.1.jar;lib/hibernate-tools.jar;lib/hibernate-validator-4.0.2.jar;lib/javamail-1.4.jar;lib/javatransaction.jar;lib/junit-4.4.jar;lib/libthrift-r917130.jar;lib/mysql-connector-5.1.6.jar;lib/perf4j-0.9.12.jar;lib/spring-aop-3.0.3.jar;lib/spring-asm-3.0.3.jar;lib/spring-aspects-3.0.3.jar;lib/spring-beans-3.0.3.jar;lib/spring-context-3.0.3.jar;lib/spring-context-support-3.0.3.jar;lib/spring-core-3.0.3.jar;lib/spring-expression-3.0.3.jar;lib/spring-instrument-3.0.3.jar;lib/spring-instrument-tomcat-3.0.3.jar;lib/spring-jdbc-3.0.3.jar;lib/spring-jms-3.0.3.jar;lib/spring-orm-3.0.3.jar;lib/spring-oxm-3.0.3.jar;lib/spring-security-config-3.0.3.jar;lib/spring-security-core-3.0.3.jar;lib/spring-security-taglibs-3.0.3.jar;lib/spring-security-web-3.0.3.jar;lib/spring-test-2.5.6.jar;lib/spring-test-3.0.3.jar;lib/spring-transaction-3.0.3.jar;lib/spring-web-3.0.3.jar;lib/spring-web-portlet-3.0.3.jar;lib/spring-web-servlet-3.0.3.jar;lib/spring-web-struts-3.0.3.jar;lib/uuid-3.2.jar</classpath>
+                <source-level>1.6</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>test</package-root>
+                <unit-tests/>
+                <classpath mode="compile">lib/c3p0-0.9.1.2.jar;lib/cassandra-0.6.1.jar;lib/dep-ant-1.7.0.jar;lib/dep-antlr-2.7.6.jar;lib/dep-antlr-runtime-3.1.1.jar;lib/dep-aopalliance.jar;lib/dep-aspectj-1.5.3.jar;lib/dep-aspectjweaver-1.5.3.jar;lib/dep-backport-util-concurrent.jar;lib/dep-cglib-nodep-2.1.3.jar;lib/dep-commons-beanutils-1.8.3.jar;lib/dep-commons-chain-1.2.jar;lib/dep-commons-codec-1.4.jar;lib/dep-commons-collections-3.2.1.jar;lib/dep-commons-dbcp-1.4.jar;lib/dep-commons-digester-2.0.jar;lib/dep-commons-fileupload-1.2.1.jar;lib/dep-commons-httpclient-3.0.1.jar;lib/dep-commons-logging-1.1.1.jar;lib/dep-commons-pool-1.5.4.jar;lib/dep-commons-validator-1.3.1.jar;lib/dep-dom4j-1.6.jar;lib/dep-javassist-3.4.jar;lib/dep-jsr107cache-1.0.jar;lib/dep-log4j-1.2.15.jar;lib/dep-maven-ant-tasks.jar;lib/dep-ognl-2.6.9.jar;lib/dep-slf4j-api-1.5.11.jar;lib/dep-slf4j-ext-1.5.11.jar;lib/dep-slf4j-log4j12-1.5.11.jar;lib/dep-standard-taglib-1.1.jar;lib/dep-util-concurrent-1.3.3.jar;lib/dep-xstream-1.3.1.jar;lib/dwr-3.0.jar;lib/hector-0.6.0.jar;lib/hibernate-3.5.0.jar;lib/hibernate-search-3.1.1.jar;lib/hibernate-tools.jar;lib/hibernate-validator-4.0.2.jar;lib/javamail-1.4.jar;lib/javatransaction.jar;lib/junit-4.4.jar;lib/libthrift-r917130.jar;lib/mysql-connector-5.1.6.jar;lib/perf4j-0.9.12.jar;lib/spring-aop-3.0.3.jar;lib/spring-asm-3.0.3.jar;lib/spring-aspects-3.0.3.jar;lib/spring-beans-3.0.3.jar;lib/spring-context-3.0.3.jar;lib/spring-context-support-3.0.3.jar;lib/spring-core-3.0.3.jar;lib/spring-expression-3.0.3.jar;lib/spring-instrument-3.0.3.jar;lib/spring-instrument-tomcat-3.0.3.jar;lib/spring-jdbc-3.0.3.jar;lib/spring-jms-3.0.3.jar;lib/spring-orm-3.0.3.jar;lib/spring-oxm-3.0.3.jar;lib/spring-security-config-3.0.3.jar;lib/spring-security-core-3.0.3.jar;lib/spring-security-taglibs-3.0.3.jar;lib/spring-security-web-3.0.3.jar;lib/spring-test-2.5.6.jar;lib/spring-test-3.0.3.jar;lib/spring-transaction-3.0.3.jar;lib/spring-web-3.0.3.jar;lib/spring-web-portlet-3.0.3.jar;lib/spring-web-servlet-3.0.3.jar;lib/spring-web-struts-3.0.3.jar;lib/uuid-3.2.jar;build/classes</classpath>
+                <source-level>1.6</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>data</package-root>
+                <source-level>1.6</source-level>
+            </compilation-unit>
+        </java-data>
+    </configuration>
+</project>

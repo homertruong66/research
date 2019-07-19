@@ -1,0 +1,61 @@
+* {
+	margin: 0; 	padding: 0;
+}
+
+.ui-corner-all {
+	-moz-border-radius: 20px 20px 20px 20px;
+}
+
+body {	
+	/*background: url("../login.jpg") no-repeat center scroll ;*/
+	background: #98AFC7; 
+	font-family: Verdana, "Lucida Grande", "Lucida Sans", sans-serif; 	font-size: 14px;
+}
+        	
+#container {
+	margin: 150px auto;	padding: 20px 20px;;	background: #5C9CCC;	width: 330px;	
+	color: white; 	 text-align: left;         		 	
+}
+
+#welcome {
+	margin-bottom: 15px;
+	font-weight: bold;	font-size: 14px;
+}
+
+#loginFail label {
+	margin-bottom: 15px;	
+	font-size: 13px;	font-weight: bold;	color: yellow;
+}
+
+/* fields */
+#fields div.field {
+	margin: 10px 0;
+}
+
+#fields div.field input.text {
+	background: #F0F0F0;		width: 300px;
+}
+
+#fields div.required label {
+	font-weight: bold;		font-size: 12px;
+}
+
+#fields div.required label.error {
+	color: #FDD017;
+}
+   
+#buttonBar {
+	margin: 15px 0;
+   	text-align: center;   	
+}
+
+#buttonBar input.button {
+    padding: 3px;	width: 66px; 
+    font-size: 12px;     
+}
+/* end fields */
+
+
+#help  {
+   	text-align: center;   	
+}

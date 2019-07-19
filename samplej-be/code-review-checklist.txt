@@ -1,0 +1,15 @@
+1. Order in a Class: ab..z
+
+2. Naming
+
+3. Code Style
+
+4. Potential Lazily-loaded Exceptions
+
+5. Boiler-late code
+
+6. Redundant code
+
+7. Bloated code
+
+8. Spaghetti code

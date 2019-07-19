@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.SubsGetResponseConfig" table="subs_get_response_configs" >
+        <id name="id" type="java.lang.String">
+            <column name="id"/>
+            <generator class="foreign">
+                <param name="property">subscriber</param>
+            </generator>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="apiKey" type="java.lang.String" column="api_key"/>
+        <property name="addressFieldId" type="java.lang.String" column="address_field_id"/>
+        <property name="birthdayFieldId" type="java.lang.String" column="birthday_field_id"/>
+        <property name="campaignDefaultId" type="java.lang.String" column="campaign_default_id"/>
+        <property name="facebookLinkFieldId" type="java.lang.String" column="facebook_link_field_id"/>
+        <property name="passwordFieldId" type="java.lang.String" column="password_field_id"/>
+        <property name="phoneFieldId" type="java.lang.String" column="phone_field_id"/>
+        <property name="referrerEmailFieldId" type="java.lang.String" column="referrer_email_field_id"/>
+        <property name="sendAffiliateData" type="java.lang.Boolean" column="send_affiliate_data"/>
+
+        <one-to-one name="subscriber" class="com.rms.rms.service.model.Subscriber" constrained="true"/>
+    </class>
+</hibernate-mapping>

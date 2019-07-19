@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <!--<meta th:name="_csrf" th:content="${_csrf.token}"/>-->
+    <!--<meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>-->
+    <title>JQuery UI and JS Bubbling Application</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet" media="screen" />
+    <script src="js/3rdparty/jquery-3.1.1.min.js"></script>
+    <script src="js/common/Starter.js"></script>
+    <script src="js/controller/UserController.js"></script>
+    <script src="js/model/UserModel.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            UserController.get();
+        });
+    </script>
+</head>
+
+<body>
+    <h1 style="color: red; font-weight: bold; text-align: center">Welcome to JQuery UI and JS Bubbling Application</h1>
+
+    <div id="user-section">
+        <div id="user-list">
+            <fieldset>
+                <legend>User List</legend>
+                <ol id="ulist">
+                </ol>
+                <button onclick="UserController.create()" >Create a User</button>
+            </fieldset>
+        </div>
+
+        <br />
+        <hr />
+        <br />
+
+        <div id="user-edit" style="display: none;">
+            <fieldset>
+                <legend>User Edit</legend>
+                <div id="user-form" action="#">
+                    <div style="display: none">
+                        <label>Id: </label><input name="id" type="text" />
+                    </div>
+                    <div>
+                        <label>Email: </label><input name="email" type="text" />
+                    </div>
+                    <div>
+                        <label>Password: </label><input name="password" type="password" />
+                    </div>
+                    <div>
+                        <label>Name: </label><input name="name" type="text" />
+                    </div>
+                    <div>
+                        <label>Age: </label><input name="age" type="text" />
+                    </div>
+                    <div>
+                        <label>Roles: </label>
+                        <select>
+                            <option>ROLE_USER</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button onclick="UserController.save()" >Save</button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+    <!--  ====================================================================================================  -->
+    <!--                                                 PROJECT                                                -->
+    <!--  ====================================================================================================  -->
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hoang.linkredirector</groupId>
+    <artifactId>linkredirector</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.1.RELEASE</version>
+    </parent>
+
+    <name>Link Redirector</name>
+    <description>Redirect a short link to the long URL</description>
+
+    <!--  ====================================================================================================  -->
+    <!--                                                PROPERTIES                                              -->
+    <!--  ====================================================================================================  -->
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <springboot.version>1.4.1.RELEASE</springboot.version>
+        <apache.common.lang.version>3.4</apache.common.lang.version>
+
+        <version.findbugs>3.0.0</version.findbugs>
+        <phase_id.compile.findbugs>compile: findbugs</phase_id.compile.findbugs>
+        <phase_id.test_compile.findbugs>test-compile: findbugs</phase_id.test_compile.findbugs>
+        <phase.compile.findbugs>compile</phase.compile.findbugs>
+        <phase.test_compile.findbugs>test-compile</phase.test_compile.findbugs>
+        <findbugs.check.skip>false</findbugs.check.skip>
+        <findbugs.report.skip>false</findbugs.report.skip>
+        <findbugs.failOnError>false</findbugs.failOnError>                                        <!-- If true, and errors are found, fails the build -->
+        <findbugs.excludeBugsFile/>                                                               <!-- Comma separated list of files containing bugs to ignore -->
+        <findbugs.excludeFilterFile/>                                                             <!-- Comma separated list of files containing filters (bugs/classes) to ignore -->
+        <findbugs.includeFilterFile/>                                                             <!-- Comma separated list of files containing filters (bugs/classes) to report -->
+        <findbugs.includeTests>true</findbugs.includeTests>                                       <!-- If true, analysis is run on test classes as well  -->
+        <findbugs.effort>Max</findbugs.effort>                                                    <!-- Enables analysis which takes more memory but finds more bugs.  If you run out of memory, change the value of the effort element to 'Min' or 'Default'. -->
+        <findbugs.threshold>Medium</findbugs.threshold>                                           <!-- Reports all bugs (values are Low, Medium and Max) -->
+        <findbugs.xmlOutput>true</findbugs.xmlOutput>                                             <!-- Produces XML output  -->
+        <findbugs.outputDirectory>${project.build.directory}/findbugs</findbugs.outputDirectory>  <!-- Directory in which the XML report is created -->
+
+        <version.jacoco>0.7.2.201409121644</version.jacoco>
+        <phase_id.initialize.jacoco_prepare_agent_ut>initialize: jacoco-prepare-agent (UT)</phase_id.initialize.jacoco_prepare_agent_ut>
+        <phase_id.prepare-package.jacoco_report_check_ut>prepare-package: jacoco-report/check (UT)</phase_id.prepare-package.jacoco_report_check_ut>
+        <phase_id.pre-integration-test.jacoco_prepare_agent_it>pre-integration-test: jacoco-prepare-agent (IT)</phase_id.pre-integration-test.jacoco_prepare_agent_it>
+        <phase_id.post-integration-test.jacoco_report_it>post-integration-test: jacoco-report (IT)</phase_id.post-integration-test.jacoco_report_it>
+        <phase_id.verify.jacoco_merge_report>verify: jacoco-merge/report</phase_id.verify.jacoco_merge_report>
+        <phase_id.site.jacoco_report>site: jacoco-report</phase_id.site.jacoco_report>
+        <phase.initialize.jacoco_prepare_agent_ut>initialize</phase.initialize.jacoco_prepare_agent_ut>
+        <phase.prepare-package.jacoco_report_check_ut>prepare-package</phase.prepare-package.jacoco_report_check_ut>
+        <phase.pre-integration-test.jacoco_prepare_agent_it>pre-integration-test</phase.pre-integration-test.jacoco_prepare_agent_it>
+        <phase.post-integration-test.jacoco_report_it>post-integration-test</phase.post-integration-test.jacoco_report_it>
+        <phase.verify.jacoco_merge_report>verify</phase.verify.jacoco_merge_report>
+        <phase.site.jacoco_report>site</phase.site.jacoco_report>
+        <jacoco.exclude.0>**/*Application.class</jacoco.exclude.0>
+        <jacoco.exclude.1>**/*Config.class</jacoco.exclude.1>
+        <jacoco.exclude.2>**/model/*</jacoco.exclude.2>
+        <jacoco.exclude.3>**/dto/*</jacoco.exclude.3>
+        <jacoco.exclude.4>**/exception/*</jacoco.exclude.4>
+        <jacoco.exclude.5>**/util/*Mapper.class</jacoco.exclude.5>
+        <jacoco.exclude.6>**/view_model/*</jacoco.exclude.6>
+        <jacoco.exclude.7/>
+        <jacoco.exclude.8/>
+        <jacoco.exclude.9/>
+        <jacoco.check.skip>false</jacoco.check.skip>
+        <jacoco.haltOnFailure>false</jacoco.haltOnFailure>
+        <jacoco.bundle.complexity.covered_ratio>0.80</jacoco.bundle.complexity.covered_ratio>
+        <jacoco.bundle.class.missed.count>0</jacoco.bundle.class.missed.count>
+        <jacoco.class.line.covered_ratio>0.80</jacoco.class.line.covered_ratio>
+        <report.jacoco.skip>false</report.jacoco.skip>
+    </properties>
+
+    <!--  ====================================================================================================  -->
+    <!--                                              DEPENDENCIES                                              -->
+    <!--  ====================================================================================================  -->
+
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jersey</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Utilities -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${apache.common.lang.version}</version>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!--  ====================================================================================================  -->
+    <!--                                                  BUILD                                                 -->
+    <!--  ====================================================================================================  -->
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${version.findbugs}</version>
+
+                <configuration>
+                    <skip>${findbugs.check.skip}</skip>
+
+                    <failOnError>${findbugs.failOnError}</failOnError>
+                    <excludeBugsFile>${findbugs.excludeBugsFile}</excludeBugsFile>
+                    <excludeFilterFile>${findbugs.excludeFilterFile}</excludeFilterFile>
+                    <includeFilterFile>${findbugs.includeFilterFile}</includeFilterFile>
+                    <includeTests>${findbugs.includeTests}</includeTests>
+                    <effort>${findbugs.effort}</effort>
+                    <threshold>${findbugs.threshold}</threshold>
+                    <xmlOutput>${findbugs.xmlOutput}</xmlOutput>
+                    <findbugsXmlOutputDirectory>${findbugs.outputDirectory}</findbugsXmlOutputDirectory>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>${phase_id.compile.findbugs}</id>
+                        <phase>${phase.compile.findbugs}</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>${phase_id.test_compile.findbugs}</id>
+                        <phase>${phase.test_compile.findbugs}</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${version.jacoco}</version>
+                <configuration>
+                    <skip>${report.jacoco.skip}</skip>
+                    <haltOnFailure>${jacoco.haltOnFailure}</haltOnFailure>
+                    <excludes>
+                        <exclude>${jacoco.exclude.0}</exclude>
+                        <exclude>${jacoco.exclude.1}</exclude>
+                        <exclude>${jacoco.exclude.2}</exclude>
+                        <exclude>${jacoco.exclude.3}</exclude>
+                        <exclude>${jacoco.exclude.4}</exclude>
+                        <exclude>${jacoco.exclude.5}</exclude>
+                        <exclude>${jacoco.exclude.6}</exclude>
+                        <exclude>${jacoco.exclude.7}</exclude>
+                        <exclude>${jacoco.exclude.8}</exclude>
+                        <exclude>${jacoco.exclude.9}</exclude>
+                    </excludes>
+                    <!--
+                         Check configuration used to specify rules on element types (BUNDLE, PACKAGE, CLASS, SOURCEFILE
+                         or METHOD) with a list of limits.
+
+                         Each limit applies to a certain counter (INSTRUCTION, LINE, BRANCH, COMPLEXITY, METHOD, CLASS)
+                         and defines a minimum or maximum for the corresponding value (TOTALCOUNT, COVEREDCOUNT,
+                         MISSEDCOUNT, COVEREDRATIO, MISSEDRATIO).
+
+                        If a limit refers to a ratio the range is from 0.0 to 1.0 where the number of decimal places
+                        will also determine the precision in error messages.
+                    -->
+                    <rules>
+                        <rule>
+                            <element>BUNDLE</element>
+                            <limits>
+                                <limit>
+                                    <counter>COMPLEXITY</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>${jacoco.bundle.complexity.covered_ratio}</minimum>
+                                </limit>
+                                <limit>
+                                    <counter>CLASS</counter>
+                                    <value>MISSEDCOUNT</value>
+                                    <maximum>${jacoco.bundle.class.missed.count}</maximum>
+                                </limit>
+                            </limits>
+                        </rule>
+
+                        <rule>
+                            <element>CLASS</element>
+                            <excludes>
+                                <exclude>*Test</exclude>
+                            </excludes>
+                            <limits>
+                                <limit>
+                                    <counter>LINE</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>${jacoco.class.line.covered_ratio}</minimum>
+                                </limit>
+                            </limits>
+                        </rule>
+                    </rules>
+                </configuration>
+
+                <executions>
+                    <!--  Configuration for unit tests  -->
+                    <execution>
+                        <id>${phase_id.initialize.jacoco_prepare_agent_ut}</id>
+                        <phase>${phase.initialize.jacoco_prepare_agent_ut}</phase>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <destFile>${project.build.directory}/jacoco-ut.exec</destFile>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>${phase_id.prepare-package.jacoco_report_check_ut}</id>
+                        <phase>${phase.prepare-package.jacoco_report_check_ut}</phase>
+                        <goals>
+                            <goal>report</goal>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${jacoco.check.skip}</skip>
+                            <dataFile>${project.build.directory}/jacoco-ut.exec</dataFile>
+                            <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+                        </configuration>
+                    </execution>
+
+                    <!--  Configuration for integration tests  -->
+                    <execution>
+                        <id>${phase_id.pre-integration-test.jacoco_prepare_agent_it}</id>
+                        <phase>${phase.pre-integration-test.jacoco_prepare_agent_it}</phase>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>${phase_id.post-integration-test.jacoco_report_it}</id>
+                        <phase>${phase.post-integration-test.jacoco_report_it}</phase>
+                        <goals>
+                            <goal>report-integration</goal>
+                        </goals>
+                    </execution>
+
+                    <!--  Configuration for reporting  -->
+                    <execution>
+                        <id>${phase_id.verify.jacoco_merge_report}</id>
+                        <phase>${phase.verify.jacoco_merge_report}</phase>
+                        <goals>
+                            <goal>merge</goal>
+                            <goal>report</goal>
+                        </goals>
+
+                        <configuration>
+                            <fileSets>
+                                <fileSet>
+                                    <directory>${project.build.directory}</directory>
+                                    <includes>
+                                        <include>*.exec</include>
+                                    </includes>
+                                </fileSet>
+                            </fileSets>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>${phase_id.site.jacoco_report}</id>
+                        <phase>${phase.site.jacoco_report}</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.4.1.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

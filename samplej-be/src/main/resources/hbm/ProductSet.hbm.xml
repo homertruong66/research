@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.ProductSet" table="product_sets">
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+
+        <property name="createdAt" column="created_at" not-null="true" type="java.util.Date" insert="true" update="false"/>
+        <property name="updatedAt" column="updated_at" not-null="false" type="java.util.Date"/>
+
+        <property name="commission" type="java.lang.Double" column="commission" not-null="true"/>
+        <property name="description" type="text" column="description" not-null="true"/>
+        <property name="endDate" column="end_date"  type="java.util.Date" not-null="true"/>
+        <property name="name" type="java.lang.String" column="name" not-null="true"/>
+        <property name="startDate" column="start_date" type="java.util.Date" not-null="true"/>
+
+        <many-to-one name="subsCommissionConfig" class="com.rms.rms.service.model.SubsCommissionConfig" >
+            <column name="subs_commission_config_id"/>
+        </many-to-one>
+        <property name="subsCommissionConfigId" type="java.lang.String" column="subs_commission_config_id" insert="false" update="false"/>
+
+        <set name="products" table="product_sets_products" fetch="subselect" cascade="delete" inverse="true">
+            <key column="product_set_id"/>
+            <one-to-many class="com.rms.rms.service.model.ProductSetProduct"/>
+        </set>
+    </class>
+</hibernate-mapping>

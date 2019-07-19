@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ *
+ * @author Hoang Truong
+ *
+ -->
+
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Data source -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test</property>
+        <property name="hibernate.connection.username">hoang</property>
+        <property name="hibernate.connection.password">hoang123</property>
+        <property name="hibernate.c3p0.min_size">3</property>
+        <property name="hibernate.c3p0.max_size">15</property>
+        <property name="hibernate.c3p0.acquire_increment">3</property>
+        <property name="hibernate.c3p0.idle_test_period">14400</property>
+        <property name="hibernate.c3p0.preferredTestQuery">Select 1;</property>
+        <property name="hibernate.c3p0.timeout">25200</property>
+
+        <!-- SQL stuff -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.use_sql_comments">true</property>
+        <!-- 
+        <property name="hibernate.format_sql">true</property>
+		 -->
+
+        <!-- Second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <!--<property name="cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property>-->
+
+        <!-- Mapping files -->
+          <!-- Base -->        
+        <mapping resource="com/hoang/app/domain/Country.hbm.xml"/>        
+        <mapping resource="com/hoang/app/domain/Province.hbm.xml"/>
+        <mapping resource="com/hoang/app/domain/Party.hbm.xml"/>                
+        <mapping resource="com/hoang/app/domain/User.hbm.xml"/>
+        <mapping resource="com/hoang/app/domain/UserRole.hbm.xml"/>
+        <mapping resource="com/hoang/app/domain/Role.hbm.xml"/>
+        
+          <!-- Mail -->
+        <mapping resource="com/hoang/module/mail/domain/Item.hbm.xml"/>
+        <mapping resource="com/hoang/module/mail/domain/Mail.hbm.xml"/>
+        <mapping resource="com/hoang/module/mail/domain/Mailer.hbm.xml"/>
+        <mapping resource="com/hoang/module/mail/domain/Recipient.hbm.xml"/>
+
+          <!-- Event Scheduling -->
+        <mapping resource="com/hoang/module/es/domain/Event.hbm.xml"/>
+        <mapping resource="com/hoang/module/es/domain/Place.hbm.xml"/>
+        <mapping resource="com/hoang/module/es/domain/Vote.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

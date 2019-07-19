@@ -1,0 +1,14 @@
+server:
+  port: 9091
+  jetty:
+    queueSize: 50
+    minThreads: 10
+    maxThreads: 20
+    idleTimeout: 30000
+
+spring:
+  jackson:
+    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+
+logging:
+  file: log/app.log

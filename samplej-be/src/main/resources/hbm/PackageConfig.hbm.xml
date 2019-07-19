@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.PackageConfig" table="package_configs">
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" column="created_at" not-null="true" type="java.util.Date" insert="true" update="false"/>
+        <property name="updatedAt" column="updated_at" not-null="false" type="java.util.Date"/>
+
+        <property name="affiliateCount" type="java.lang.Integer" column="affiliate_count"/>
+        <property name="channelCount" type="java.lang.Integer" column="channel_count"/>
+        <property name="hasMobileApp" type="java.lang.Boolean" column="has_mobile_app"/>
+        <property name="hasCommissionCad" type="java.lang.Boolean" column="has_commission_cad"/>
+        <property name="hasCommissionCfe" type="java.lang.Boolean" column="has_commission_cfe"/>
+        <property name="hasCommissionCoan" type="java.lang.Boolean" column="has_commission_coan"/>
+        <property name="hasCommissionCoasv" type="java.lang.Boolean" column="has_commission_coasv"/>
+        <property name="hasCommissionCoov" type="java.lang.Boolean" column="has_commission_coov"/>
+        <property name="hasCommissionCopg" type="java.lang.Boolean" column="has_commission_copg"/>
+        <property name="hasCommissionCopp" type="java.lang.Boolean" column="has_commission_copp"/>
+        <property name="hasCommissionCoppr" type="java.lang.Boolean" column="has_commission_coppr"/>
+        <property name="hasCommissionCopq" type="java.lang.Boolean" column="has_commission_copq"/>
+        <property name="hasCommissionCops" type="java.lang.Boolean" column="has_commission_cops"/>
+        <property name="hasDiscountCode" type="java.lang.Boolean" column="has_discount_code"/>
+        <property name="hasGetfly" type="java.lang.Boolean" column="has_getfly"/>
+        <property name="hasGetResponse" type="java.lang.Boolean" column="has_get_response"/>
+        <property name="hasInfusion" type="java.lang.Boolean" column="has_infusion"/>
+        <property name="hasShareStats" type="java.lang.Boolean" column="has_share_stats"/>
+        <property name="hasVoucher" type="java.lang.Boolean" column="has_voucher"/>
+        <property name="layerCount" type="java.lang.Integer" column="layer_count"/>
+        <property name="price" type="java.lang.Double" column="price"/>
+        <property name="type" type="java.lang.String" column="type"/>
+        <property name="usagePeriod" type="java.lang.String" column="usage_period"/>
+    </class>
+</hibernate-mapping>

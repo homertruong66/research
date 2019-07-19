@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hoang.module.mail.domain" default-access="field" >
+    <class name="Mail" table="MAIL" dynamic-insert="true" dynamic-update="true" >
+        <!-- database identity -->
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" sql-type="BIGINT"/>
+            <generator class="increment"/>
+        </id>        
+
+        <!-- optimistic concurrency control: version -->
+        <version name="version" column="VERSION" type="integer"/>
+
+        <!-- properties -->
+        <property name="host" type="java.lang.String" >
+            <column name="HOST" sql-type="VARCHAR(256)" not-null="true"  />
+        </property>
+        <property name="username" type="java.lang.String" >
+            <column name="USERNAME" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+        <property name="password" type="java.lang.String" >
+            <column name="PASSWORD" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+        <property name="senderHost" type="java.lang.String" >
+            <column name="SENDER_HOST" sql-type="VARCHAR(256)" not-null="true"  />
+        </property>
+        <property name="senderAddress" type="java.lang.String" >
+            <column name="SENDER_ADDRESS" sql-type="VARCHAR(256)" not-null="true"  />
+        </property>
+        <property name="senderName" type="java.lang.String" >
+            <column name="SENDER_NAME" sql-type="VARCHAR(256)" />
+        </property>        
+        <property name="subject" type="java.lang.String" >
+            <column name="SUBJECT" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+        <property name="timeInterval" type="java.lang.Integer" >
+            <column name="TIME_INTERVAL" sql-type="INTEGER" not-null="true" />
+        </property>
+        
+        <!-- associations -->
+        <set name="mailers" fetch="subselect" lazy="true" >
+          <key column="MAIL_ID"/>
+          <one-to-many class="Mailer" />
+        </set>
+    </class>
+</hibernate-mapping>

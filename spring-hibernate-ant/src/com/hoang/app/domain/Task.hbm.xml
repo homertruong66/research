@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hoang.app.domain" default-access="field" >
+    <class name="Task" table="TASK" dynamic-insert="true" dynamic-update="true" >
+        <!-- database identity -->
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" sql-type="BIGINT"/>
+            <generator class="increment"/>
+        </id>        
+
+        <!-- optimistic concurrency control: version -->
+        <version name="version" column="VERSION" type="integer"/>
+
+        <!-- properties -->
+        <property name="taskId" type="java.lang.String" >
+            <column name="TASK_ID" sql-type="VARCHAR(16)"  />
+        </property>
+        <property name="type" type="java.lang.String" >
+            <column name="TYPE" sql-type="VARCHAR(32)"  />
+        </property>
+        <property name="startDate" type="java.util.Date">
+            <column name="START_DATE"  sql-type="DATE"/>
+        </property>
+        <property name="dueDate" type="java.util.Date">
+            <column name="DUE_DATE"  sql-type="DATE"/>
+        </property>
+        <property name="priorityLevel" type="java.lang.String">
+            <column name="PRIORITY_LEVEL"  sql-type="VARCHAR(32)"/>
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION"  sql-type="VARCHAR(512)"/>
+        </property>
+        <property name="reference" type="java.lang.String">
+            <column name="Reference"  sql-type="VARCHAR(32)"/>
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS"  sql-type="VARCHAR(32)"/>
+        </property>
+                
+
+        <!-- associations -->        
+        <many-to-one name="assignee" class="User" lazy="false" >
+        	<column name="ASSIGNEE_ID" />  
+        </many-to-one>
+    </class>
+</hibernate-mapping>

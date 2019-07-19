@@ -1,0 +1,169 @@
+# Framework Properties
+spring:
+  http:
+    multipart:
+      max-file-size: 1024KB
+      max-request-size: 1024KB
+  jackson:
+    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - [%F:%L] - %msg%n"
+#  file: log/subsAdmin.log
+
+
+# Application Properties
+application:
+  decimal-pattern: "#0.0"
+  max-file-size: 5242880 # 5MB = 5*1024*1024
+  api-path: http://localhost:9090
+  email-thread-pool:
+    core-pool-size: 5
+    maxPool-size: 100
+    idle-timeout: 500
+    queue: 100
+  task-thread-pool:
+    core-pool-size: 10
+    maxPool-size: 100
+    idle-timeout: 500
+    queue: 100
+  version: @project.version@
+  use-local-email-client: false
+  loader-scheduler: 10000 # 10s
+
+
+# Web Server Properties
+web-server:
+  port: 9090
+  jetty:
+    queue-size: 1000
+    min-threads: 10
+    max-threads: 100
+    idle-timeout: 30000
+
+
+# Security Properties
+security:
+  jwt:
+    expiration: 86400000 # 1 day = 24 * 60 * 60 * 1000
+    secret: 3SSystem
+
+  cors:
+    allowed-exposed-headers: X-Security-Token,X-User-Profile
+    allowed-headers:
+    allowed-methods:
+    allowed-origins:
+    is-allowed-credentials: true
+    is-enabled: true
+
+
+# Database Server Properties
+database-server:
+  mysql:
+    driver-class-name: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://18.136.118.109:3306/rms?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&characterEncoding=UTF-8&useSSL=false
+    #username: admin
+    url: jdbc:mysql://localhost:3306/rms?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: admin
+    initial-size: 10
+    min-idle: 5
+    maximum-pool-size: 20
+    show-sql: false
+    batch-size: 20
+
+
+# Cache Server Properties
+cache-server:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    min-idle: 10
+    max-total:  50
+    timeout:  15000
+    block-when-exhausted: false
+    default-expired:  3600 # 1 hour = 3,600 seconds, all keys will be expired after one hour
+  lock-key-expired:  30 # 30 seconds
+  click-expired:  3600 # 1 hour = 3,600 seconds
+  acquire-lock-sleep: 2000 # 20s
+
+
+# Storage Server Properties
+storage-server:
+  aws-s3:
+    region: ap-southeast-1
+    access-key: AKIAIULINNRP4RJOK3SA
+    secret-key: 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
+    expired-time: 3600000
+    bucket-upload-report: stage-report
+
+
+# Email Server Properties
+email-server:
+  local-email:
+    host: smtp.gmail.com
+    port: 587
+    email: homertruong66@gmail.com
+    password: test-password
+  mandrill-email:
+    api-key: test-key
+  sendgrid-email:
+    api-key: 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
+    email: auto@rms.com.vn
+
+
+# SMS Server Properties
+sms-server:
+  url: http://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_get
+  api-key: 17B076895DCFDC0DE3B0060C65435D
+  secret-key: C13F88065ACD37096FD123ABADD111
+
+# Getfly Server Properties
+getfly-server:
+  get-account-url: /api/v3/accounts
+  order-url: /api/v3/orders
+
+# GetResponse Server Properties
+getresponse-server:
+  campaign-url: https://api.getresponse.com/v3/campaigns
+  contact-url: https://api.getresponse.com/v3/contacts
+  custom-field-url: https://api.getresponse.com/v3/custom-fields
+
+# Infusion Server Properties
+infusion-server:
+  client-id: nvhej39txn5n4sdv7jfh7s2m
+  client-secret: tFYafuca32
+  contact-url: https://api.infusionsoft.com/crm/rest/v1/contacts
+  authorize-url: https://signin.infusionsoft.com/app/oauth/authorize
+  tag-url: https://api.infusionsoft.com/crm/rest/v1/tags
+  token-url: https://api.infusionsoft.com/token
+
+###### Specific Properties ######
+
+# Subs Email Template Properties
+subs-email-templates:
+  aff-sign-up-title: "Đăng ký tài khoản CTV thành công"
+  aff-remind-update-bank-info-title: "Cập nhật Tài khoản ngân hàng"
+  aff-forgot-password-title: "Quên mật khẩu"
+  customer-order-created-title: "Tạo Đơn hàng thành công"
+  aff-order-created-title: "Đơn hàng mới"
+  aff-order-approved-title: "Xác nhận đơn hàng"
+  aff-payment-approved-title: "Xác nhận thanh toán"
+  header-footer-content: header_footer.html
+  aff-sign-up-content: aff_sign_up.html
+  aff-remind-update-bank-info-content: aff_remind_update_bank_info.html
+  aff-forgot-password-content: aff_forgot_password.html
+  customer-order-created-content: customer_order_created.html
+  aff-order-created-content: aff_order_created.html
+  aff-order-approved-content: aff_order_approved.html
+  aff-payment-approved-content: aff_payment_approved.html
+
+feedback:
+  emails: congdanh910@gmail.com,congdanh910@gmail.com
+  name: Danh
+
+customer_support:
+  emails: customersupport@rms.com.vn
+  name: CustomerSupport

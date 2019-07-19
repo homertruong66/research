@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.Link" table="links">
+        <id name="id" type="java.lang.String" column="id">
+            <generator class="com.rms.rms.persistence.InquisitiveUUIDGenerator"/>
+        </id>
+        <property name="createdAt" column="created_at" not-null="true" type="java.util.Date" insert="true" update="false"/>
+        <property name="updatedAt" column="updated_at" not-null="false" type="java.util.Date"/>
+
+        <property name="description" type="text" column="description"/>
+        <property name="thumbnail" type="text" column="thumbnail"/>
+        <property name="title" type="text" column="title"/>
+        <property name="url" type="text" column="url"/>
+    </class>
+</hibernate-mapping>

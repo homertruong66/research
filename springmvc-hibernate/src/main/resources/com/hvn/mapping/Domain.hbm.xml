@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hvn.spring.model" >
+	<class name="Domain" table="DOMAIN" dynamic-insert="true" dynamic-update="true">
+        <!-- database identity -->
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" sql-type="BIGINT"/>
+            <generator class="increment"/>
+        </id> 
+
+		<!-- Properties -->		
+		<property name="code" column="CODE" type="string" />
+		<property name="name" column="NAME" type="string" />		
+	</class>
+</hibernate-mapping>

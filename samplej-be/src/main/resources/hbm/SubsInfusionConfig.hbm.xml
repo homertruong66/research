@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rms.rms.service.model.SubsInfusionConfig" table="subs_infusion_configs" >
+        <id name="id" type="java.lang.String">
+            <column name="id"/>
+            <generator class="foreign">
+                <param name="property">subscriber</param>
+            </generator>
+        </id>
+        <property name="createdAt" type="java.util.Date" column="created_at" not-null="true" insert="true" update="false"/>
+        <property name="updatedAt" type="java.util.Date" column="updated_at" not-null="false"/>
+
+        <property name="accessToken" type="java.lang.String" column="access_token"/>
+        <property name="expiredDate" type="java.util.Date" column="expired_date"/>
+        <property name="refreshToken" type="java.lang.String" column="refresh_token"/>
+
+        <one-to-one name="subscriber" class="com.rms.rms.service.model.Subscriber" constrained="true"/>
+    </class>
+</hibernate-mapping>

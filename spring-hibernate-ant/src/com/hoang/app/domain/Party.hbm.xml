@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hoang.app.domain" default-access="field" >
+    <class name="Party" table="PARTY" dynamic-insert="true" dynamic-update="true" >
+        <!-- database identity -->
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" sql-type="BIGINT"/>
+            <generator class="increment"/>
+        </id>
+
+        <!-- optimistic concurrency control: version -->
+        <version name="version" column="VERSION" type="int"/>
+
+        <!-- properties -->
+        <property name="email" type="string" >
+            <column name="EMAIL" sql-type="VARCHAR(256)" />
+        </property>
+
+        <!-- table-per-subclass mapping -->
+        <joined-subclass name="Person" table="PERSON">
+            <key foreign-key="PERSON_ID">
+                <column name="ID" sql-type="BIGINT"/>
+            </key>
+
+            <property name="firstName" type="string" >
+                <column name="FIRST_NAME" sql-type="VARCHAR(256)" not-null="true" />
+            </property>
+            <property name="lastName" type="string" >
+                <column name="LAST_NAME" sql-type="VARCHAR(256)" not-null="true" />
+            </property>
+            <property name="fullName" type="string" >
+                <column name="FULL_NAME" sql-type="VARCHAR(256)" not-null="true" />
+            </property>
+            <property name="sex" column="SEX">
+                <type name="org.hibernate.type.EnumType">
+                    <param name="enumClass">com.hoang.app.enu.SexEnum</param>
+                    <param name="type">12</param>
+                </type>
+            </property>
+            <property name="ethnicGroup" column="ETHNIC_GROUP">
+                <type name="org.hibernate.type.EnumType">
+                    <param name="enumClass">com.hoang.app.enu.EthnicGroup</param>
+                    <param name="type">12</param>
+                </type>
+            </property>
+            <component name="homeAddress" class="Address" >
+                <property name="street" type="string" >
+                    <column name="HOME_STREET" sql-type="VARCHAR(256)" />
+                </property>
+                <property name="city" type="string">
+                    <column name="HOME_CITY" sql-type="VARCHAR(256)" />
+                </property>
+                <property name="phone" type="string">
+                    <column name="HOME_PHONE" sql-type="VARCHAR(256)" />
+                </property>
+                <property name="postalOrZipCode" type="string" >
+                    <column name="HOME_POSTAL_OR_ZIP_CODE" sql-type="VARCHAR(6)" />
+                </property>
+                <many-to-one name="province" class="Province" fetch="select" lazy="false" > 
+                	<column name="HOME_PROVINCE_ID" index="IX_HOME_PROVINCE" />
+                </many-to-one>
+                <many-to-one name="country" class="Country" fetch="select" lazy="false"> 
+                	<column name="HOME_COUNTRY_ID" index="IX_HOME_COUNTRY" />
+                </many-to-one>
+            </component>
+            <component name="workAddress" class="Address" >
+                <property name="street" type="string" >
+                    <column name="WORK_STREET" sql-type="VARCHAR(256)" />
+                </property>
+                <property name="city" type="string">
+                    <column name="WORK_CITY" sql-type="VARCHAR(256)" />
+                </property>
+                <property name="phone" type="string">
+                    <column name="WORK_PHONE" sql-type="VARCHAR(256)" />
+                </property>
+                <property name="postalOrZipCode" type="string" >
+                    <column name="WORK_POSTAL_OR_ZIP_CODE" sql-type="VARCHAR(6)" />
+                </property>
+                <many-to-one name="province" class="Province" fetch="select" lazy="false" > 
+                	<column name="WORK_PROVINCE_ID" index="IX_WORK_PROVINCE" />
+                </many-to-one>
+                <many-to-one name="country" class="Country" fetch="select" lazy="false"> 
+                	<column name="WORK_COUNTRY_ID" index="IX_WORK_COUNTRY" />
+                </many-to-one>
+            </component>
+        </joined-subclass>
+
+
+        <joined-subclass name="Organization" table="ORGANIZATION" >
+            <key foreign-key="ORGANIZATION_ID">
+                <column name="ID" sql-type="BIGINT"/>
+            </key>
+
+            <property name="name" type="string" >
+                <column name="NAME" sql-type="VARCHAR(256)" not-null="true" />
+            </property>
+            <component name="address" class="Address" >
+                <property name="street" type="string" >
+                    <column name="STREET" sql-type="VARCHAR(256)" />
+                </property>
+                <property name="city" type="string">
+                    <column name="CITY" sql-type="VARCHAR(256)" />
+                </property>
+                <property name="phone" type="string">
+                    <column name="PHONE" sql-type="VARCHAR(256)" />
+                </property>
+                <property name="postalOrZipCode" type="string" >
+                    <column name="POSTAL_OR_ZIP_CODE" sql-type="VARCHAR(6)" />
+                </property>
+                <many-to-one name="province" class="Province" fetch="select" lazy="false" > 
+                	<column name="PROVINCE_ID" index="IX_PROVINCE" />
+                </many-to-one>
+                <many-to-one name="country" class="Country" fetch="select" lazy="false"> 
+                	<column name="COUNTRY_ID" index="IX_COUNTRY" />
+                </many-to-one>
+            </component>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

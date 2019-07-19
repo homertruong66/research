@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+            
+	
+	<!-- Data source -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:properties/database.properties</value>
+		</property>
+	</bean>
+
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	
+	<!-- Hibernate session factory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    	<property name="dataSource">
+    		<ref bean="dataSource"/>
+    	</property>
+    	<property name="hibernateProperties">
+    		<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				 <!--<prop key="hibernate.hbm2ddl.auto">create</prop>-->
+				<prop key="hibernate.hbm2ddl.import_files_sql_extractor">org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
+				</prop>
+    		</props>
+    	</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/hvn/mapping/Clazz.hbm.xml</value>
+				<value>com/hvn/mapping/Course.hbm.xml</value>
+				<value>com/hvn/mapping/Department.hbm.xml</value>
+				<value>com/hvn/mapping/Domain.hbm.xml</value>
+				<value>com/hvn/mapping/Person.hbm.xml</value>
+				<value>com/hvn/mapping/Role.hbm.xml</value>
+				<value>com/hvn/mapping/University.hbm.xml</value>
+				<value>com/hvn/mapping/User.hbm.xml</value>
+			</list>
+		</property>
+    </bean>
+    <!-- Hibernate hibernate template -->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">  
+    	<property name="sessionFactory" ref="sessionFactory"></property>  
+    </bean>
+    
+    <!-- Jdbc template -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg type="javax.sql.DataSource" ref="dataSource"/>
+    </bean>
+    
+    <!-- Json converter -->
+    <bean id="gson" class="com.google.gson.Gson"></bean>
+</beans>

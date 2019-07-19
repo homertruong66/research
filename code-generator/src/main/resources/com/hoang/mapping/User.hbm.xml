@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- https://docs.jboss.org/hibernate/orm/3.3/reference/en/html/mapping.html -->
+
+<hibernate-mapping package="com.hoang.codegenerator.model" >
+    <class name="User" table="USER" dynamic-insert="true" dynamic-update="true" >
+        <!-- database identity -->
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" sql-type="BIGINT"/>
+            <generator class="increment"/>
+        </id>        
+
+        <!-- optimistic concurrency control: version -->
+        <version name="version" column="VERSION" type="integer"/>
+
+        <!-- properties -->
+        <property name="username" type="java.lang.String" >
+            <column name="USERNAME" sql-type="VARCHAR(128)" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="java.lang.String" >
+            <column name="PASSWORD" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" sql-type="VARCHAR(256)" not-null="true" />
+        </property>
+
+        <!-- associations -->        
+        <set name="roles" table="USER_ROLE" lazy="true" fetch="subselect" >
+          <key column="USER_ID"/>
+          <many-to-many class="Role" column="ROLE_ID" />
+        </set>        
+    </class>
+
+    <query name="User.findAll">
+        select u
+        from User u
+        order by u.username
+    </query>
+
+    <query name="User.findByName">
+        select u
+        from User u
+        where u.username = ?
+        order by u.username
+    </query>
+</hibernate-mapping>

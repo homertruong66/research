@@ -1,0 +1,5487 @@
+{
+	"info": {
+		"_postman_id": "affdc81a-59da-f5ef-313b-2925d6b29b97",
+		"name": "rms",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AWS",
+			"item": [
+				{
+					"name": "Get Aws S3 Pre-signed Url",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bucket_name\": \"rms-com-vn\",\r\n    \"object_key\": \"custom_object_key_by_rms\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/aws-s3-pre-signed-url",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"aws-s3-pre-signed-url"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin Management",
+			"item": [
+				{
+					"name": "Create an Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzMTkwODc4NiwiZXhwIjoxNTMxOTk1MTg2fQ.oHBmqIKB-q0u2N_5t7J1k1ec2BmTZMam_k_idVjB-c5_qQJy-mHlJ0L4bblreMQKznWpbRZui5KHZw_TH8HEpg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"avatar\":\"http://google.com/admin\",\r\n\t\"first_name\": \"admin_fn\",\r\n\t\"last_name\": \"admin_ln\",\r\n\t\"phone\": \"1357924680\",\r\n\t\r\n\t\"email\": \"vuahoang@gmail.com\",\r\n\t\"confirmed_email\": \"vuahoang@gmail.com\",\r\n\t\"password\": \"DevOps2018\",\r\n\t\"confirmed_password\": \"DevOps2018\",\r\n\t\"roles\": []\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/admins",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"admins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Admin",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1MzA4NzAwMzQsImV4cCI6MTUzMDk1NjQzNH0.DPr7ztRMSV6fAX-7LvefoYXnhq5mRSX2vRRQA_-89LMNqAnLA6sKrKsVNrZRZRiDWesRUO2yucf-la8brvPPLg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/admins/4a611fdc-ce6d-4f11-85b7-7ee76a012e33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"admins",
+								"4a611fdc-ce6d-4f11-85b7-7ee76a012e33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Admin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1MzA4NzAwMzQsImV4cCI6MTUzMDk1NjQzNH0.DPr7ztRMSV6fAX-7LvefoYXnhq5mRSX2vRRQA_-89LMNqAnLA6sKrKsVNrZRZRiDWesRUO2yucf-la8brvPPLg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/admins/4a611fdc-ce6d-4f11-85b7-7ee76a012e33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"admins",
+								"4a611fdc-ce6d-4f11-85b7-7ee76a012e33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Admins",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNDE3NzI1NSwiZXhwIjoxNTM0MjYzNjU1fQ.pFqpGfrSHWNNEEM8Qb06hiXj8ROh_puf_cTrXhFbHVYhp8g9hdjg67EEtNK5wE2ZWd7cUu7sS-KC_LCIVePDiw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"phone\",\r\n\t\"is_sort_asc\": false,\r\n\t\"criteria\": {\r\n\t\t\"first_name\": \"admin_fn\",\r\n\t\t\"last_name\": \"admin_ln\",\r\n\t\t\"phone\": \"1357924680\"\r\n\t},\r\n\t\"custom_criteria\": {\r\n\t\t\"email\": \"\"\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/admins/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"admins",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1MzA4NzAwMzQsImV4cCI6MTUzMDk1NjQzNH0.DPr7ztRMSV6fAX-7LvefoYXnhq5mRSX2vRRQA_-89LMNqAnLA6sKrKsVNrZRZRiDWesRUO2yucf-la8brvPPLg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"avatar\":\"http://google.com/hehe1\",\r\n\t\"first_name\": \"admin_fn1\",\r\n\t\"last_name\": \"admin_ln1\",\r\n\t\"phone\": \"1357924681\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/admins/4a611fdc-ce6d-4f11-85b7-7ee76a012e33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"admins",
+								"4a611fdc-ce6d-4f11-85b7-7ee76a012e33"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Affiliate Management",
+			"item": [
+				{
+					"name": "Activate an Affiliate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/affiliates/activate?token=dnVhaG9hbmc2NkBnbWFpbC5jb20sSHFVazlPdUhmcA==",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"affiliates",
+								"activate"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "dnVhaG9hbmc2NkBnbWFpbC5jb20sSHFVazlPdUhmcA=="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Sms status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJhZmZpbGlhdGUxQGRldm5ldC52biIsImlzcyI6ImFmZmlsaWF0ZTFAZGV2bmV0LnZuIiwiaWF0IjoxNTI5OTk3OTE3LCJleHAiOjE1MzAwODQzMTd9.z7p5RvODU8kw5HW9gv8xbGXLpDTbS9yQEheIgar9e21IMskEeEsQBtUW_rfUNFjAzk49MAKdX77YDI-yZFj0rA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<RQST>\r\n     <APIKEY>17B076895DCFDC0DE3B0060C65435D</APIKEY>\r\n     <SECRETKEY>C13F88065ACD37096FD123ABADD11</SECRETKEY>\r\n     <SMSID>78600495</SMSID>\r\n</RQST>"
+						},
+						"url": {
+							"raw": "http://api.esms.vn/MainService.svc/xml/GetSmsStatus/",
+							"protocol": "http",
+							"host": [
+								"api",
+								"esms",
+								"vn"
+							],
+							"path": [
+								"MainService.svc",
+								"xml",
+								"GetSmsStatus",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm phone",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJ2dWFob2FuZzY2QGdtYWlsLmNvbSIsImlzcyI6InZ1YWhvYW5nNjZAZ21haWwuY29tIiwiaWF0IjoxNTMxMDU4MTA2LCJleHAiOjE1MzExNDQ1MDZ9.PY0IDvSa-NEmUaPdGCb4pBhG22xP9QzR9lvyJ0uX30B7x5UOUvgmuxImO85akPznrMkqWTkC3ewG-ookIC5g5Q"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates/phone/confirm/0909123456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates",
+								"phone",
+								"confirm",
+								"0909123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Affiliate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNDc1ODExOCwiZXhwIjoxNTM0ODQ0NTE4fQ.vLXRlAuKgiFGiYn39uqHmWEG5Y-lY7b1jI18NBto-mjnRTbeHr4jqiOL2nsfOBmWXUoGQOBuFVA0L0qYQogX2g"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fe_url\": \"http://localhost:3000\",\r\n\t\"avatar\":\"http://google.com/aff\",\r\n\t\"first_name\": \"aff_fn\",\r\n\t\"last_name\": \"aff_ln\",\r\n\t\"phone\": \"1357924680\",\r\n\t\"nickname\": \"vh\",\r\n\t\r\n\t\"email\": \"vuahoang66@gmail.com\",\r\n\t\"confirmed_email\": \"vuahoang66@gmail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"confirmed_password\": \"12345678\",\r\n\t\"subscriber_domain_name\": \"rms6.com.vn\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Affiliates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMxNzExODQ4LCJleHAiOjE1MzE3OTgyNDh9.iitrVxgs2_ScBTSgf1s1NXmPRdpJtrQ40j7BskcRQ-Atg02zTcL_d87xT1Q98Gihhj05b3XP8vvWt8qppmKUKw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates/export?from=2016-01-01T00:00:00&to=2020-01-01T00:00:00",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates",
+								"export"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2016-01-01T00:00:00"
+								},
+								{
+									"key": "to",
+									"value": "2020-01-01T00:00:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Affiliate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJ2dWFob2FuZzY2QGdtYWlsLmNvbSIsImlzcyI6InZ1YWhvYW5nNjZAZ21haWwuY29tIiwiaWF0IjoxNTMxMDU4MTA2LCJleHAiOjE1MzExNDQ1MDZ9.PY0IDvSa-NEmUaPdGCb4pBhG22xP9QzR9lvyJ0uX30B7x5UOUvgmuxImO85akPznrMkqWTkC3ewG-ookIC5g5Q"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates/5ab384e3-e310-45b7-abe8-297168806e1a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates",
+								"5ab384e3-e310-45b7-abe8-297168806e1a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remind Affiliates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic3Vic2FkbWluMUBkZXZuZXQudm4iLCJpc3MiOiJzdWJzYWRtaW4xQGRldm5ldC52biIsImlhdCI6MTUzMTA1ODcwNiwiZXhwIjoxNTMxMTQ1MTA2fQ.iD085f5nlBtnDnvalEXDjrHU6QeTAefmJk5sx8f32pOwGy5hQJYHFVVEhDTI86cQ3TaFL29Q_ChZN-Jll9giRQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fe_url\": \"http://localhost:3000\",\r\n\t\"emails\": [ \"vuahoang66@gmail.com\", \"homertruong66@gmail.com\" ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates/remind",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates",
+								"remind"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Affiliates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNzMyNjc1NCwiZXhwIjoxNTM3NDEzMTU0fQ.3jheszNxmheCpvhlUYn1BPWsMoU9bBLUd5cx1geZtXpOSHtS2CzJCMlBSK32qKBZW-Hd6oeZJ_ogmT6xkJsQrA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"phone\",\r\n\t\"is_sort_asc\": false,\r\n\t\"criteria\": {\r\n\t},\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Agents",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImFkbWluM0BybXMuY29tLnZuIiwiaXNzIjoiYWRtaW4zQHJtcy5jb20udm4iLCJpYXQiOjE1MzgwNjQ5NjUsImV4cCI6MTUzODE1MTM2NX0.6Dhby6ibha0_J-vC7ANZu7y_kEObIdO9qt_zZ3P1C2yBbrzkl_dn9ScshsIxflsWuqkATRHJW9VMAy0o64oe9Q"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"id\",\r\n\t\"is_sort_asc\": false,\r\n\t\"criteria\": {\r\n\t},\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/agents/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"agents",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up an Affiliate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0NIQU5ORUwiXSwic3ViIjoiZENPbHNpZFNkdjFTdWJzYzc4LVNlMmUtNDcyNy1iOGI0LTkyYTZiOTUwYmEwMUBybXMuY29tLnZuIiwiaXNzIjoiZENPbHNpZFNkdjFTdWJzYzc4LVNlMmUtNDcyNy1iOGI0LTkyYTZiOTUwYmEwMUBybXMuY29tLnZuIiwiaWF0IjoxNTMzMTk1Mzg3LCJleHAiOjE1MzMyODE3ODd9.9U41LsTF28DwuqIyq2ERj2xu2KEtRJ8VrxnC8rnz7TTwTd4tmre5wDTn-H3VefB46T2P-9KLt0QIUU1ptFXfTw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fe_url\": \"http://localhost:3000\",\r\n\t\"avatar\":\"http://google.com/aff\",\r\n\t\"first_name\": \"aff_fn\",\r\n\t\"last_name\": \"aff_ln\",\r\n\t\"phone\": \"1357924680\",\r\n\t\r\n\t\"email\": \"vuahoang66@gmail.com\",\r\n\t\"confirmed_email\": \"vuahoang66@gmail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"confirmed_password\": \"12345678\",\r\n\t\"subscriber_domain_name\": \"tech3s-mentor.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates/sign_up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates",
+								"sign_up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Affiliate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1MzEwNTg1MzYsImV4cCI6MTUzMTE0NDkzNn0.Bv70s5LFBVdTtKNTUYaXQ0oozA5QDIBwZ7bfKTg0n-6YnBC4hFlJx5C6FjQGObFFRz2EAlyrHP-g0AQAmCWWfg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"avatar\":\"http://google.com/aff2\",\r\n\t\"first_name\": \"fn2\",\r\n\t\"last_name\": \"ln2\",\r\n\t\"phone\": \"1357924682\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates/ad35433f-d60c-4425-97b3-fddc711c6ca4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates",
+								"ad35433f-d60c-4425-97b3-fddc711c6ca4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify phone of an Affiliate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJ2dWFob2FuZzY2QGdtYWlsLmNvbSIsImlzcyI6InZ1YWhvYW5nNjZAZ21haWwuY29tIiwiaWF0IjoxNTMxMDU4MTA2LCJleHAiOjE1MzExNDQ1MDZ9.PY0IDvSa-NEmUaPdGCb4pBhG22xP9QzR9lvyJ0uX30B7x5UOUvgmuxImO85akPznrMkqWTkC3ewG-ookIC5g5Q"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"phone\": \"01657950854\",\r\n\t\"message\": \"Your verification code for RMS account is 5424\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/sms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"sms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View an Affiliate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNDc1ODExOCwiZXhwIjoxNTM0ODQ0NTE4fQ.vLXRlAuKgiFGiYn39uqHmWEG5Y-lY7b1jI18NBto-mjnRTbeHr4jqiOL2nsfOBmWXUoGQOBuFVA0L0qYQogX2g"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates/6e2a88da-c3c2-4765-aa72-33dc3544245c/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates",
+								"6e2a88da-c3c2-4765-aa72-33dc3544245c",
+								"view"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Affiliate Network",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJ2dWFob2FuZzY2QGdtYWlsLmNvbSIsImlzcyI6InZ1YWhvYW5nNjZAZ21haWwuY29tIiwiaWF0IjoxNTM3NDE5MDg2LCJleHAiOjE1Mzc1MDU0ODZ9.cmIjN4VFW4nqJ_yT-1HOmXK4D5VvsXeMo2JWX79tmzDSSAy_H3qIm0x5dW1LlxTRsNyU5pE8KT-KbaLOyJuKnw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"subscriber_id\": \"1a32d567-97b1-4e28-bbc5-0d9cff8f50b0\",\n\t\"referrer\": \"vh66\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates/view_network",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates",
+								"view_network"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Affiliate Transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlzcyI6ImhvbWVydHJ1b25nNjZAZ21haWwuY29tIiwiaWF0IjoxNTM4MTUxMDkxLCJleHAiOjE1MzgyMzc0OTF9.6YBv3eLsKXxWmVZ9OPcPBScUVZGeLQJIRTJ0y0wHtW8bUF6zGsf8xDhIGuca8a5br-jZI6m2f8SsCLURxEC_mw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"subscriber_id\": \"b37b2d07-de00-4b86-aff2-c466956ef81d\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates/view_transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates",
+								"view_transaction"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1a696df6-436a-4cb7-9a1e-783ab2673df5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf9105fc-a8f7-40e5-8b93-7d22ea80613b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Channel Management ",
+			"item": [
+				{
+					"name": "Create a Channel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNDc1OTczNiwiZXhwIjoxNTM0ODQ2MTM2fQ.DbuNJi8gTl_ayKnuAPbBC1qa-klaaQLtqmG4RRWFv0ruA7OM1aeb0fe-Ykqk1OZmDj-_BuKbRyxxM8BJYtBBnQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"domain_name\": \"channel1.rms6.com.vn\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/channels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"channels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Channel",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic3Vic2FkbWluMUBkZXZuZXQudm4iLCJpc3MiOiJzdWJzYWRtaW4xQGRldm5ldC52biIsImlhdCI6MTUzMTA0Mjg0OCwiZXhwIjoxNTMxMTI5MjQ4fQ.ak7aw5OdSo4z-1JfxY0pV-m24DLSP9IU6eOGGuSJAuscm1XyvjSxK1-D1ek9OZ2r_LhsE4QUetUfOesyE3vKFQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/channels/a616bbb5-1d5c-49ed-96bc-a389095b7519",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"channels",
+								"a616bbb5-1d5c-49ed-96bc-a389095b7519"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Channels",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMxOTA2NTE4LCJleHAiOjE1MzE5OTI5MTh9.C26TXecpzsjkQgW42NnSd085yNnh8i9KU9inM1aw65hELufOR0JUSKmBgB4YSe0nBe1eaj6-w9hyGzLcSZaQww"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"domainName\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/channels/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"channels",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Channel",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMxOTA2NTE4LCJleHAiOjE1MzE5OTI5MTh9.C26TXecpzsjkQgW42NnSd085yNnh8i9KU9inM1aw65hELufOR0JUSKmBgB4YSe0nBe1eaj6-w9hyGzLcSZaQww"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"domain_name\": \"fun.tech3s-mentor.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/channels/58c1a63c-b525-4c28-ab36-4a4835856e32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"channels",
+								"58c1a63c-b525-4c28-ab36-4a4835856e32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View a Channel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMWFAcm1zLmNvbS52biIsImlzcyI6InNhZG1pbjFhQHJtcy5jb20udm4iLCJpYXQiOjE1MzQ0Nzg3MjUsImV4cCI6MTUzNDU2NTEyNX0.8DRZqMvXSDppjVnoZbQgE8SGEt-a25kJgjfO4ZmtX_BNoudzw-K9jtQBUj3luZeoFmWfIX8NHIJT7fNaNZy_wQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/channels/43938629-791e-4104-b267-15bc97bfe037/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"channels",
+								"43938629-791e-4104-b267-15bc97bfe037",
+								"view"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Commission Management",
+			"item": [
+				{
+					"name": "Search Commissions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMxMzgzMzU0LCJleHAiOjE1MzE0Njk3NTR9.dGw3p9PPeYQbYCG7Sl9mjTgdv699Z0glzc4dBl-q0eVkC04MKPJfB8E2jZwv9XCUgp-hPlkxB_4rMeG8IlwfLA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"type\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n    \t\"subscriber_id\": \"12345678-Se2e-4727-b8b4-92a6b950ba01\"\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/commissions/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"commissions",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Experience Commissions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzOTQwMTM3OSwiZXhwIjoxNTM5NDg3Nzc5fQ.3pRg-jRc0RrjSSkBBY7uEz50QK9qbVSA9LEpDiluvJNR-BIUILCWbIqoDArdWhI7KEn7sub30R6BqP_XIIf0Sg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"cad\": 0.10,\r\n\t\"cdc\": 0.04,\r\n\t\"coan_seller\": 0.70,\r\n\t\"coan_referrer1\": 0.20,\r\n\t\"coan_referrer2\": 0.10,\r\n\t\"coov\": 0.10,\r\n\t\"copg\": 0.12,\r\n\t\"coppr\": 0.10,\r\n\t\"order\" : {\r\n\t\t\"order_lines\" : [\r\n\t\t\t{\r\n\t\t\t\t\"product\" : {\r\n\t\t\t\t\t\"name\": \"n1\"\r\n\t\t\t\t},\r\n\t\t\t\t\"price\": 100000,\r\n\t\t\t\t\"quantity\": 1\r\n\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\"product\" : {\r\n\t\t\t\t\t\"name\": \"n2\"\r\n\t\t\t\t},\r\n\t\t\t\t\"price\": 300000,\r\n\t\t\t\t\"quantity\": 2\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"product\" : {\r\n\t\t\t\t\t\"name\": \"n4\"\r\n\t\t\t\t},\r\n\t\t\t\t\"commission\": 0.05,\r\n\t\t\t\t\"price\": 900000,\r\n\t\t\t\t\"quantity\": 3\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/commissions/experience",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"commissions",
+								"experience"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Customer Management",
+			"item": [
+				{
+					"name": "Get a Customer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMxNDUwODAzLCJleHAiOjE1MzE1MzcyMDN9.7gX6FNlUL4BS_cF5qJUn4W2c6z09BcflZvANoJRcvnIvXKGsqgSpSgWz-pvlC_Dm_Z6YLeSJRaZwXmBm4FKKDQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/customers/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"customers",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Customers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMxNDUwODAzLCJleHAiOjE1MzE1MzcyMDN9.7gX6FNlUL4BS_cF5qJUn4W2c6z09BcflZvANoJRcvnIvXKGsqgSpSgWz-pvlC_Dm_Z6YLeSJRaZwXmBm4FKKDQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"email\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/customers/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"customers",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Discount Code",
+			"item": [
+				{
+					"name": "Create a DiscountCode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJ2dWFob2FuZzY2QGdtYWlsLmNvbSIsImlzcyI6InZ1YWhvYW5nNjZAZ21haWwuY29tIiwiaWF0IjoxNTM0NzYwNTIzLCJleHAiOjE1MzQ4NDY5MjN9.6Icigxg22gIleq_wdNFY8UHmLYahChBenmZJSfwNb-dz7Fin-XgECZ2tFtgEfc35U7kKoiPA9FVAJx5unwIUNg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"code\": \"C1\",\r\n\t\"discount\": 0.1,\r\n\t\"end_date\": \"2018-09-09\",\r\n\t\"note\": \"bla bla\",\r\n\t\"start_date\": \"2018-08-29T06:06:06\",\r\n\t\"subscriber_id\": \"7c69f4af-f829-4a2f-b785-937d98de004d\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/discount_codes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"discount_codes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a DiscountCode",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJhZmYxQHJtcy5jb20udm4iLCJpc3MiOiJhZmYxQHJtcy5jb20udm4iLCJpYXQiOjE1MzEzNzAwNTAsImV4cCI6MTUzMTQ1NjQ1MH0.S2SlnFXGB-ezgspQpoWmwWEZE4Lble4nH0apNMTu0OP9yBKZEDzTKbUEhweXER7n1ARrcT-WMxCrRy29uAgbyw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/discount_codes/36eb1485-6889-4a49-add1-aa3ed134ab39",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"discount_codes",
+								"36eb1485-6889-4a49-add1-aa3ed134ab39"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search DiscountCodes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJhZmYxQHJtcy5jb20udm4iLCJpc3MiOiJhZmYxQHJtcy5jb20udm4iLCJpYXQiOjE1MzEzNzAwNTAsImV4cCI6MTUzMTQ1NjQ1MH0.S2SlnFXGB-ezgspQpoWmwWEZE4Lble4nH0apNMTu0OP9yBKZEDzTKbUEhweXER7n1ARrcT-WMxCrRy29uAgbyw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"code\",\r\n\t\"is_sort_asc\": true,\r\n    \"criteria\": {\r\n    \t\"code\": \"C1\"\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/discount_codes/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"discount_codes",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a DiscountCode",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJhZmYxQHJtcy5jb20udm4iLCJpc3MiOiJhZmYxQHJtcy5jb20udm4iLCJpYXQiOjE1MzEzNzAwNTAsImV4cCI6MTUzMTQ1NjQ1MH0.S2SlnFXGB-ezgspQpoWmwWEZE4Lble4nH0apNMTu0OP9yBKZEDzTKbUEhweXER7n1ARrcT-WMxCrRy29uAgbyw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"code\": \"C1u\",\r\n\t\"discount\": 0.11,\r\n\t\"end_date\": \"2018-09-19\",\r\n\t\"note\": \"bla bla1\",\r\n\t\"start_date\": \"2018-09-19\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/discount_codes/36eb1485-6889-4a49-add1-aa3ed134ab39",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"discount_codes",
+								"36eb1485-6889-4a49-add1-aa3ed134ab39"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Domain Management",
+			"item": [
+				{
+					"name": "Search Domains",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"name\",\r\n\t\"criteria\": {\r\n\t},\r\n\t\"custom_criteria\": {\r\n\t\t\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/domains/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"domains",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Feedback Management",
+			"item": [
+				{
+					"name": "Create a Feedback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODIxNDQxNCwiZXhwIjoxNTM4MzAwODE0fQ.0Z9ePSHDQUooiMilnPCrgmiznlakVDR-fAIOybiyJwJuY1ctOQwZ5cf3-WF7mx-A-HI0t5UFmhL5KfbXcY4wZg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"description\": \"fb desc\",\r\n\t\"title\": \"fb title\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/feedbacks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"feedbacks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resolve a Feedback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImFkbWluNkBybXMuY29tLnZuIiwiaXNzIjoiYWRtaW42QHJtcy5jb20udm4iLCJpYXQiOjE1MzgyMTIyNDQsImV4cCI6MTUzODI5ODY0NH0.XNyl16p-zLgZf3kxGUF4CYeclUTGFJ5lyhkjKE8UCUUIXZg9H2bmAr0AESs6E03xoDVxBW3xCq7AHvqVzIcMug"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/feedbacks/01a60450-2de7-4c7f-8f40-4adbbc1d884f/resolve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"feedbacks",
+								"01a60450-2de7-4c7f-8f40-4adbbc1d884f",
+								"resolve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Feedbacks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImFkbWluNkBybXMuY29tLnZuIiwiaXNzIjoiYWRtaW42QHJtcy5jb20udm4iLCJpYXQiOjE1MzgyMTIyNDQsImV4cCI6MTUzODI5ODY0NH0.XNyl16p-zLgZf3kxGUF4CYeclUTGFJ5lyhkjKE8UCUUIXZg9H2bmAr0AESs6E03xoDVxBW3xCq7AHvqVzIcMug"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"id\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/feedbacks/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"feedbacks",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Guide Management",
+			"item": [
+				{
+					"name": "Get a Guide",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzMTM4ODQ2MywiZXhwIjoxNTMxNDc0ODYzfQ.eZ3SR_pUhdrprUYjDFXgETGXo-stXLl-KGaHFr-YnO1cn6AplOFN8RD19aqNfpBqtyirKFO57AyZNKG1MwCItA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/guides/AFFILIATE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"guides",
+								"AFFILIATE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Guide",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzMTM4ODQ2MywiZXhwIjoxNTMxNDc0ODYzfQ.eZ3SR_pUhdrprUYjDFXgETGXo-stXLl-KGaHFr-YnO1cn6AplOFN8RD19aqNfpBqtyirKFO57AyZNKG1MwCItA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"content\": \"hehe\",\r\n\t\"note\": \"haha\",\r\n\t\"title\": \"hihi\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/guides/1Guide78-Se2e-4727-b8b4-92a6b950ba02",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"guides",
+								"1Guide78-Se2e-4727-b8b4-92a6b950ba02"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Mandrill",
+			"item": [
+				{
+					"name": "https://mandrillapp.com/api/1.0/messages/send-template.json",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"NGBxNLQrJJJJKTDDt2bNHg\",\r\n    \"template_name\": \"update_event\",\r\n    \"template_content\": [\r\n        {\r\n            \"name\": \"event_title\",\r\n            \"content\": \"test title\"\r\n        },\r\n        {\r\n            \"name\": \"event_time_ranges\",\r\n            \"content\": \"tu a den b; tu c den fdsjk\"\r\n        },\r\n        {\r\n            \"name\": \"event_address\",\r\n            \"content\": \"address a\"\r\n        },\r\n        {\r\n            \"name\": \"event_link\",\r\n            \"content\": \"http://4sv.vn/sukien\"\r\n        }\r\n    ],\r\n    \"message\": {\r\n        \"html\": \"<p>Example HTML content</p>\",\r\n        \"text\": \"Example text content\",\r\n        \"subject\": \"example subject\",\r\n        \"from_email\": \"xinchao@4sv.vn\",\r\n        \"from_name\": \"4SV Xin chào\",\r\n        \"to\": [\r\n            {\r\n                \"email\": \"vuahoang66@gmail.com\",\r\n                \"name\": \"Hoang Truong\",\r\n                \"type\": \"to\"\r\n            }\r\n        ],\r\n        \"headers\": {\r\n            \"Reply-To\": \"message.reply@example.com\"\r\n        },\r\n        \"important\": false,\r\n        \"track_opens\": null,\r\n        \"track_clicks\": null,\r\n        \"auto_text\": null,\r\n        \"auto_html\": null,\r\n        \"inline_css\": null,\r\n        \"url_strip_qs\": null,\r\n        \"preserve_recipients\": null,\r\n        \"view_content_link\": null,\r\n        \"bcc_address\": \"message.bcc_address@example.com\",\r\n        \"tracking_domain\": null,\r\n        \"signing_domain\": null,\r\n        \"return_path_domain\": null,\r\n        \"merge\": true,\r\n        \"merge_language\": \"mailchimp\",\r\n        \"global_merge_vars\": [\r\n            {\r\n                \"name\": \"merge1\",\r\n                \"content\": \"merge1 content\"\r\n            }\r\n        ],\r\n        \"merge_vars\": [\r\n            {\r\n                \"rcpt\": \"recipient.email@example.com\",\r\n                \"vars\": [\r\n                    {\r\n                        \"name\": \"merge2\",\r\n                        \"content\": \"merge2 content\"\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"tags\": [\r\n            \"password-resets\"\r\n        ],\r\n        \"subaccount\": \"customer-123\",\r\n        \"google_analytics_domains\": [\r\n            \"example.com\"\r\n        ],\r\n        \"google_analytics_campaign\": \"message.from_email@example.com\",\r\n        \"metadata\": {\r\n            \"website\": \"www.example.com\"\r\n        },\r\n        \"recipient_metadata\": [\r\n            {\r\n                \"rcpt\": \"recipient.email@example.com\",\r\n                \"values\": {\r\n                    \"user_id\": 123456\r\n                }\r\n            }\r\n        ],\r\n        \"attachments\": [\r\n            {\r\n                \"type\": \"text/plain\",\r\n                \"name\": \"myfile.txt\",\r\n                \"content\": \"ZXhhbXBsZSBmaWxl\"\r\n            }\r\n        ],\r\n        \"images\": [\r\n            {\r\n                \"type\": \"image/png\",\r\n                \"name\": \"IMAGECID\",\r\n                \"content\": \"ZXhhbXBsZSBmaWxl\"\r\n            }\r\n        ]\r\n    },\r\n    \"async\": false,\r\n    \"ip_pool\": \"Main Pool\",\r\n    \"send_at\": \"2017-01-01 01:00:00\"\r\n}"
+						},
+						"url": {
+							"raw": "https://mandrillapp.com/api/1.0/messages/send-template.json",
+							"protocol": "https",
+							"host": [
+								"mandrillapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"messages",
+								"send-template.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://mandrillapp.com/api/1.0/messages/send-template.json copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"NGBxNLQrJJJJKTDDt2bNHg\"\r\n}"
+						},
+						"url": {
+							"raw": "https://mandrillapp.com/api/1.0/templates/list.json",
+							"protocol": "https",
+							"host": [
+								"mandrillapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"templates",
+								"list.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order Management",
+			"item": [
+				{
+					"name": "Approve an Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNDk5ODYyOSwiZXhwIjoxNTM1MDg1MDI5fQ.ceXhZvGxwlnz2cHFO8SfSp_SDy53P7i2B-kts5KA_t8wxjKj_nWfNFWE2K9uZxjAllBQvb4i0lBWjB-JZONQPA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders/b4c9f142-927a-41da-9b30-cb21dea581b1/approve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders",
+								"b4c9f142-927a-41da-9b30-cb21dea581b1",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0NIQU5ORUwiXSwic3ViIjoiZlB3WEVOMW1FSDdjNjlmNGFmLWY4MjktNGEyZi1iNzg1LTkzN2Q5OGRlMDA0ZEBybXMuY29tLnZuIiwiaXNzIjoiZlB3WEVOMW1FSDdjNjlmNGFmLWY4MjktNGEyZi1iNzg1LTkzN2Q5OGRlMDA0ZEBybXMuY29tLnZuIiwiaWF0IjoxNTM0NzU5Nzk1LCJleHAiOjE1MzQ4NDYxOTV9.6FM-AQcLgqRif7NlfbSGa5MN5WRuHw7vlh3uezkDUpTBbzjVQOhSq1Lfg5riALbgZc9V--8anqq2d4atNsybiw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_id\": \"6e2a88da-c3c2-4765-aa72-33dc3544245c\",\r\n\t\"channel_domain_name\": \"channel1.rms6.com.vn\",\r\n\t\"customer\" : {\r\n\t\t\"address\": \"a\",\r\n\t\t\"email\": \"customer1@gmail.com\",\r\n\t\t\"fullname\": \"fullname\",\r\n\t\t\"phone\": \"0901234678\"\r\n\t},\r\n\t\"discount_code\": \"C1\",\r\n\t\"note\": \"note  bla bla\",\r\n\t\"number\": \"N1\",\r\n\t\"order_lines\" : [\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"commission\": 0.6,\r\n\t\t\t\t\"description\": \"desc1\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image1\",\r\n\t\t\t\t\"name\": \"iphone\",\r\n\t\t\t\t\"price\": 100\t\r\n\t\t\t},\r\n\t\t\t\"price\": 100,\r\n\t\t\t\"quantity\": 5\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"description\": \"desc2\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image2\",\r\n\t\t\t\t\"name\": \"camera\",\r\n\t\t\t\t\"price\": 600\r\n\t\t\t},\r\n\t\t\t\"price\": 600,\r\n\t\t\t\"quantity\": 2\r\n\t\t}\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Order",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMyNjgyNDc4LCJleHAiOjE1MzI3Njg4Nzh9.xKkRviga8KD7s2ZNQDyWL4vli3kxnvwao2iOcKp3Y40fkg5fsT_qXeP3eErMm4_L4FY0LSW_QfuBTzetG-R7tg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders/b7ef9bde-8b94-4eae-b6ae-a7e220b94595",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders",
+								"b7ef9bde-8b94-4eae-b6ae-a7e220b94595"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject an Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJhZmYxQHJtcy5jb20udm4iLCJpc3MiOiJhZmYxQHJtcy5jb20udm4iLCJpYXQiOjE1MzE0NjQ3NjYsImV4cCI6MTUzMTU1MTE2Nn0.-zrwxh0fvJ8cXgSusm3AdMCdmmSBksu8sxJihhrrlJKJA4-kdQtWSqjxHtHPjpX_sEy9of-_61AY7TMWEwmTQQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"reason\": \"wrong price\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders/1/reject",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders",
+								"1",
+								"reject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Orders",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJhZmYxQHJtcy5jb20udm4iLCJpc3MiOiJhZmYxQHJtcy5jb20udm4iLCJpYXQiOjE1MzE0NjQ3NjYsImV4cCI6MTUzMTU1MTE2Nn0.-zrwxh0fvJ8cXgSusm3AdMCdmmSBksu8sxJihhrrlJKJA4-kdQtWSqjxHtHPjpX_sEy9of-_61AY7TMWEwmTQQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"status\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n    \t\"status\": \"NEW\"\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMyNzA3MDA3LCJleHAiOjE1MzI3OTM0MDd9.Ok1hZjaKNatcSprfqYtcYNMUoXo3sOlK8e-bU4hOVdRl_Ket5jO13bypdGvBBCedS4YGfUUJZDMewsPU5I0egg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"note\": \"note  bla bla updated\",\r\n\t\"number\": \"N12u\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders/10fb8e8d-fa44-46d1-8be5-b27ff37e2a60",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders",
+								"10fb8e8d-fa44-46d1-8be5-b27ff37e2a60"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View an Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNTA4MzQ1MCwiZXhwIjoxNTM1MTY5ODUwfQ.HFR_iXRx_IhVSZdru6y7UqtHnfKhzVaAL_s0XDNlGvndfW4h1g-O4awOli81wKfrkzol4gRf4JJ6cj7-Hq07ig"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders/737392da-7061-4e16-ae66-011b219e60d1/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders",
+								"737392da-7061-4e16-ae66-011b219e60d1",
+								"view"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Package Config",
+			"item": [
+				{
+					"name": "Get a PackageConfig",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNjIyNjQ4MiwiZXhwIjoxNTM2MzEyODgyfQ.ee5q7rBz85Y2-CtGOsDqYMtdsJPTXcwguvUcAI77fCvXjuhXmed4xeL7I4VGRRIFdXgGN7IZAi20BPSdtECK1w"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/package_configs/1PacCo78-Se2e-4727-b8b4-92a6b950ba01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"package_configs",
+								"1PacCo78-Se2e-4727-b8b4-92a6b950ba01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search PackageConfigs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNjIyNjQ4MiwiZXhwIjoxNTM2MzEyODgyfQ.ee5q7rBz85Y2-CtGOsDqYMtdsJPTXcwguvUcAI77fCvXjuhXmed4xeL7I4VGRRIFdXgGN7IZAi20BPSdtECK1w"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"id\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/package_configs/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"package_configs",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a PackageConfig",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNjIyNjQ4MiwiZXhwIjoxNTM2MzEyODgyfQ.ee5q7rBz85Y2-CtGOsDqYMtdsJPTXcwguvUcAI77fCvXjuhXmed4xeL7I4VGRRIFdXgGN7IZAi20BPSdtECK1w"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_count\": 500,\r\n    \"channel_count\": 5,\r\n    \"has_mobile_app\": true,\r\n    \"has_commission_cad\": true,\r\n    \"has_commission_cfe\": true,\r\n    \"has_commission_coan\": true,\r\n    \"has_commission_coasv\": true,\r\n    \"has_commission_coov\": true,\r\n    \"has_commission_copg\": true,\r\n    \"has_commission_copp\": true,\r\n    \"has_commission_coppr\": true,\r\n    \"has_discount_code\": true,\r\n    \"has_getfly\": true,\r\n    \"has_infusion\": true,\r\n    \"has_share_stats\": true,\r\n    \"has_voucher\": true,\r\n    \"layer_count\": 7,\r\n    \"usage_period\": \"MONTH\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/package_configs/1PacCo78-Se2e-4727-b8b4-92a6b950ba01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"package_configs",
+								"1PacCo78-Se2e-4727-b8b4-92a6b950ba01"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Payment Management",
+			"item": [
+				{
+					"name": "Approve a Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNDk5ODYyOSwiZXhwIjoxNTM1MDg1MDI5fQ.ceXhZvGxwlnz2cHFO8SfSp_SDy53P7i2B-kts5KA_t8wxjKj_nWfNFWE2K9uZxjAllBQvb4i0lBWjB-JZONQPA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/payments/b4c9f142-927a-41da-9b30-cb21dea581b1/approve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"payments",
+								"b4c9f142-927a-41da-9b30-cb21dea581b1",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJhZmYxYUBybXMuY29tLnZuIiwiaXNzIjoiYWZmMWFAcm1zLmNvbS52biIsImlhdCI6MTUzNDIxODkwNiwiZXhwIjoxNTM0MzA1MzA2fQ.S_2Mldr5X4FChuPVEW9xN4vly4fihzSP5LpAymXBWkFS6mLDhN0Xgn0gU-txLESa-W0su7EI5Z5F3OCzGRV4aQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_id\": \"1Aff5678-8e2e-4727-b8b4-92a6b950ba01\",\r\n\t\"subscriber_id\": \"1Subsc78-Se2e-4727-b8b4-92a6b950ba01\",\r\n\t\"value\": 6348900000043532532624646460000.43\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject a Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJhZmYxQHJtcy5jb20udm4iLCJpc3MiOiJhZmYxQHJtcy5jb20udm4iLCJpYXQiOjE1MzE0NjQ3NjYsImV4cCI6MTUzMTU1MTE2Nn0.-zrwxh0fvJ8cXgSusm3AdMCdmmSBksu8sxJihhrrlJKJA4-kdQtWSqjxHtHPjpX_sEy9of-_61AY7TMWEwmTQQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"reason\": \"payment too high\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/payments/1/reject",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"payments",
+								"1",
+								"reject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Payments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJhZmYxYUBybXMuY29tLnZuIiwiaXNzIjoiYWZmMWFAcm1zLmNvbS52biIsImlhdCI6MTUzNDIxODkwNiwiZXhwIjoxNTM0MzA1MzA2fQ.S_2Mldr5X4FChuPVEW9xN4vly4fihzSP5LpAymXBWkFS6mLDhN0Xgn0gU-txLESa-W0su7EI5Z5F3OCzGRV4aQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"id\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n    \t\"subscriber_id\": \"12345678-Se2e-4727-b8b4-92a6b950ba01\"\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/payments/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"payments",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Post Management",
+			"item": [
+				{
+					"name": "Create a Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzQ5ODYzMCwiZXhwIjoxNTM3NTg1MDMwfQ.gYjoTQ9jxp1yfTOXXKdyL_lYCBt5Qp7A6hSJ0dw-OKrSxBrD3zrQNlOgFnYfrGcO6Q-kTkOV46wKpKHfOJyq4Q"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"category3\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzQ5ODYzMCwiZXhwIjoxNTM3NTg1MDMwfQ.gYjoTQ9jxp1yfTOXXKdyL_lYCBt5Qp7A6hSJ0dw-OKrSxBrD3zrQNlOgFnYfrGcO6Q-kTkOV46wKpKHfOJyq4Q"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"category_id\": \"a4058a29-954d-4763-a9a6-09db2e023f6d\",\r\n\t\"content\": \"content 1\",\r\n\t\"url\": \"http://vnexpress.net\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Categories",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzQ5ODYzMCwiZXhwIjoxNTM3NTg1MDMwfQ.gYjoTQ9jxp1yfTOXXKdyL_lYCBt5Qp7A6hSJ0dw-OKrSxBrD3zrQNlOgFnYfrGcO6Q-kTkOV46wKpKHfOJyq4Q"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"id\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/categories/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"categories",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Posts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzQ5ODYzMCwiZXhwIjoxNTM3NTg1MDMwfQ.gYjoTQ9jxp1yfTOXXKdyL_lYCBt5Qp7A6hSJ0dw-OKrSxBrD3zrQNlOgFnYfrGcO6Q-kTkOV46wKpKHfOJyq4Q"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"id\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/posts/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"posts",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Priority Group",
+			"item": [
+				{
+					"name": "Add Affiliates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNTM0Mzg0OCwiZXhwIjoxNTM1NDMwMjQ4fQ.7RcoKFq-iFUAaQ2JL6VS5FvGq2RXNXJmUYsMy_m61URgF9ouePbbCZKQizdhD1dMoQyqiioVDMnpW8EHivTeIw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_ids\": [\r\n\t\t\"e3f68b1f-4aa1-4df0-8941-a82b11229721\", \"1Aff5678-8e2e-4727-b8b4-92a6b950ba03\"\r\n\t]\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/priority_groups/fa8d2b43-6cc8-474e-b3e1-eda61481f6d7/priority_groups_affiliates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"priority_groups",
+								"fa8d2b43-6cc8-474e-b3e1-eda61481f6d7",
+								"priority_groups_affiliates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a PriorityGroup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNTM0Mzg0OCwiZXhwIjoxNTM1NDMwMjQ4fQ.7RcoKFq-iFUAaQ2JL6VS5FvGq2RXNXJmUYsMy_m61URgF9ouePbbCZKQizdhD1dMoQyqiioVDMnpW8EHivTeIw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"commission\": 0.12,\r\n\t\"description\": \"PG1\",\r\n\t\"end_date\": \"2018-11-06\",\r\n\t\"group_name\": \"Power group\",\r\n\t\"start_date\": \"2018-10-06\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/eabe3851-ce39-4e17-9af9-914278039efd/priority_groups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"eabe3851-ce39-4e17-9af9-914278039efd",
+								"priority_groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a PriorityGroup",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNTM0Mzg0OCwiZXhwIjoxNTM1NDMwMjQ4fQ.7RcoKFq-iFUAaQ2JL6VS5FvGq2RXNXJmUYsMy_m61URgF9ouePbbCZKQizdhD1dMoQyqiioVDMnpW8EHivTeIw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/priority_groups/fa8d2b43-6cc8-474e-b3e1-eda61481f6d7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"priority_groups",
+								"fa8d2b43-6cc8-474e-b3e1-eda61481f6d7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Affiliates",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMWFAcm1zLmNvbS52biIsImlzcyI6InNhZG1pbjFhQHJtcy5jb20udm4iLCJpYXQiOjE1MzQyMzQzNzYsImV4cCI6MTUzNDMyMDc3Nn0.K5sNaM9e-b22KVjYk-DKoqsS56bphKrPnxMpmLV8291-HzxOJCXHPLSX8olutC6nlwaI6EAv52gx1ggvEhI_pw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_ids\": [\r\n\t\t\"1Aff5678-8e2e-4727-b8b4-92a6b950ba01\"\r\n\t]\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/priority_groups/cd97b438-813e-4769-b673-175d37841413/priority_groups_affiliates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"priority_groups",
+								"cd97b438-813e-4769-b673-175d37841413",
+								"priority_groups_affiliates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search PriorityGroups",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNTM0Mzg0OCwiZXhwIjoxNTM1NDMwMjQ4fQ.7RcoKFq-iFUAaQ2JL6VS5FvGq2RXNXJmUYsMy_m61URgF9ouePbbCZKQizdhD1dMoQyqiioVDMnpW8EHivTeIw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"id\",\r\n\t\"is_sort_asc\": false,\r\n\t\"criteria\": {\r\n\t\t\r\n\t},\r\n\t\"custom_criteria\": {\r\n\t\t\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/priority_groups/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"priority_groups",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a PriorityGroup",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMWFAcm1zLmNvbS52biIsImlzcyI6InNhZG1pbjFhQHJtcy5jb20udm4iLCJpYXQiOjE1MzQyMzMyNDQsImV4cCI6MTUzNDMxOTY0NH0.0dVBdejPgnFu4-h8J-tsH4qfLGSjH7ds7dDINSC0pDO2iJbn4GuBpfdHIA3GQwx15ZK_6A8cQx5CD73SD0WDqg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"commission\": 0.29,\r\n\t\"description\": \"group of celebrities u\",\r\n\t\"end_date\": \"2018-11-09\",\r\n\t\"group_name\": \"Power group u\",\r\n\t\"start_date\": \"2018-10-09\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/priority_groups/cd97b438-813e-4769-b673-175d37841413",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"priority_groups",
+								"cd97b438-813e-4769-b673-175d37841413"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Management",
+			"item": [
+				{
+					"name": "Search Products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNzEwNjg5MywiZXhwIjoxNTM3MTkzMjkzfQ.NsO1avUftCHuPkQGEduz6MPaNtJSMbgv2UUOu0ppo4thF8kHjfxm07rAn1GHDoNwFE1qA-gyF51q-Zk4-ttR9w"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"id\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n    \t\"channel_id\": \"bb130152-afa5-456a-9cfb-a5f8703f4ca1\"\r\n     },\r\n\t\"custom_criteria\": {\r\n\t\t\"name~=\": \"%camera%\",\r\n\t\t\"price>=\": 100,\r\n\t\t\"price<=\": 20000000\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/products/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"products",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View a Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzI0MzIyMCwiZXhwIjoxNTM3MzI5NjIwfQ.o5tq-p_vE-9zSv1XfPvZlnbJ7_YxLXXoSrnxKoSb53q0n5WDtOF8dbuXgHyiix1PwkdV6WaZCJpaoFWkPAC_WQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"from_date\": \"2018-01-01\",\r\n\t\"to_date\": \"2018-12-31\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/products/353461a7-cdc9-4f27-ab58-c743c22e887d/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"products",
+								"353461a7-cdc9-4f27-ab58-c743c22e887d",
+								"view"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Share Management",
+			"item": [
+				{
+					"name": "Search Shares",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMyMDcxNjQ0LCJleHAiOjE1MzIxNTgwNDR9.41asoc4UV5vV63Y3gkVjxtiGiv0gvoN5UDThjMYXHt0U6raQmwdSZJ8P690qMDg7E2-tU6RnnEOHJLd2CCE1hg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"id\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/shares/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"shares",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Share Stats",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0NIQU5ORUwiXSwic3ViIjoieUNBbWlmREcySzFTdWJzYzc4LVNlMmUtNDcyNy1iOGI0LTkyYTZiOTUwYmEwMUBybXMuY29tLnZuIiwiaXNzIjoieUNBbWlmREcySzFTdWJzYzc4LVNlMmUtNDcyNy1iOGI0LTkyYTZiOTUwYmEwMUBybXMuY29tLnZuIiwiaWF0IjoxNTM0NDc5MDY4LCJleHAiOjE1MzQ1NjU0Njh9.4s8KeGDSywDuFB6EIGApa5Mi-ZPgQf7JWpjxiEOyXAl0RwdAtojGIs2ipViZPSPkkng9rebQbzkWvlZWQBHiYA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nickname\": \"ht66\",\r\n\t\"channel_domain_name\": \"tech3s-mentor.com\",\r\n\t\"url\": \"tech3s-mentor.com/artilce1\",\r\n    \"click_info\": {\r\n    \t\"country\": \"Vietnam\",\r\n    \t\"device_type\": \"Laptop\",\r\n    \t\"os\": \"Linux\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/shares/stats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"shares",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "SubsAdmin Management",
+			"item": [
+				{
+					"name": "Add role to a SubsAdmin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNjA1NjA5NCwiZXhwIjoxNTM2MTQyNDk0fQ.QvIcyjjnzoAf2qRCu4gFoayTOPPkTD85rxbxlIuUO7o7Dv4H5BgLFJmQmjHLnbr5Vi3VFZlG098g-XOCwVtWiQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_admins/2e5e9503-2b54-465d-91a6-1ae69b1b1483/roles/ROLE_ACCOUNTANT",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_admins",
+								"2e5e9503-2b54-465d-91a6-1ae69b1b1483",
+								"roles",
+								"ROLE_ACCOUNTANT"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a SubsAdmin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNjc0MjI5NiwiZXhwIjoxNTM2ODI4Njk2fQ.0vymSN88B8e1nxDGPiV4WCvY2MrhV4iyxfS4thDeHzfje-xZGRi9ItXY-rGQ27BTgTfPN5xElZHsdKmya0Vw_Q"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"avatar\":\"http://google.com/subs_admin\",\r\n\t\"first_name\": \"subs_admin_fn\",\r\n\t\"last_name\": \"subs_admin_ln\",\r\n\t\"phone\": \"1357924680\",\r\n\t\r\n\t\"email\": \"homertruong66@gmail.com\",\r\n\t\"confirmed_email\": \"homertruong66@gmail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"confirmed_password\": \"12345678\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers/2f512e2c-78dd-406c-a5b2-aa73c9e78294/subs_admins",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers",
+								"2f512e2c-78dd-406c-a5b2-aa73c9e78294",
+								"subs_admins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a SubsAdmin",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1MzEwNDcyMjAsImV4cCI6MTUzMTEzMzYyMH0.HAYQNzIPVGzkoB3DT1tqLiOnvisN0UuibdJrJLLOz-KvIR3Fe25VU7u5RnvnQ8DGz0CZOi6mGpVU7zFQNdnVnA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_admins/9937c546-3eda-4993-b72c-0b8b884e1712",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_admins",
+								"9937c546-3eda-4993-b72c-0b8b884e1712"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a SubsAdmin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1MzEwNDcyMjAsImV4cCI6MTUzMTEzMzYyMH0.HAYQNzIPVGzkoB3DT1tqLiOnvisN0UuibdJrJLLOz-KvIR3Fe25VU7u5RnvnQ8DGz0CZOi6mGpVU7zFQNdnVnA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_admins/9937c546-3eda-4993-b72c-0b8b884e1712",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_admins",
+								"9937c546-3eda-4993-b72c-0b8b884e1712"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search SubsAdmins",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMWFAcm1zLmNvbS52biIsImlzcyI6InNhZG1pbjFhQHJtcy5jb20udm4iLCJpYXQiOjE1MzQxNzY2NjIsImV4cCI6MTUzNDI2MzA2Mn0.3RT4b0Z-5b-jU8DFw7FgKbB62N2FPImhedRplTpn-NOei56hfkgvi1bZbzFG9g6xXNSxrRWEcZwSZUWXsN0WAQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"phone\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t\t\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_admins/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_admins",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a SubsAdmin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1MzEwNDcyMjAsImV4cCI6MTUzMTEzMzYyMH0.HAYQNzIPVGzkoB3DT1tqLiOnvisN0UuibdJrJLLOz-KvIR3Fe25VU7u5RnvnQ8DGz0CZOi6mGpVU7zFQNdnVnA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"avatar\":\"http://google.com/subs_admin1\",\r\n\t\"first_name\": \"subs_admin_fn1\",\r\n\t\"last_name\": \"subs_admin_ln1\",\r\n\t\"personal_email\": \"subs_admin_personal1@gmail.com\",\r\n\t\"phone\": \"1357924681\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_admins/9937c546-3eda-4993-b72c-0b8b884e1712",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_admins",
+								"9937c546-3eda-4993-b72c-0b8b884e1712"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SubsCommissionConfig Management",
+			"item": [
+				{
+					"name": "Get a SubsCommissionConfig",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMWFAcm1zLmNvbS52biIsImlzcyI6InNhZG1pbjFhQHJtcy5jb20udm4iLCJpYXQiOjE1MzU3NzcwODMsImV4cCI6MTUzNTg2MzQ4M30.-n0AMgcoPbnxrwFyoeaiMJG9qCbyWrf-W4sNoKZQB6_42hawj6hlmvF4MtYKmx-SoYj-4u6vgl2T1cXlGvKA0A"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/94e9d7bd-f202-4c89-a4eb-47a67dfe942c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"94e9d7bd-f202-4c89-a4eb-47a67dfe942c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search SubsCommissionConfigs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMWFAcm1zLmNvbS52biIsImlzcyI6InNhZG1pbjFhQHJtcy5jb20udm4iLCJpYXQiOjE1MzU3NzcwODMsImV4cCI6MTUzNTg2MzQ4M30.-n0AMgcoPbnxrwFyoeaiMJG9qCbyWrf-W4sNoKZQB6_42hawj6hlmvF4MtYKmx-SoYj-4u6vgl2T1cXlGvKA0A"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"type\",\r\n\t\"is_sort_asc\": true,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a SubsCommissionConfig",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMWFAcm1zLmNvbS52biIsImlzcyI6InNhZG1pbjFhQHJtcy5jb20udm4iLCJpYXQiOjE1MzU3NzcwODMsImV4cCI6MTUzNTg2MzQ4M30.-n0AMgcoPbnxrwFyoeaiMJG9qCbyWrf-W4sNoKZQB6_42hawj6hlmvF4MtYKmx-SoYj-4u6vgl2T1cXlGvKA0A"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"commission\": 0.11,\r\n\t\"is_enabled\": true\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/94e9d7bd-f202-4c89-a4eb-47a67dfe942c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"94e9d7bd-f202-4c89-a4eb-47a67dfe942c"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eade8099-6b57-4290-bb64-ed602853a6eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "430dbb57-a9ed-43ac-b31d-887aebee642f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "SubsConfig Management",
+			"item": [
+				{
+					"name": "Get a SubsConfig",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMyNDE1NTM4LCJleHAiOjE1MzI1MDE5Mzh9.5qLWhifsYRoBCcedn2ujzE2NtMCX5kxAJQtekms9nu2-aKRE9DuYaQSiYaHKB6iwi2P4ZJptBqeHb3fes-V6kg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_configs/1Subsc78-Se2e-4727-b8b4-92a6b950ba01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_configs",
+								"1Subsc78-Se2e-4727-b8b4-92a6b950ba01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a SubsConfig",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoicm1zMUBybXMxLmNvbS52biIsImlzcyI6InJtczFAcm1zMS5jb20udm4iLCJpYXQiOjE1Mzk0MDY2NjksImV4cCI6MTUzOTQ5MzA2OX0.eqLsw6NqDDcrMOgIaOAZUU6I2iLob5RbLtnKFFbATcIx5-IjQ0HBGX9YHp7fOluX_Eiiis-1Ph2rJ4d27GUepw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"account_keeping_fee\": 150000.505,\r\n\t\"is_bank_transfer\": true,\r\n\t\"logo\": \"http://rms.com.vn/logo1.jpg\",\r\n\t\"lowest_payment\": 50000.506,\r\n\t\"terms_and_conditions\": \"bla bla terms conditions updated\",\r\n\t\r\n\t\"address\": \"a1u\",\r\n\t\"district\": \"d1u\",\r\n\t\"company_name\":\"rms1u\",\r\n\t\"domain_name\":\"rms1u.com.vn\",\r\n\t\"email\":\"rms1@rms1u.com.vn\",\r\n\t\"mobile_phone\":\"0909123987\",\r\n\t\"phone\": \"1357924689\",\r\n\t\"province_id\": \"606c757c-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"website\":\"http://rms.com.vn/intro1u\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_configs/e88cfeb9-0df1-40ab-a060-69b6b87345df",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_configs",
+								"e88cfeb9-0df1-40ab-a060-69b6b87345df"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscriber Management",
+			"item": [
+				{
+					"name": "Create a Subscriber",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNjc0MjI5NiwiZXhwIjoxNTM2ODI4Njk2fQ.0vymSN88B8e1nxDGPiV4WCvY2MrhV4iyxfS4thDeHzfje-xZGRi9ItXY-rGQ27BTgTfPN5xElZHsdKmya0Vw_Q"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\": \"a\",\r\n\t\"city\": \"c\",\r\n\t\"coan_type\": \"TOWER\",\r\n\t\"company_name\":\"rms6\",\r\n\t\"district\": \"d\",\r\n\t\"domain_name\":\"rms6.com.vn\",\r\n\t\"email\":\"rms@rms6.com.vn\",\r\n\t\"mobile_phone\":\"0909123789\",\r\n\t\"package_type\":\"BASIC\",\r\n\t\"phone\": \"1357924680\",\r\n\t\"website\":\"http://rms6.com.vn/intro\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Subscriber",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODE5NjY2NSwiZXhwIjoxNTM4MjgzMDY1fQ.12Hh-T01f-BxlrQb0kPeLg5yCl2S770SggEA1xrM2Izpa2ZV_dzrBidrwxg-SkG5zYqDT6bk_gTbTrAP8uYf4Q"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers/b37b2d07-de00-4b86-aff2-c466956ef81d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers",
+								"b37b2d07-de00-4b86-aff2-c466956ef81d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Subscribers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluM2FAcm1zLmNvbS52biIsImlzcyI6InNhZG1pbjNhQHJtcy5jb20udm4iLCJpYXQiOjE1MzU5OTE1MDgsImV4cCI6MTUzNjA3NzkwOH0.QP_nXWluYGuSPPv0yFuIw-Rk5btKdIiw2BbMraih4K75as3_HFMV2eUUp5OZyuDUPu9aiLcqgVrlkteBxDkHdQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"email\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t\t\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Subscriber",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImFkbWluNkBybXMuY29tLnZuIiwiaXNzIjoiYWRtaW42QHJtcy5jb20udm4iLCJpYXQiOjE1Mzk0MDU4NDUsImV4cCI6MTUzOTQ5MjI0NX0.YSUA8A2wu4tJkfFE8aCIQt0AdIP7QvrWgi56w-A5rMU1XzcIqX_nAs-K0DYQDbSNduGy2K2lZLxBg5vVq04MeA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\": \"a1\",\r\n\t\"district\": \"d1\",\r\n\t\"company_name\":\"rms1\",\r\n\t\"domain_name\":\"rms1.com.vn\",\r\n\t\"email\":\"rms1@rms1.com.vn\",\r\n\t\"mobile_phone\":\"0909123987\",\r\n\t\"phone\": \"1357924681\",\r\n\t\"province_id\": \"606c757a-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"website\":\"http://rms.com.vn/intro1\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers/e88cfeb9-0df1-40ab-a060-69b6b87345df",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers",
+								"e88cfeb9-0df1-40ab-a060-69b6b87345df"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Subscribers from an excel file",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1MzA5NTIyMjksImV4cCI6MTUzMTAzODYyOX0.ne-Zp5RObifjqywHgm9HRaJ_TgNsMIX_4flfHCPHo2BPEMPPMUZYabdkxfYVE8-oY1VRwQ4ueeCVyU5EKzoX8A"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View a Subscriber",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNDM0MjA2MywiZXhwIjoxNTM0NDI4NDYzfQ.VHSmMlIiksBc5NZeioai5agjoULm0ODO0tMmn_1K6qNs99V7FsoKZ0pZzNDZj9Qw-D18RrEisa-yJo1rrCSBBg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers/1Subsc78-Se2e-4727-b8b4-92a6b950ba01/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers",
+								"1Subsc78-Se2e-4727-b8b4-92a6b950ba01",
+								"view"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Subscriber data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzU0ODIzMiwiZXhwIjoxNTM3NjM0NjMyfQ.FT9T5wrNY8_di9BwtgGKsGC_eqy-5K17N7XN7MNJGVnMRWlTEs0v58DP8_xCBtAh8OBy4P46uUwzsIabYi6pgA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers/e66655d2-8806-4970-ab57-a4ffaa5e7e1c/reset_data",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers",
+								"e66655d2-8806-4970-ab57-a4ffaa5e7e1c",
+								"reset_data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Renew a Subscriber",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODA0NTIxOSwiZXhwIjoxNTM4MTMxNjE5fQ.dX4LzI-FZg1RzoQHAoQ_v9qnVxkpidJAb0HqaLeDRqBOPRwO6HJi5zgoReXTgG7KHKPRYhQJAj3adIzha4FdKw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers/e66655d2-8806-4970-ab57-a4ffaa5e7e1c/renew",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers",
+								"e66655d2-8806-4970-ab57-a4ffaa5e7e1c",
+								"renew"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upgrade a Subscriber",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODA0NTIxOSwiZXhwIjoxNTM4MTMxNjE5fQ.dX4LzI-FZg1RzoQHAoQ_v9qnVxkpidJAb0HqaLeDRqBOPRwO6HJi5zgoReXTgG7KHKPRYhQJAj3adIzha4FdKw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers/bffdcffa-e2e1-4eb5-b17d-f684e0f92cb7/upgrade/VIP",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers",
+								"bffdcffa-e2e1-4eb5-b17d-f684e0f92cb7",
+								"upgrade",
+								"VIP"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SubsEmailConfig Management",
+			"item": [
+				{
+					"name": "Get a SubsEmailConfig",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMyNTk4NTk1LCJleHAiOjE1MzI2ODQ5OTV9.P_ALn1kajl-gaGlVGDhejmq5vjzYcPc00b2lMR487XWSjqzE6hsa_R6DZZ4BTJHt9Z8_f6nMmBEZzFSTreO9cw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_email_configs/1Subsc78-Se2e-4727-b8b4-92a6b950ba01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_email_configs",
+								"1Subsc78-Se2e-4727-b8b4-92a6b950ba01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a SubsEmailConfig",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMyNTk4NTk1LCJleHAiOjE1MzI2ODQ5OTV9.P_ALn1kajl-gaGlVGDhejmq5vjzYcPc00b2lMR487XWSjqzE6hsa_R6DZZ4BTJHt9Z8_f6nMmBEZzFSTreO9cw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"email@rms.com.vn\",\r\n    \"email_reply_to\": \"email-reply-to@rms.com.vn\",\r\n    \"hostname\": \"rms.com.hostname\",\r\n    \"password\": \"password\",\r\n    \"port\": 465\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_email_configs/1Subsc78-Se2e-4727-b8b4-92a6b950ba01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_email_configs",
+								"1Subsc78-Se2e-4727-b8b4-92a6b950ba01"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SubsEmailTemplate Management",
+			"item": [
+				{
+					"name": "Get a SubsEmailTemplate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMyNTk4NTk1LCJleHAiOjE1MzI2ODQ5OTV9.P_ALn1kajl-gaGlVGDhejmq5vjzYcPc00b2lMR487XWSjqzE6hsa_R6DZZ4BTJHt9Z8_f6nMmBEZzFSTreO9cw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_email_templates/01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_email_templates",
+								"01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a SubsEmailTemplate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMUBybXMuY29tLnZuIiwiaXNzIjoic2FkbWluMUBybXMuY29tLnZuIiwiaWF0IjoxNTMyNTk4NTk1LCJleHAiOjE1MzI2ODQ5OTV9.P_ALn1kajl-gaGlVGDhejmq5vjzYcPc00b2lMR487XWSjqzE6hsa_R6DZZ4BTJHt9Z8_f6nMmBEZzFSTreO9cw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"is_enabled\": false,\r\n\t\"content\": \"email_to_aff_when_sign_up_content 2\",\r\n\t\"title\": \"Đăng ký tài khoản CTV thành công 2\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_email_templates/01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_email_templates",
+								"01"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SubsGetflyConfig Management",
+			"item": [
+				{
+					"name": "Get a SubsGetflyConfig",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNjQ2NTQ3NywiZXhwIjoxNTM2NTUxODc3fQ.aRANCo6GRaDt_3TP3H_N6B2xy9Reku6Xy-cd90O061Eibwby5Fv6pJQmy9f_g3w7gHP85cc79u4JcNG45P6-Lw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_getfly_configs/cb872e14-9437-4bef-a0da-c16218831986",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_getfly_configs",
+								"cb872e14-9437-4bef-a0da-c16218831986"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a SubsGetflyConfig",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNjQ2NTQ3NywiZXhwIjoxNTM2NTUxODc3fQ.aRANCo6GRaDt_3TP3H_N6B2xy9Reku6Xy-cd90O061Eibwby5Fv6pJQmy9f_g3w7gHP85cc79u4JcNG45P6-Lw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"api_key\": \"api_key_u\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_getfly_configs/cb872e14-9437-4bef-a0da-c16218831986",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_getfly_configs",
+								"cb872e14-9437-4bef-a0da-c16218831986"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SubsInfusionConfig Management",
+			"item": [
+				{
+					"name": "Authorize",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzI4NjY1MCwiZXhwIjoxNTM3MzczMDUwfQ.65Xpo1b64NPumGib6FAgZC0y2HEoQ2h6Sntq-uC6JS0NIM3On7LutU1pSH--361w0USOqJt63nmW8h_M6abDGw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fe_url\": \"localhost:3000/authorize\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_infusion_configs/authorize",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_infusion_configs",
+								"authorize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a SubsInfusionConfig",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNjQxODAyMiwiZXhwIjoxNTM2NTA0NDIyfQ.lrYmkjcmG2Z8_RUMH-xLdOo73g4wkHrJLjLXN5uGwE0JF51cK5UDNJTSSryNIe4XfWdMgSqHT4ckFxKH7z7UUA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_infusion_configs/cb872e14-9437-4bef-a0da-c16218831986",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_infusion_configs",
+								"cb872e14-9437-4bef-a0da-c16218831986"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a SubsInfusionConfig",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNjQxODAyMiwiZXhwIjoxNTM2NTA0NDIyfQ.lrYmkjcmG2Z8_RUMH-xLdOo73g4wkHrJLjLXN5uGwE0JF51cK5UDNJTSSryNIe4XfWdMgSqHT4ckFxKH7z7UUA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"client_id\": \"client_id_u\",\r\n    \"client_secret\": \"client_secret_u\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_infusion_configs/cb872e14-9437-4bef-a0da-c16218831986",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_infusion_configs",
+								"cb872e14-9437-4bef-a0da-c16218831986"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SubsPackageConfig Management",
+			"item": [
+				{
+					"name": "Get a SubsPackageConfig",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNjQwMjkwOSwiZXhwIjoxNTM2NDg5MzA5fQ.xVhd-zhrshIA22uoz-eHguNFQJWmyA1yNmpD5h5669tcpdUPWKyGKaYxj8SBuwTLvIszl_TCzhQvDIOaae2-7g"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_package_configs/cb872e14-9437-4bef-a0da-c16218831986",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_package_configs",
+								"cb872e14-9437-4bef-a0da-c16218831986"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a SubsPackageConfig",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlzcyI6ImhvYW5nYWRtaW5Acm1zLmNvbS52biIsImlhdCI6MTUzNjQwMjkwOSwiZXhwIjoxNTM2NDg5MzA5fQ.xVhd-zhrshIA22uoz-eHguNFQJWmyA1yNmpD5h5669tcpdUPWKyGKaYxj8SBuwTLvIszl_TCzhQvDIOaae2-7g"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_count\": 101,\r\n    \"channel_count\": 18,\r\n    \"has_voucher\": true\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_package_configs/cb872e14-9437-4bef-a0da-c16218831986",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_package_configs",
+								"cb872e14-9437-4bef-a0da-c16218831986"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "System Security",
+			"item": [
+				{
+					"name": "Login Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "admin6@rms.com.vn"
+							},
+							{
+								"key": "password",
+								"value": "12345678"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:9090/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login SubAdmin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "sadmin1a@rms.com.vn"
+							},
+							{
+								"key": "password",
+								"value": "12345678"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:9090/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Channel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "yCAmifDG2K1Subsc78-Se2e-4727-b8b4-92a6b950ba01@rms.com.vn"
+							},
+							{
+								"key": "password",
+								"value": "c2VjcmV0LWtleSwxU3Vic2M3OC1TZTJlLTQ3MjctYjhiNC05MmE2Yjk1MGJhMDE="
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:9090/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Affiliate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "aff1a@rms.com.vn"
+							},
+							{
+								"key": "password",
+								"value": "12345678"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:9090/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1Mjc3NTU2MjEsImV4cCI6MTUyNzg0MjAyMX0.srCHHinhmuf-lmZbUSCe3dOUNmfT8fNY_8kA11Qk0T8yapbaQR0nUSTcboYWhsQFAeY8HMiMVjracc3PMX45Xw"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:9090/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"fe_url\": \"http://localhost:3000\",\n\t\"email\": \"vuahoang66@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/reset_password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"reset_password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test full flow",
+			"item": [
+				{
+					"name": "1. Login Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "hoangadmin@rms.com.vn"
+							},
+							{
+								"key": "password",
+								"value": "12345678"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:9090/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Create a Subscriber",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImFkbWluNkBybXMuY29tLnZuIiwiaXNzIjoiYWRtaW42QHJtcy5jb20udm4iLCJpYXQiOjE1Mzk0MDU4NDUsImV4cCI6MTUzOTQ5MjI0NX0.YSUA8A2wu4tJkfFE8aCIQt0AdIP7QvrWgi56w-A5rMU1XzcIqX_nAs-K0DYQDbSNduGy2K2lZLxBg5vVq04MeA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\": \"a\",\r\n\t\"coan_type\": \"TOWER\",\r\n\t\"company_name\":\"TECH3S\",\r\n\t\"district\": \"d\",\r\n\t\"domain_name\":\"tech3s-mentor.com\",\r\n\t\"email\":\"homer@tech3s-mentor.com\",\r\n\t\"mobile_phone\":\"0909607466\",\r\n\t\"package_type\":\"UP\",\r\n\t\"phone\": \"0909607466\",\r\n\t\"province_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"website\":\"http://tech3s-mentor.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Create a SubsAdmin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImFkbWluNkBybXMuY29tLnZuIiwiaXNzIjoiYWRtaW42QHJtcy5jb20udm4iLCJpYXQiOjE1Mzc1NDgwNjQsImV4cCI6MTUzNzYzNDQ2NH0.yirSCjnSUaHc3tadeemLkctiUvYviWX-xu7JVAg4B9LXvHc0Yj0brJi7TMgcyfkU9UKSCUAVGFv4-wNM0SDcXg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"avatar\":\"http://tech3s-mentor.com/homer.jpg\",\r\n\t\"first_name\": \"Homer\",\r\n\t\"last_name\": \"Truong Le Hoang\",\r\n\t\"phone\": \"0909607466\",\r\n\t\r\n\t\"email\": \"homer@tech3s-mentor.com\",\r\n\t\"confirmed_email\": \"homer@tech3s-mentor.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"confirmed_password\": \"12345678\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subscribers/e66655d2-8806-4970-ab57-a4ffaa5e7e1c/subs_admins",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subscribers",
+								"e66655d2-8806-4970-ab57-a4ffaa5e7e1c",
+								"subs_admins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. Login SubAdmin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "homer@tech3s-mentor.com"
+							},
+							{
+								"key": "password",
+								"value": "12345678"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:9090/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.1 Update CFE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNjc0MjU0MCwiZXhwIjoxNTM2ODI4OTQwfQ.ghnwIzZAUC-kpn2BvzFrC9iDgU2dT8UtJ72oadcsibEcM34JMVz-pRkiTXRq8xvq7sjZRa8HEVyimmIsXYy5VQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"is_enabled\": false\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/15e294c5-64b4-4c77-a9ae-bd3a098e479f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"15e294c5-64b4-4c77-a9ae-bd3a098e479f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.2 Update COPPR",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzE1NjM3NiwiZXhwIjoxNTM3MjQyNzc2fQ.rXya7jOtQh4tw1Bl8OvkjWWt_6hCPbni_hkH9PF8TPmI-3JxnPPbu-5GsNyaFyprrI_M6fQY1PgFTyEg-DPXow"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"is_enabled\": true,\r\n\t\"condition_commission_configs\": [\r\n\t\t{\r\n\t\t\t\"commission\": 0.10,\r\n\t\t\t\"end_date\": \"2018-12-31\",\r\n\t\t\t\"lower_condition\": \"150000\",\r\n\t\t\t\"start_date\": \"2018-01-01\",\r\n\t\t\t\"upper_condition\": \"350000\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"commission\": 0.05,\r\n\t\t\t\"end_date\": \"2018-12-31\",\r\n\t\t\t\"lower_condition\": \"350001\",\r\n\t\t\t\"start_date\": \"2018-01-01\",\r\n\t\t\t\"upper_condition\": \"550000\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"commission\": 0.04,\r\n\t\t\t\"end_date\": \"2018-12-31\",\r\n\t\t\t\"lower_condition\": \"550001\",\r\n\t\t\t\"start_date\": \"2018-01-01\",\r\n\t\t\t\"upper_condition\": \"1550000\"\r\n\t\t}\r\n\t ]\t\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/0347606d-66bf-4fa1-abe8-16e0124ba946",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"0347606d-66bf-4fa1-abe8-16e0124ba946"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.3 Update CAD",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzE1NjM3NiwiZXhwIjoxNTM3MjQyNzc2fQ.rXya7jOtQh4tw1Bl8OvkjWWt_6hCPbni_hkH9PF8TPmI-3JxnPPbu-5GsNyaFyprrI_M6fQY1PgFTyEg-DPXow"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"commission\": 0.10,\r\n\t\"is_enabled\": true\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/3380f347-1054-458e-974b-a8105ae945fc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"3380f347-1054-458e-974b-a8105ae945fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.4 Update COAN",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzE1NjM3NiwiZXhwIjoxNTM3MjQyNzc2fQ.rXya7jOtQh4tw1Bl8OvkjWWt_6hCPbni_hkH9PF8TPmI-3JxnPPbu-5GsNyaFyprrI_M6fQY1PgFTyEg-DPXow"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"is_enabled\": true,\r\n\t\"layer_commission_configs\": [\r\n\t\t{\r\n\t\t\t\"layer\": 1,\r\n\t\t\t\"commission\": 0.8\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"layer\": 2,\r\n\t\t\t\"commission\": 0.2\r\n\t\t}\r\n\t ]\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/a49e2251-c610-47de-b13c-6de3a40cdeae",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"a49e2251-c610-47de-b13c-6de3a40cdeae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.5 Update COSAL",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNjc0MjU0MCwiZXhwIjoxNTM2ODI4OTQwfQ.ghnwIzZAUC-kpn2BvzFrC9iDgU2dT8UtJ72oadcsibEcM34JMVz-pRkiTXRq8xvq7sjZRa8HEVyimmIsXYy5VQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"commission\": 0.10,\r\n\t\"is_enabled\": true\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/18b38f29-7a36-4424-8cfd-1dd74c348db2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"18b38f29-7a36-4424-8cfd-1dd74c348db2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.6 Update COOV",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzE1NjM3NiwiZXhwIjoxNTM3MjQyNzc2fQ.rXya7jOtQh4tw1Bl8OvkjWWt_6hCPbni_hkH9PF8TPmI-3JxnPPbu-5GsNyaFyprrI_M6fQY1PgFTyEg-DPXow"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"is_enabled\": true,\r\n\t\"condition_commission_configs\": [\r\n\t\t{\r\n\t\t\t\"commission\": 0.10,\r\n\t\t\t\"end_date\": \"2018-12-31\",\r\n\t\t\t\"lower_condition\": \"1500000\",\r\n\t\t\t\"start_date\": \"2018-01-01\",\r\n\t\t\t\"upper_condition\": \"3500000\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"commission\": 0.05,\r\n\t\t\t\"end_date\": \"2018-12-31\",\r\n\t\t\t\"lower_condition\": \"3500001\",\r\n\t\t\t\"start_date\": \"2018-01-01\",\r\n\t\t\t\"upper_condition\": \"5500000\"\r\n\t\t}\r\n\t ]\t\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/b7256f4d-32df-4251-8c9a-830989d339b1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"b7256f4d-32df-4251-8c9a-830989d339b1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.7 Update COPG",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzE1NjM3NiwiZXhwIjoxNTM3MjQyNzc2fQ.rXya7jOtQh4tw1Bl8OvkjWWt_6hCPbni_hkH9PF8TPmI-3JxnPPbu-5GsNyaFyprrI_M6fQY1PgFTyEg-DPXow"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"is_enabled\": true\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/446717c7-eb8a-40b9-bde5-3532fc71dfd3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"446717c7-eb8a-40b9-bde5-3532fc71dfd3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.7.1 Create a PriorityGroup PG1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzE1NjM3NiwiZXhwIjoxNTM3MjQyNzc2fQ.rXya7jOtQh4tw1Bl8OvkjWWt_6hCPbni_hkH9PF8TPmI-3JxnPPbu-5GsNyaFyprrI_M6fQY1PgFTyEg-DPXow"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"commission\": 0.12,\r\n\t\"description\": \"PG1\",\r\n\t\"end_date\": \"2018-12-31\",\r\n\t\"group_name\": \"Super group\",\r\n\t\"start_date\": \"2018-01-01\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/446717c7-eb8a-40b9-bde5-3532fc71dfd3/priority_groups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"446717c7-eb8a-40b9-bde5-3532fc71dfd3",
+								"priority_groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.7.2 Create a PriorityGroup PG2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzE1NjM3NiwiZXhwIjoxNTM3MjQyNzc2fQ.rXya7jOtQh4tw1Bl8OvkjWWt_6hCPbni_hkH9PF8TPmI-3JxnPPbu-5GsNyaFyprrI_M6fQY1PgFTyEg-DPXow"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"commission\": 0.08,\r\n\t\"description\": \"PG2\",\r\n\t\"end_date\": \"2018-12-31\",\r\n\t\"group_name\": \"Power group\",\r\n\t\"start_date\": \"2018-01-01\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/446717c7-eb8a-40b9-bde5-3532fc71dfd3/priority_groups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"446717c7-eb8a-40b9-bde5-3532fc71dfd3",
+								"priority_groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.8 Update COASV",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20iLCJpc3MiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlhdCI6MTUzNjc0MjU0MCwiZXhwIjoxNTM2ODI4OTQwfQ.ghnwIzZAUC-kpn2BvzFrC9iDgU2dT8UtJ72oadcsibEcM34JMVz-pRkiTXRq8xvq7sjZRa8HEVyimmIsXYy5VQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"is_enabled\": false,\r\n\t\"condition_commission_configs\": [\r\n\t\t{\r\n\t\t\t\"commission\": 0.10,\r\n\t\t\t\"end_date\": \"2018-12-31\",\r\n\t\t\t\"lower_condition\": \"15500000\",\r\n\t\t\t\"start_date\": \"2018-01-01\",\r\n\t\t\t\"upper_condition\": \"35500000\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"commission\": 0.5,\r\n\t\t\t\"end_date\": \"2018-12-31\",\r\n\t\t\t\"lower_condition\": \"35500001\",\r\n\t\t\t\"start_date\": \"2018-01-01\",\r\n\t\t\t\"upper_condition\": \"55500000\"\r\n\t\t}\r\n\t ]\t\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_commission_configs/18b38f29-7a36-4424-8cfd-1dd74c348db2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_commission_configs",
+								"18b38f29-7a36-4424-8cfd-1dd74c348db2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Create a Channel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODE5NDA2NSwiZXhwIjoxNTM4MjgwNDY1fQ.PFrw7Dhe9oWQEdkFwvqHBKQantxLmD9SK4km5GI5ra62ABDzjqLfwLIYoGVsEmgi54Oj3YM336sAsv-8_QoflA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"domain_name\": \"courses.tech3s-mentor.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/channels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"channels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.1 Create an Affiliate vh66",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODE5NDA2NSwiZXhwIjoxNTM4MjgwNDY1fQ.PFrw7Dhe9oWQEdkFwvqHBKQantxLmD9SK4km5GI5ra62ABDzjqLfwLIYoGVsEmgi54Oj3YM336sAsv-8_QoflA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fe_url\": \"http://localhost:3000\",\r\n\t\"channel_url\": \"http://courses.tech3s-mentor.com\",\r\n\t\"avatar\":\"http://google.com/aff\",\r\n\t\"first_name\": \"Le Hoang\",\r\n\t\"last_name\": \"Truong\",\r\n\t\"phone\": \"1357924680\",\r\n\t\"nickname\": \"vh66\",\r\n\t\r\n\t\"email\": \"vuahoang66@gmail.com\",\r\n\t\"confirmed_email\": \"vuahoang66@gmail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"confirmed_password\": \"12345678\",\r\n\t\"subscriber_domain_name\": \"tech3s-mentor.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.2 Create an Affiliate ht66",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-SECURITY-TOKEN",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODE5NDA2NSwiZXhwIjoxNTM4MjgwNDY1fQ.PFrw7Dhe9oWQEdkFwvqHBKQantxLmD9SK4km5GI5ra62ABDzjqLfwLIYoGVsEmgi54Oj3YM336sAsv-8_QoflA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fe_url\": \"http://localhost:3000\",\r\n\t\"channel_url\": \"http://courses.tech3s-mentor.com\",\r\n\t\"avatar\":\"http://google.com/aff\",\r\n\t\"first_name\": \"Homer\",\r\n\t\"last_name\": \"Truong\",\r\n\t\"phone\": \"1357924680\",\r\n\t\"nickname\": \"ht66\",\r\n\t\"referrer\": \"vh66\",\r\n\t\r\n\t\"email\": \"homertruong66@gmail.com\",\r\n\t\"confirmed_email\": \"homertruong66@gmail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"confirmed_password\": \"12345678\",\r\n\t\"subscriber_domain_name\": \"tech3s-mentor.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.3 Add Affiliates to PGs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODE5NDA2NSwiZXhwIjoxNTM4MjgwNDY1fQ.PFrw7Dhe9oWQEdkFwvqHBKQantxLmD9SK4km5GI5ra62ABDzjqLfwLIYoGVsEmgi54Oj3YM336sAsv-8_QoflA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_ids\": [\r\n\t\t\"113a34ef-0961-4c6a-b379-367f9d71f734\", \"7ff5600c-4bf0-420d-b114-a088bdf8e0af\"\r\n\t]\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/priority_groups/097c95e4-7269-437d-938f-730529996816/priority_groups_affiliates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"priority_groups",
+								"097c95e4-7269-437d-938f-730529996816",
+								"priority_groups_affiliates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8.1 Activate an Affiliate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/affiliates/activate?token=aG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20sVDBxc0lEdGpLOQ==",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"affiliates",
+								"activate"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "aG9tZXJ0cnVvbmc2NkBnbWFpbC5jb20sVDBxc0lEdGpLOQ=="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8.2 Confirm phone",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJ2dWFob2FuZzY2QGdtYWlsLmNvbSIsImlzcyI6InZ1YWhvYW5nNjZAZ21haWwuY29tIiwiaWF0IjoxNTMxMDU4MTA2LCJleHAiOjE1MzExNDQ1MDZ9.PY0IDvSa-NEmUaPdGCb4pBhG22xP9QzR9lvyJ0uX30B7x5UOUvgmuxImO85akPznrMkqWTkC3ewG-ookIC5g5Q"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/affiliates/phone/confirm/0909123456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"affiliates",
+								"phone",
+								"confirm",
+								"0909123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9. Login Affiliate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "homertruong66@gmail.com"
+							},
+							{
+								"key": "password",
+								"value": "12345678"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:9090/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10. Create a DiscountCode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlzcyI6ImhvbWVydHJ1b25nNjZAZ21haWwuY29tIiwiaWF0IjoxNTM4MTk0NjYxLCJleHAiOjE1MzgyODEwNjF9.4pKDYB9-CfJ92__Bs99YyQBBl8CORad9xo7-uljyLtaLnsOUBjTBk753sPO5D-bIdeBSAK8gIrn2CwJlI-ZJwA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"code\": \"C1\",\r\n\t\"discount\": 0.04,\r\n\t\"end_date\": \"2018-31-12\",\r\n\t\"note\": \"bla bla\",\r\n\t\"start_date\": \"2018-01-01T06:06:06\",\r\n\t\"subscriber_id\": \"b37b2d07-de00-4b86-aff2-c466956ef81d\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/discount_codes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"discount_codes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11. Login Channel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "nB5xMez67Ob37b2d07-de00-4b86-aff2-c466956ef81d@rms.com.vn"
+							},
+							{
+								"key": "password",
+								"value": "12345678"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:9090/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12. Update Share stats",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0NIQU5ORUwiXSwic3ViIjoibkI1eE1lejY3T2IzN2IyZDA3LWRlMDAtNGI4Ni1hZmYyLWM0NjY5NTZlZjgxZEBybXMuY29tLnZuIiwiaXNzIjoibkI1eE1lejY3T2IzN2IyZDA3LWRlMDAtNGI4Ni1hZmYyLWM0NjY5NTZlZjgxZEBybXMuY29tLnZuIiwiaWF0IjoxNTM4MTk0NzQwLCJleHAiOjE1MzgyODExNDB9.FrXvGaxXUgCnH-7Di8WBjtFxSI2w_97Kxi0UW-ITD6Qst8qQnMyq6USGMT-20sRVzxIBaI3kEGMeBoRfTEARsQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nickname\": \"ht66\",\r\n\t\"channel_domain_name\": \"courses.tech3s-mentor.com\",\r\n\t\"url\": \"courses.tech3s-mentor.com/software-professonal\",\r\n    \"click_info\": {\r\n    \t\"country\": \"Vietnam\",\r\n    \t\"device_type\": \"Laptop\",\r\n    \t\"os\": \"Windows 7\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/shares/stats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"shares",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13.1 Create an Order O1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzQ5ODYzMCwiZXhwIjoxNTM3NTg1MDMwfQ.gYjoTQ9jxp1yfTOXXKdyL_lYCBt5Qp7A6hSJ0dw-OKrSxBrD3zrQNlOgFnYfrGcO6Q-kTkOV46wKpKHfOJyq4Q"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_id\": \"3a437469-7737-4eed-920c-c42c9cd5e13b\",\r\n\t\"channel_domain_name\": \"channel1.rms6.com.vn\",\r\n\t\"customer\" : {\r\n\t\t\"address\": \"a\",\r\n\t\t\"email\": \"customer1@gmail.com\",\r\n\t\t\"fullname\": \"fullname\",\r\n\t\t\"phone\": \"0901234678\"\r\n\t},\r\n\t\"note\": \"note  bla bla\",\r\n\t\"number\": \"O1\",\r\n\t\"order_lines\" : [\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p1\",\r\n\t\t\t\t\"description\": \"desc1\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image1\",\r\n\t\t\t\t\"name\": \"n1\",\r\n\t\t\t\t\"price\": 100000\r\n\t\t\t},\r\n\t\t\t\"commission\": 0.2,\r\n\t\t\t\"price\": 100000,\r\n\t\t\t\"quantity\": 1\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p2\",\r\n\t\t\t\t\"description\": \"desc2\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image2\",\r\n\t\t\t\t\"name\": \"n2\",\r\n\t\t\t\t\"price\": 300000\r\n\t\t\t},\r\n\t\t\t\"price\": 300000,\r\n\t\t\t\"quantity\": 1\r\n\t\t}\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13.2 Create an Order O2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzE1NjM3NiwiZXhwIjoxNTM3MjQyNzc2fQ.rXya7jOtQh4tw1Bl8OvkjWWt_6hCPbni_hkH9PF8TPmI-3JxnPPbu-5GsNyaFyprrI_M6fQY1PgFTyEg-DPXow"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_id\": \"3a437469-7737-4eed-920c-c42c9cd5e13b\",\r\n\t\"channel_domain_name\": \"channel1.rms6.com.vn\",\r\n\t\"customer\" : {\r\n\t\t\"address\": \"a\",\r\n\t\t\"email\": \"customer1@gmail.com\",\r\n\t\t\"fullname\": \"fullname\",\r\n\t\t\"phone\": \"0901234678\"\r\n\t},\r\n\t\"note\": \"note  bla bla\",\r\n\t\"number\": \"O2\",\r\n\t\"order_lines\" : [\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p1\",\r\n\t\t\t\t\"description\": \"desc1\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image1\",\r\n\t\t\t\t\"name\": \"n1\",\r\n\t\t\t\t\"price\": 100000\r\n\t\t\t},\r\n\t\t\t\"price\": 100000,\r\n\t\t\t\"quantity\": 2\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p2\",\r\n\t\t\t\t\"description\": \"desc2\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image2\",\r\n\t\t\t\t\"name\": \"n2\",\r\n\t\t\t\t\"price\": 300000\r\n\t\t\t},\r\n\t\t\t\"price\": 300000,\r\n\t\t\t\"quantity\": 1\r\n\t\t}\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13.3 Create an Order O3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzE1NjM3NiwiZXhwIjoxNTM3MjQyNzc2fQ.rXya7jOtQh4tw1Bl8OvkjWWt_6hCPbni_hkH9PF8TPmI-3JxnPPbu-5GsNyaFyprrI_M6fQY1PgFTyEg-DPXow"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_id\": \"3a437469-7737-4eed-920c-c42c9cd5e13b\",\r\n\t\"channel_domain_name\": \"channel1.rms6.com.vn\",\r\n\t\"customer\" : {\r\n\t\t\"address\": \"a\",\r\n\t\t\"email\": \"customer3@gmail.com\",\r\n\t\t\"fullname\": \"fullname\",\r\n\t\t\"phone\": \"0901234678\"\r\n\t},\r\n\t\"note\": \"note  bla bla\",\r\n\t\"number\": \"O3\",\r\n\t\"order_lines\" : [\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p1\",\r\n\t\t\t\t\"description\": \"desc1\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image1\",\r\n\t\t\t\t\"name\": \"n1\",\r\n\t\t\t\t\"price\": 100000\r\n\t\t\t},\r\n\t\t\t\"commission\": 0.15,\r\n\t\t\t\"price\": 100000,\r\n\t\t\t\"quantity\": 2\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p2\",\r\n\t\t\t\t\"description\": \"desc2\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image2\",\r\n\t\t\t\t\"name\": \"n2\",\r\n\t\t\t\t\"price\": 300000\r\n\t\t\t},\r\n\t\t\t\"price\": 300000,\r\n\t\t\t\"quantity\": 1\r\n\t\t}\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13.4 Create an Order O4",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzE1NjM3NiwiZXhwIjoxNTM3MjQyNzc2fQ.rXya7jOtQh4tw1Bl8OvkjWWt_6hCPbni_hkH9PF8TPmI-3JxnPPbu-5GsNyaFyprrI_M6fQY1PgFTyEg-DPXow"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_id\": \"3a437469-7737-4eed-920c-c42c9cd5e13b\",\r\n\t\"channel_domain_name\": \"channel1.rms6.com.vn\",\r\n\t\"customer\" : {\r\n\t\t\"address\": \"a\",\r\n\t\t\"email\": \"customer3@gmail.com\",\r\n\t\t\"fullname\": \"fullname\",\r\n\t\t\"phone\": \"0901234678\"\r\n\t},\r\n\t\"note\": \"note  bla bla\",\r\n\t\"number\": \"O4\",\r\n\t\"order_lines\" : [\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p1\",\r\n\t\t\t\t\"description\": \"desc1\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image1\",\r\n\t\t\t\t\"name\": \"n1\",\r\n\t\t\t\t\"price\": 100000\r\n\t\t\t},\r\n\t\t\t\"price\": 100000,\r\n\t\t\t\"quantity\": 2\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p3\",\r\n\t\t\t\t\"description\": \"desc3\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image3\",\r\n\t\t\t\t\"name\": \"n3\",\r\n\t\t\t\t\"price\": 600000\r\n\t\t\t},\r\n\t\t\t\"price\": 600000,\r\n\t\t\t\"quantity\": 1\r\n\t\t}\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13.5 Create an Order O5",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzE1NjM3NiwiZXhwIjoxNTM3MjQyNzc2fQ.rXya7jOtQh4tw1Bl8OvkjWWt_6hCPbni_hkH9PF8TPmI-3JxnPPbu-5GsNyaFyprrI_M6fQY1PgFTyEg-DPXow"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_id\": \"3a437469-7737-4eed-920c-c42c9cd5e13b\",\r\n\t\"channel_domain_name\": \"channel1.rms6.com.vn\",\r\n\t\"customer\" : {\r\n\t\t\"address\": \"a\",\r\n\t\t\"email\": \"customer3@gmail.com\",\r\n\t\t\"fullname\": \"fullname\",\r\n\t\t\"phone\": \"0901234678\"\r\n\t},\r\n\t\"note\": \"note  bla bla\",\r\n\t\"number\": \"O5\",\r\n\t\"discount_code\": \"C1\",\r\n\t\"order_lines\" : [\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p1\",\r\n\t\t\t\t\"description\": \"desc1\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image1\",\r\n\t\t\t\t\"name\": \"n1\",\r\n\t\t\t\t\"price\": 100000\r\n\t\t\t},\r\n\t\t\t\"commission\": 0.2,\r\n\t\t\t\"price\": 100000,\r\n\t\t\t\"quantity\": 2\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p4\",\r\n\t\t\t\t\"description\": \"desc4\",\r\n\t\t\t\t\"image\": \"http://channel1.rms.com.vn/image4\",\r\n\t\t\t\t\"name\": \"n4\",\r\n\t\t\t\t\"price\": 900000\r\n\t\t\t},\r\n\t\t\t\"price\": 900000,\r\n\t\t\t\"quantity\": 2\r\n\t\t}\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13.6 Create an Order O6",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODE5NDA2NSwiZXhwIjoxNTM4MjgwNDY1fQ.PFrw7Dhe9oWQEdkFwvqHBKQantxLmD9SK4km5GI5ra62ABDzjqLfwLIYoGVsEmgi54Oj3YM336sAsv-8_QoflA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"affiliate_id\": \"113a34ef-0961-4c6a-b379-367f9d71f734\",\r\n\t\"channel_domain_name\": \"courses.tech3s-mentor.com\",\r\n\t\"customer\" : {\r\n\t\t\"address\": \"a\",\r\n\t\t\"email\": \"customer1@gmail.com\",\r\n\t\t\"fullname\": \"fullname\",\r\n\t\t\"phone\": \"0901234678\"\r\n\t},\r\n\t\"note\": \"note  bla bla\",\r\n\t\"number\": \"O6\",\r\n\t\"discount_code\": \"C1\",\r\n\t\"order_lines\" : [\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p1\",\r\n\t\t\t\t\"description\": \"desc1\",\r\n\t\t\t\t\"image\": \"http://tech3s-mentor.com/image1\",\r\n\t\t\t\t\"name\": \"n1\",\r\n\t\t\t\t\"price\": 100000\r\n\t\t\t},\r\n\t\t\t\"price\": 100000,\r\n\t\t\t\"quantity\": 1\r\n\t\t},\r\n\t\t\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p2\",\r\n\t\t\t\t\"description\": \"desc2\",\r\n\t\t\t\t\"image\": \"http://tech3s-mentor.com/image2\",\r\n\t\t\t\t\"name\": \"n2\",\r\n\t\t\t\t\"price\": 300000\r\n\t\t\t},\r\n\t\t\t\"price\": 300000,\r\n\t\t\t\"quantity\": 2\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"product\" : {\r\n\t\t\t\t\"code\": \"p4\",\r\n\t\t\t\t\"description\": \"desc4\",\r\n\t\t\t\t\"image\": \"http://tech3s-mentor.com/image4\",\r\n\t\t\t\t\"name\": \"n4\",\r\n\t\t\t\t\"price\": 900000\r\n\t\t\t},\r\n\t\t\t\"commission\": 0.05,\r\n\t\t\t\"price\": 900000,\r\n\t\t\t\"quantity\": 3\r\n\t\t}\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14. Add role to a SubsAdmin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODE5NDA2NSwiZXhwIjoxNTM4MjgwNDY1fQ.PFrw7Dhe9oWQEdkFwvqHBKQantxLmD9SK4km5GI5ra62ABDzjqLfwLIYoGVsEmgi54Oj3YM336sAsv-8_QoflA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_admins/94f806ca-4b17-4d1b-9c86-53fa46daed4e/roles/ROLE_ACCOUNTANT",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_admins",
+								"94f806ca-4b17-4d1b-9c86-53fa46daed4e",
+								"roles",
+								"ROLE_ACCOUNTANT"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "15. Approve an Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODE5NDA2NSwiZXhwIjoxNTM4MjgwNDY1fQ.PFrw7Dhe9oWQEdkFwvqHBKQantxLmD9SK4km5GI5ra62ABDzjqLfwLIYoGVsEmgi54Oj3YM336sAsv-8_QoflA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/orders/7ce38585-5cb5-454e-ab2f-f19a1f34fa51/approve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"orders",
+								"7ce38585-5cb5-454e-ab2f-f19a1f34fa51",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "16. Search Commissions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODE5NDA2NSwiZXhwIjoxNTM4MjgwNDY1fQ.PFrw7Dhe9oWQEdkFwvqHBKQantxLmD9SK4km5GI5ra62ABDzjqLfwLIYoGVsEmgi54Oj3YM336sAsv-8_QoflA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"type\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/commissions/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"commissions",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "17. Create a Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlzcyI6ImhvbWVydHJ1b25nNjZAZ21haWwuY29tIiwiaWF0IjoxNTM4MTk1MTk1LCJleHAiOjE1MzgyODE1OTV9.FSCxqrPs3pUqmtu_9Lk19UXBDMlBI3NgRCmmaUfnRWSQssw2JXStyyDtz3fcgaGqkC6fjVED-LYEX38XLSMkRQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"subscriber_id\": \"b37b2d07-de00-4b86-aff2-c466956ef81d\",\r\n\t\"value\": 48000\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "18. Approve a Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzODE5NTE2NiwiZXhwIjoxNTM4MjgxNTY2fQ.JjeDefh6FbIY7VPb3AhNDDwnko1tglGk6W7f4RASiok1ouLg_CtJQk6W6wTAPI-sSrfgDBNtrzzPJpZgdMMzzA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/payments/7a6a3cbc-aeb6-48ce-bccd-bd2affc15510/approve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"payments",
+								"7a6a3cbc-aeb6-48ce-bccd-bd2affc15510",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "19. Search Payments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlzcyI6ImhvbWVydHJ1b25nNjZAZ21haWwuY29tIiwiaWF0IjoxNTM4MTk1MTk1LCJleHAiOjE1MzgyODE1OTV9.FSCxqrPs3pUqmtu_9Lk19UXBDMlBI3NgRCmmaUfnRWSQssw2JXStyyDtz3fcgaGqkC6fjVED-LYEX38XLSMkRQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"id\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/payments/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"payments",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "20. Check Balances",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FGRklMSUFURSJdLCJzdWIiOiJob21lcnRydW9uZzY2QGdtYWlsLmNvbSIsImlzcyI6ImhvbWVydHJ1b25nNjZAZ21haWwuY29tIiwiaWF0IjoxNTM4MTk1MTk1LCJleHAiOjE1MzgyODE1OTV9.FSCxqrPs3pUqmtu_9Lk19UXBDMlBI3NgRCmmaUfnRWSQssw2JXStyyDtz3fcgaGqkC6fjVED-LYEX38XLSMkRQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"id\",\r\n\t\"is_sort_asc\": false,\r\n\t\"criteria\": {\r\n\t},\r\n\t\"custom_criteria\": {\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/agents/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"agents",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Voucher Management",
+			"item": [
+				{
+					"name": "Create a Voucher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FDQ09VTlRBTlQiLCJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoiaG9tZXJAdGVjaDNzLW1lbnRvci5jb20iLCJpc3MiOiJob21lckB0ZWNoM3MtbWVudG9yLmNvbSIsImlhdCI6MTUzNzQ5ODYzMCwiZXhwIjoxNTM3NTg1MDMwfQ.gYjoTQ9jxp1yfTOXXKdyL_lYCBt5Qp7A6hSJ0dw-OKrSxBrD3zrQNlOgFnYfrGcO6Q-kTkOV46wKpKHfOJyq4Q"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"benefit\": 100000,\r\n\t\"code\": \"voucher_code1\",\r\n\t\"end_date\": \"2018-12-31\",\r\n\t\"name\": \"voucher1\",\r\n\t\"start_date\": \"2018-01-01\",\r\n\t\"type\": \"VALUE\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/vouchers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"vouchers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Voucher",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1MzEwNDcyMjAsImV4cCI6MTUzMTEzMzYyMH0.HAYQNzIPVGzkoB3DT1tqLiOnvisN0UuibdJrJLLOz-KvIR3Fe25VU7u5RnvnQ8DGz0CZOi6mGpVU7zFQNdnVnA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_admins/9937c546-3eda-4993-b72c-0b8b884e1712",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_admins",
+								"9937c546-3eda-4993-b72c-0b8b884e1712"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Voucher",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1MzEwNDcyMjAsImV4cCI6MTUzMTEzMzYyMH0.HAYQNzIPVGzkoB3DT1tqLiOnvisN0UuibdJrJLLOz-KvIR3Fe25VU7u5RnvnQ8DGz0CZOi6mGpVU7zFQNdnVnA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\":\"address1\",\r\n\t\"area_id\": \"606c757b-7f49-11e7-9e1f-966d5d8eadbc\",\r\n\t\"cover_image\": {\r\n\t\t\"name\": \"coverimage1\",\r\n\t\t\"value\": \"http://value\",\r\n\t\t\"type\": \"IMAGE\",\r\n\t\t\"thumbnail\": \"http://thumbnail1\"\r\n\t},\r\n\t\"description\":\"desc1\",\r\n\t\"end_time\": \"2017-11-02\",\r\n\t\"event_speakers\": [\r\n\t\t{\r\n\t\t\t\"name\": \"hoang1\",\r\n\t\t\t\"description\" : \"speaker1\",\r\n\t\t\t\"photo\": {\r\n\t\t\t\t\"name\": \"photo1\",\r\n\t\t\t\t\"value\": \"http://value\",\r\n\t\t\t\t\"type\": \"IMAGE\",\r\n\t\t\t\t\"thumbnail\": \"http://thumbnail\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"hoang2\",\r\n\t\t\t\"description\" : \"speaker2\"\r\n\t\t}\r\n\t],\r\n\t\"fee\": \"100\",\r\n\t\"registration_link\": \"http://dangky1\",\r\n\t\"slug\": \"event-1\",\r\n\t\"start_time\": \"2017-11-01\",\r\n\t\"tags\" : [\r\n\t\t{ \"name\": \"event\", \"slug\": \"event1\"},\r\n\t\t{ \"name\": \"networking\", \"slug\": \"networking1\"},\r\n\t\t{ \"name\": \"show\", \"slug\": \"show1\"}\r\n\t],\r\n\t\"title\": \"title 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_admins/9937c546-3eda-4993-b72c-0b8b884e1712",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_admins",
+								"9937c546-3eda-4993-b72c-0b8b884e1712"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Vouchers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1NVQlNfQURNSU4iXSwic3ViIjoic2FkbWluMWFAcm1zLmNvbS52biIsImlzcyI6InNhZG1pbjFhQHJtcy5jb20udm4iLCJpYXQiOjE1MzQxNzY2NjIsImV4cCI6MTUzNDI2MzA2Mn0.3RT4b0Z-5b-jU8DFw7FgKbB62N2FPImhedRplTpn-NOei56hfkgvi1bZbzFG9g6xXNSxrRWEcZwSZUWXsN0WAQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sort_name\": \"phone\",\r\n\t\"is_sort_asc\": false,\r\n    \"criteria\": {\r\n     },\r\n\t\"custom_criteria\": {\r\n\t\t\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_admins/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_admins",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Voucher",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Security-Token",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6ImhvYW5nYWRtaW5AZGV2bmV0LnZuIiwiaXNzIjoiaG9hbmdhZG1pbkBkZXZuZXQudm4iLCJpYXQiOjE1MzEwNDcyMjAsImV4cCI6MTUzMTEzMzYyMH0.HAYQNzIPVGzkoB3DT1tqLiOnvisN0UuibdJrJLLOz-KvIR3Fe25VU7u5RnvnQ8DGz0CZOi6mGpVU7zFQNdnVnA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"avatar\":\"http://google.com/subs_admin1\",\r\n\t\"first_name\": \"subs_admin_fn1\",\r\n\t\"last_name\": \"subs_admin_ln1\",\r\n\t\"personal_email\": \"subs_admin_personal1@gmail.com\",\r\n\t\"phone\": \"1357924681\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9090/v1/subs_admins/9937c546-3eda-4993-b72c-0b8b884e1712",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"v1",
+								"subs_admins",
+								"9937c546-3eda-4993-b72c-0b8b884e1712"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
