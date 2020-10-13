@@ -27,7 +27,7 @@
         <tomcat.dbcp.version>7.0.62</tomcat.dbcp.version>
 
         <!-- Test -->
-        <junit.version>4.11</junit.version>
+        <junit.version>4.13.1</junit.version>
         <powermock.version>1.6.2</powermock.version>
 
         <!-- exclude jacoco reporting -->
