@@ -33,7 +33,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <springboot.version>1.4.1.RELEASE</springboot.version>
-        <hibernate.version>5.0.9.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
         <apache.common.lang.version>3.4</apache.common.lang.version>
         <apache.common.csv.version>1.4</apache.common.csv.version>
         <poi.version>3.17</poi.version>
