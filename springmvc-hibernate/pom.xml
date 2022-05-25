@@ -20,7 +20,7 @@
 
 		<!-- Spring -->
 		<spring-framework.version>4.1.1.RELEASE</spring-framework.version>
-		<spring.security.version>3.2.4.RELEASE</spring.security.version>
+		<spring.security.version>5.5.7</spring.security.version>
 		<spring-security-oauth2>1.0.5.RELEASE</spring-security-oauth2>
 		<!--<spring-security-oauth2>2.0.1.RELEASE</spring-security-oauth2>-->
 		<jersey-spring>1.18.1</jersey-spring>
