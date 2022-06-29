@@ -36,7 +36,7 @@
         <hibernate.version>5.0.9.Final</hibernate.version>
         <apache.common.lang.version>3.4</apache.common.lang.version>
         <apache.common.csv.version>1.4</apache.common.csv.version>
-        <poi.version>3.17</poi.version>
+        <poi.version>4.1.1</poi.version>
         <mysql.connector.version>6.0.6</mysql.connector.version>
         <!-- swagger -->
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
